@@ -16,7 +16,7 @@ export const Commentary = ({ author, comment }: CommentaryProps) => {
           {name}
         </span>
       </div>
-      <p className="text-lg italic text-foreground leading-relaxed">
+      <p className="text-sm italic text-foreground leading-relaxed">
         "{comment}"
       </p>
     </div>

@@ -1,5 +1,6 @@
 import { Photo } from "@/types/photo";
 import { LocationTag } from "./LocationTag";
+import { DateTag } from "./DateTag";
 import { Commentary } from "./Commentary";
 
 interface PhotoSlideProps {
@@ -27,16 +28,12 @@ export const PhotoSlide = ({ photo, isActive }: PhotoSlideProps) => {
 
       {/* Content Overlay */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-16">
-        <div className={`space-y-6 ${isActive ? 'animate-slide-up' : ''}`}>
-          {/* Location */}
-          <LocationTag location={photo.location} />
-
-          {/* Date if available */}
-          {photo.date && (
-            <p className="font-sans text-sm text-muted-foreground tracking-wide">
-              {photo.date}
-            </p>
-          )}
+        <div className={`space-y-4 ${isActive ? 'animate-slide-up' : ''}`}>
+          {/* Location and Date Tags */}
+          <div className="flex flex-wrap items-center gap-3">
+            <LocationTag location={photo.location} />
+            {photo.date && <DateTag date={photo.date} />}
+          </div>
 
           {/* Commentary */}
           <div className="flex flex-col md:flex-row gap-4 md:gap-6">
