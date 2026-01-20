@@ -10,6 +10,16 @@ import mosquitos from "@/assets/photos/mosquitos-16x9.jpg";
 import mountainHike from "@/assets/photos/mountain-hike-16x9.jpg";
 import photoShoot from "@/assets/photos/photo-shoot-16x9.jpg";
 import sunsetBeach from "@/assets/photos/sunset-beach-16x9.jpg";
+import beachSunset from "@/assets/photos/beach-sunset-16x9.jpg";
+import formalEvent from "@/assets/photos/formal-event-16x9.jpg";
+import summerGarden from "@/assets/photos/summer-garden-16x9.jpg";
+import eveningPortrait from "@/assets/photos/evening-portrait-16x9.jpg";
+import outdoorActivity from "@/assets/photos/outdoor-activity-16x9.jpg";
+import daytimeAdventure from "@/assets/photos/daytime-adventure-16x9.jpg";
+import eveningScene from "@/assets/photos/evening-scene-16x9.jpg";
+import julyMoment from "@/assets/photos/july-moment-16x9.jpg";
+import summerNight from "@/assets/photos/summer-night-16x9.jpg";
+import fourthJuly from "@/assets/photos/fourth-july-16x9.jpg";
 
 export const samplePhotos: Photo[] = [
   {
@@ -100,10 +110,90 @@ export const samplePhotos: Photo[] = [
     katherineComment: "The golden hour was absolutely perfect.",
     djComment: "Best sunset we've ever caught together.",
   },
-  ...Array.from({ length: 34 }, (_, i) => ({
-    id: String(i + 12),
+  {
+    id: "12",
+    src: beachSunset,
+    location: "Add Location",
+    date: "May 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "13",
+    src: formalEvent,
+    location: "Add Location",
+    date: "June 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "14",
+    src: summerGarden,
+    location: "Add Location",
+    date: "June 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "15",
+    src: eveningPortrait,
+    location: "Add Location",
+    date: "June 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "16",
+    src: outdoorActivity,
+    location: "Add Location",
+    date: "June 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "17",
+    src: daytimeAdventure,
+    location: "Add Location",
+    date: "June 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "18",
+    src: eveningScene,
+    location: "Add Location",
+    date: "June 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "19",
+    src: julyMoment,
+    location: "Add Location",
+    date: "July 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "20",
+    src: summerNight,
+    location: "Add Location",
+    date: "July 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  {
+    id: "21",
+    src: fourthJuly,
+    location: "Add Location",
+    date: "July 2025",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  },
+  ...Array.from({ length: 24 }, (_, i) => ({
+    id: String(i + 22),
     src: "",
-    location: `Photo ${i + 12} - Add Location`,
+    location: `Photo ${i + 22} - Add Location`,
     date: "Add Date",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
