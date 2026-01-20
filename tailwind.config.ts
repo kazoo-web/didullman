@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        katherine: "hsl(var(--katherine))",
+        dj: "hsl(var(--dj))",
+        location: "hsl(var(--location))",
+        gold: "hsl(var(--gold))",
       },
       borderRadius: {
         lg: "var(--radius)",
