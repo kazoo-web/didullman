@@ -102,7 +102,7 @@ export const PhotoGallery = ({ photos, autoPlayInterval = 6000 }: PhotoGalleryPr
       {/* Photo Counter */}
       <div className="absolute top-6 left-6 z-20">
         <div className="px-4 py-2 bg-card/80 backdrop-blur-sm rounded-full border border-border shadow-lg">
-          <span className="font-serif text-lg text-foreground">
+          <span className="text-lg text-foreground">
             <span className="text-gold font-semibold">{currentIndex + 1}</span>
             <span className="text-muted-foreground mx-1">/</span>
             <span className="text-muted-foreground">{photos.length}</span>
