@@ -1,14 +1,21 @@
 import { Photo } from "@/types/photo";
+import carterNotchHut from "@/assets/photos/carter-notch-hut.jpg";
 
-// Placeholder for your 45 photos
-// Import your photos here as you add them:
-// import photo1 from "@/assets/photos/photo-1.jpg";
-
-export const samplePhotos: Photo[] = Array.from({ length: 45 }, (_, i) => ({
-  id: String(i + 1),
-  src: "", // Add your photo import here
-  location: `Photo ${i + 1} - Add Location`,
-  date: "Add Date",
-  katherineComment: "Add Katherine's comment",
-  djComment: "Add DJ's comment",
-}));
+export const samplePhotos: Photo[] = [
+  {
+    id: "1",
+    src: carterNotchHut,
+    location: "Carter Notch Hut, New Hampshire",
+    date: "August 2025",
+    katherineComment: "Made it to the hut!",
+    djComment: "The crew at Carter Notch.",
+  },
+  ...Array.from({ length: 44 }, (_, i) => ({
+    id: String(i + 2),
+    src: "",
+    location: `Photo ${i + 2} - Add Location`,
+    date: "Add Date",
+    katherineComment: "Add Katherine's comment",
+    djComment: "Add DJ's comment",
+  })),
+];
