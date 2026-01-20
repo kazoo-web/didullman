@@ -17,26 +17,26 @@ export const PhotoSlide = ({ photo, isActive }: PhotoSlideProps) => {
       `}
     >
       {/* Background Image */}
-      <div className="absolute inset-0 flex items-center justify-center bg-background">
+      <div className="absolute inset-0">
         <img 
           src={photo.src} 
           alt={photo.location}
-          className="max-w-full max-h-full w-auto h-auto object-contain"
+          className="w-full h-full object-cover object-top"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
       </div>
 
       {/* Content Overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-16">
-        <div className={`space-y-4 ${isActive ? 'animate-slide-up' : ''}`}>
+      <div className="absolute inset-0 flex flex-col justify-end items-center p-6 md:p-12 lg:p-16">
+        <div className={`space-y-4 flex flex-col items-center ${isActive ? 'animate-slide-up' : ''}`}>
           {/* Location and Date Tags */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <LocationTag location={photo.location} />
             {photo.date && <DateTag date={photo.date} />}
           </div>
 
           {/* Commentary */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center">
             {photo.katherineComment && (
               <Commentary author="katherine" comment={photo.katherineComment} />
             )}
