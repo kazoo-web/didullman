@@ -35,6 +35,14 @@ import grandmaLaughs from "@/assets/photos/grandma-laughs.jpg";
 import bostonHarborDinner from "@/assets/photos/boston-harbor-dinner.jpg";
 import sushiClassCouple from "@/assets/photos/sushi-class-couple.jpg";
 import notreDameGame from "@/assets/photos/notre-dame-game.jpg";
+import fallHikeSunbeam from "@/assets/photos/fall-hike-sunbeam.jpg";
+import hammockCampsite from "@/assets/photos/hammock-campsite.jpg";
+import oceanCliffClimbing from "@/assets/photos/ocean-cliff-climbing.jpg";
+import pizzaSelfieZurich from "@/assets/photos/pizza-selfie-zurich.jpg";
+import lucerneBridgeSelfie from "@/assets/photos/lucerne-bridge-selfie.jpg";
+import swissMountainBike from "@/assets/photos/swiss-mountain-bike.jpg";
+import dinnerDateCozy from "@/assets/photos/dinner-date-cozy.jpg";
+import bookstoreKazoo from "@/assets/photos/bookstore-kazoo.jpg";
 
 export const samplePhotos: Photo[] = [
   {
@@ -325,12 +333,68 @@ export const samplePhotos: Photo[] = [
     katherineComment: "Go Irish!",
     djComment: "The energy in that stadium was unreal.",
   },
-  ...Array.from({ length: 9 }, (_, i) => ({
-    id: String(i + 37),
-    src: "",
-    location: `Photo ${i + 37} - Add Location`,
-    date: "Add Date",
-    katherineComment: "Add Katherine's comment",
-    djComment: "Add DJ's comment",
-  })),
+  {
+    id: "37",
+    src: fallHikeSunbeam,
+    location: "New England",
+    date: "September 2025",
+    katherineComment: "Caught in a sunbeam on the trail!",
+    djComment: "The fall colors were just starting to pop.",
+  },
+  {
+    id: "38",
+    src: hammockCampsite,
+    location: "Acadia, Maine",
+    date: "September 2025",
+    katherineComment: "Hammock setup complete!",
+    djComment: "Best campsite views in Acadia.",
+  },
+  {
+    id: "39",
+    src: oceanCliffClimbing,
+    location: "Acadia National Park, Maine",
+    date: "September 2025",
+    katherineComment: "Climbing above the ocean!",
+    djComment: "Otter Cliffs never disappoints.",
+  },
+  {
+    id: "40",
+    src: pizzaSelfieZurich,
+    location: "Zurich, Switzerland",
+    date: "November 2025",
+    katherineComment: "Together we are pizza!",
+    djComment: "Cold morning, warm coffee vibes.",
+  },
+  {
+    id: "41",
+    src: lucerneBridgeSelfie,
+    location: "Lucerne, Switzerland",
+    date: "November 2025",
+    katherineComment: "Chapel Bridge is iconic!",
+    djComment: "The Alps in the background were stunning.",
+  },
+  {
+    id: "42",
+    src: swissMountainBike,
+    location: "Lake Lucerne, Switzerland",
+    date: "November 2025",
+    katherineComment: "Biking with mountain views!",
+    djComment: "The Swiss know how to do scenic roads.",
+  },
+  {
+    id: "43",
+    src: dinnerDateCozy,
+    location: "Boston, Massachusetts",
+    date: "November 2025",
+    katherineComment: "Cozy dinner date vibes!",
+    djComment: "That place was so romantic.",
+  },
+  {
+    id: "44",
+    src: bookstoreKazoo,
+    location: "Brookline, Massachusetts",
+    date: "November 2025",
+    katherineComment: "Found my inner child!",
+    djComment: "She had to show off the Kazoo magazine.",
+  },
 ];
