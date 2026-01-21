@@ -29,6 +29,12 @@ import waterfallCreek from "@/assets/photos/waterfall-creek.jpg";
 import carterNotchHutGroup from "@/assets/photos/carter-notch-hut-group.jpg";
 import katherineDad from "@/assets/photos/katherine-dad.jpg";
 import cavernsFamily from "@/assets/photos/caverns-family.jpg";
+import mtbGroupSelfie from "@/assets/photos/mtb-group-selfie.jpg";
+import katherineMtbBreak from "@/assets/photos/katherine-mtb-break.jpg";
+import grandmaLaughs from "@/assets/photos/grandma-laughs.jpg";
+import bostonHarborDinner from "@/assets/photos/boston-harbor-dinner.jpg";
+import sushiClassCouple from "@/assets/photos/sushi-class-couple.jpg";
+import notreDameGame from "@/assets/photos/notre-dame-game.jpg";
 
 export const samplePhotos: Photo[] = [
   {
@@ -271,10 +277,58 @@ export const samplePhotos: Photo[] = [
     katherineComment: "Underground adventures with family!",
     djComment: "Those stalactites were incredible.",
   },
-  ...Array.from({ length: 15 }, (_, i) => ({
-    id: String(i + 31),
+  {
+    id: "31",
+    src: mtbGroupSelfie,
+    location: "Snowshoe Mountain, West Virginia",
+    date: "August 2025",
+    katherineComment: "The whole crew ready to shred!",
+    djComment: "First time mountain biking for some of us.",
+  },
+  {
+    id: "32",
+    src: katherineMtbBreak,
+    location: "Snowshoe Mountain, West Virginia",
+    date: "August 2025",
+    katherineComment: "Taking a breather between runs!",
+    djComment: "She crushed it on the trails.",
+  },
+  {
+    id: "33",
+    src: grandmaLaughs,
+    location: "West Virginia",
+    date: "August 2025",
+    katherineComment: "Three generations of giggles!",
+    djComment: "Grandma always knows how to make us laugh.",
+  },
+  {
+    id: "34",
+    src: bostonHarborDinner,
+    location: "Boston Harbor, Massachusetts",
+    date: "August 2025",
+    katherineComment: "Lobster with the best view!",
+    djComment: "Nothing beats waterfront seafood.",
+  },
+  {
+    id: "35",
+    src: sushiClassCouple,
+    location: "Boston, Massachusetts",
+    date: "September 2025",
+    katherineComment: "Learning to make sushi together!",
+    djComment: "Turns out rolling sushi is harder than it looks.",
+  },
+  {
+    id: "36",
+    src: notreDameGame,
+    location: "Notre Dame Stadium, Indiana",
+    date: "September 2025",
+    katherineComment: "Go Irish!",
+    djComment: "The energy in that stadium was unreal.",
+  },
+  ...Array.from({ length: 9 }, (_, i) => ({
+    id: String(i + 37),
     src: "",
-    location: `Photo ${i + 31} - Add Location`,
+    location: `Photo ${i + 37} - Add Location`,
     date: "Add Date",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
