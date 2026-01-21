@@ -84,6 +84,16 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
   }
+
+  /* Ensure toast portals never block underlying UI (e.g., slideshow controls) */
+  [data-sonner-toaster],
+  [data-sonner-toasts] {
+    pointer-events: none;
+  }
+
+  [data-sonner-toast] {
+    pointer-events: auto;
+  }
 }
 
 @layer components {

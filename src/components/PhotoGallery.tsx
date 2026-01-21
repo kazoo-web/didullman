@@ -46,7 +46,7 @@ export const PhotoGallery = ({ photos, autoPlayInterval = 6000 }: PhotoGalleryPr
       ))}
 
       {/* Navigation Controls */}
-      <div className="absolute top-6 right-6 z-20 flex items-center gap-3">
+      <div className="absolute top-6 right-6 z-40 flex items-center gap-3">
         <button
           onClick={togglePlayPause}
           className="p-3 bg-card/80 backdrop-blur-sm rounded-full border border-border hover:bg-card transition-colors shadow-lg"
