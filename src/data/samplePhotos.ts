@@ -1,5 +1,4 @@
 import { Photo } from "@/types/photo";
-import carterNotchHut from "@/assets/photos/carter-notch-hut.jpg";
 import holiFestival from "@/assets/photos/holi-festival.jpg";
 import img7953 from "@/assets/photos/img-7953-16x9.jpg";
 import img8425 from "@/assets/photos/img-8425-16x9.jpg";
@@ -47,11 +46,11 @@ import bookstoreKazoo from "@/assets/photos/bookstore-kazoo.jpg";
 export const samplePhotos: Photo[] = [
   {
     id: "1",
-    src: carterNotchHut,
+    src: carterNotchHutGroup,
     location: "Carter Notch Hut, New Hampshire",
     date: "August 2025",
-    katherineComment: "Made it to the hut!",
-    djComment: "The crew at Carter Notch.",
+    katherineComment: "The crew made it to the hut!",
+    djComment: "Heavy packs but worth every step.",
   },
   {
     id: "2",
@@ -260,14 +259,6 @@ export const samplePhotos: Photo[] = [
     date: "July 2025",
     katherineComment: "Cooling off in the creek!",
     djComment: "She found the best swimming hole.",
-  },
-  {
-    id: "28",
-    src: carterNotchHutGroup,
-    location: "Carter Notch Hut, New Hampshire",
-    date: "August 2025",
-    katherineComment: "The crew made it to the hut!",
-    djComment: "Heavy packs but worth every step.",
   },
   {
     id: "29",
