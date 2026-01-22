@@ -37,18 +37,14 @@ export const PhotoGallery = ({ photos, autoPlayInterval = 6000 }: PhotoGalleryPr
   return (
     <div className="relative w-full h-screen overflow-hidden bg-background">
       {/* Photos */}
-      {photos.map((photo, index) => {
-        // Use full photo layout for photos 1-6 (index 0-5)
-        const useFullPhoto = index >= 0 && index <= 5;
-        return (
-          <PhotoSlide 
-            key={photo.id} 
-            photo={photo} 
-            isActive={index === currentIndex}
-            useFullPhoto={useFullPhoto}
-          />
-        );
-      })}
+      {photos.map((photo, index) => (
+        <PhotoSlide 
+          key={photo.id} 
+          photo={photo} 
+          isActive={index === currentIndex}
+          useFullPhoto={true}
+        />
+      ))}
 
       {/* Navigation Controls */}
       <div className="absolute top-6 right-6 z-40 flex items-center gap-3">
