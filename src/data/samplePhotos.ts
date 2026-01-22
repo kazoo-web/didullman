@@ -1,9 +1,9 @@
 import { Photo } from "@/types/photo";
 import carterNotchHut from "@/assets/photos/carter-notch-hut.jpg";
 import holiFestival from "@/assets/photos/holi-festival.jpg";
-import img7953 from "@/assets/photos/img-7953-16x9.jpg";
-import img8425 from "@/assets/photos/img-8425-16x9.jpg";
-import img8473 from "@/assets/photos/img-8473-16x9.jpg";
+import img7953 from "@/assets/photos/img-7953.jpg";
+import img8425 from "@/assets/photos/img-8425.jpg";
+import img8473 from "@/assets/photos/img-8473.jpg";
 import lobsterPool from "@/assets/photos/lobster-pool.jpg";
 import mistyLake from "@/assets/photos/misty-lake-16x9.jpg";
 import mosquitos from "@/assets/photos/mosquitos-16x9.jpg";
