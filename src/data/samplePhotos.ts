@@ -1,8 +1,8 @@
 import { Photo } from "@/types/photo";
 import holiFestival from "@/assets/photos/holi-festival.jpg";
-import img7953 from "@/assets/photos/img-7953-16x9.jpg";
-import img8425 from "@/assets/photos/img-8425-16x9.jpg";
-import img8473 from "@/assets/photos/img-8473-16x9.jpg";
+import cherryBlossomsDc from "@/assets/photos/cherry-blossoms-dc.png";
+import shenandoahFamily from "@/assets/photos/shenandoah-family.png";
+import vermontInnDoorway from "@/assets/photos/vermont-inn-doorway.png";
 import lobsterPool from "@/assets/photos/lobster-pool.jpg";
 import mistyLake from "@/assets/photos/misty-lake.jpg";
 import mosquitos from "@/assets/photos/mosquitos.jpg";
@@ -62,7 +62,7 @@ export const samplePhotos: Photo[] = [
   },
   {
     id: "3",
-    src: img7953,
+    src: cherryBlossomsDc,
     location: "Cherry Blossoms, DC",
     date: "April 2025",
     katherineComment: "Peak bloom perfection!",
@@ -70,7 +70,7 @@ export const samplePhotos: Photo[] = [
   },
   {
     id: "4",
-    src: img8425,
+    src: shenandoahFamily,
     location: "Shenandoah, Virginia",
     date: "May 2025",
     katherineComment: "Family hike day!",
@@ -78,7 +78,7 @@ export const samplePhotos: Photo[] = [
   },
   {
     id: "5",
-    src: img8473,
+    src: vermontInnDoorway,
     location: "Historic Inn, Vermont",
     date: "June 2025",
     katherineComment: "Matching tie-dye vibes!",
