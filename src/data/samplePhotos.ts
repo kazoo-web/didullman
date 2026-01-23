@@ -158,7 +158,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "15",
     src: eveningPortrait,
-    location: "Add Location",
+    location: "Acadia National Park, Bar Harbor, ME",
     date: "June 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
