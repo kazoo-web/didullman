@@ -125,7 +125,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "12",
     src: beachSunset,
-    location: "Add Location",
+    location: "Indiana Dunes National Park, Porter, IN",
     date: "May 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
