@@ -134,8 +134,8 @@ export const samplePhotos: Photo[] = [
   {
     id: "5",
     src: vermontInnDoorway,
-    location: "Historic Inn, Vermont",
-    date: "June 2025",
+    location: "Cambridge, MA",
+    date: "August 2025",
     katherineComment: "Matching tie-dye vibes!",
     djComment: "The cutest doorway in New England.",
   },
