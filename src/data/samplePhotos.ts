@@ -53,12 +53,12 @@ export const samplePhotos: Photo[] = [
     katherineComment: "Behind the scenes of our engagement shoot!",
     djComment: "She insisted on being my personal lighting assistant.",
   },
-  // November 2024
+  // April 2025
   {
     id: "9",
     src: mountainHike,
-    location: "Adirondacks, New York",
-    date: "November 2024",
+    location: "Lake Winnipesaukee, Gilford, NH",
+    date: "April 2025",
     katherineComment: "Cold but so worth it for this view!",
     djComment: "She only complained for the first 2 miles.",
   },
