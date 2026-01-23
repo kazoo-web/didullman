@@ -44,24 +44,6 @@ import dinnerDateCozy from "@/assets/photos/dinner-date-cozy.jpg";
 import bookstoreKazoo from "@/assets/photos/bookstore-kazoo.jpg";
 
 export const samplePhotos: Photo[] = [
-  // August 2025
-  {
-    id: "10",
-    src: photoShoot,
-    location: "Mount Auburn Cemetery, Cambridge, MA",
-    date: "August 2025",
-    katherineComment: "Behind the scenes of our engagement shoot!",
-    djComment: "She insisted on being my personal lighting assistant.",
-  },
-  // April 2025
-  {
-    id: "9",
-    src: mountainHike,
-    location: "Lake Winnipesaukee, Gilford, NH",
-    date: "April 2025",
-    katherineComment: "Cold but so worth it for this view!",
-    djComment: "She only complained for the first 2 miles.",
-  },
   // January 2025
   {
     id: "11",
@@ -81,6 +63,14 @@ export const samplePhotos: Photo[] = [
     djComment: "Golf cart island life was pretty great though.",
   },
   // April 2025
+  {
+    id: "9",
+    src: mountainHike,
+    location: "Lake Winnipesaukee, Gilford, NH",
+    date: "April 2025",
+    katherineComment: "Cold but so worth it for this view!",
+    djComment: "She only complained for the first 2 miles.",
+  },
   {
     id: "7",
     src: mistyLake,
@@ -107,14 +97,6 @@ export const samplePhotos: Photo[] = [
     djComment: "That blue took three showers to wash off.",
   },
   {
-    id: "4",
-    src: shenandoahFamily,
-    location: "Shenandoah, Virginia",
-    date: "August 2025",
-    katherineComment: "Family hike day!",
-    djComment: "That view was incredible.",
-  },
-  {
     id: "6",
     src: lobsterPool,
     location: "Rockport, Massachusetts",
@@ -131,14 +113,6 @@ export const samplePhotos: Photo[] = [
     djComment: "Add DJ's comment",
   },
   // June 2025
-  {
-    id: "5",
-    src: vermontInnDoorway,
-    location: "Cambridge, MA",
-    date: "August 2025",
-    katherineComment: "Matching tie-dye vibes!",
-    djComment: "The cutest doorway in New England.",
-  },
   {
     id: "13",
     src: formalEvent,
@@ -262,6 +236,30 @@ export const samplePhotos: Photo[] = [
   },
   // August 2025
   {
+    id: "10",
+    src: photoShoot,
+    location: "Mount Auburn Cemetery, Cambridge, MA",
+    date: "August 2025",
+    katherineComment: "Behind the scenes of our engagement shoot!",
+    djComment: "She insisted on being my personal lighting assistant.",
+  },
+  {
+    id: "4",
+    src: shenandoahFamily,
+    location: "Shenandoah, Virginia",
+    date: "August 2025",
+    katherineComment: "Family hike day!",
+    djComment: "That view was incredible.",
+  },
+  {
+    id: "5",
+    src: vermontInnDoorway,
+    location: "Cambridge, MA",
+    date: "August 2025",
+    katherineComment: "Matching tie-dye vibes!",
+    djComment: "The cutest doorway in New England.",
+  },
+  {
     id: "1",
     src: carterNotchHutGroup,
     location: "AMC Carter Notch Hut, Jackson, NH",
@@ -378,7 +376,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "42",
     src: swissMountainBike,
-    location: "Lake Lucerne, Switzerland",
+    location: "Catskills, NY",
     date: "November 2025",
     katherineComment: "Biking with mountain views!",
     djComment: "The Swiss know how to do scenic roads.",
