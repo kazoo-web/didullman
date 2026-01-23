@@ -34,7 +34,7 @@ export const PhotoSlide = ({ photo, isActive, useFullPhoto = false }: PhotoSlide
         </div>
 
         {/* Photo Container - positioned above metadata */}
-        <div className="absolute inset-x-0 top-0 bottom-[180px] md:bottom-[160px] flex justify-center items-center p-4">
+        <div className="absolute inset-x-0 top-0 bottom-[220px] md:bottom-[200px] flex justify-center items-center p-4">
           <img 
             src={photo.src} 
             alt={photo.location}
@@ -43,7 +43,7 @@ export const PhotoSlide = ({ photo, isActive, useFullPhoto = false }: PhotoSlide
         </div>
 
         {/* Content Overlay - fixed at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-[180px] md:h-[160px] flex flex-col justify-center items-center p-4 md:p-6 pointer-events-none">
+        <div className="absolute inset-x-0 bottom-0 h-[220px] md:h-[200px] flex flex-col justify-center items-center p-4 md:p-6 pointer-events-none">
           {/* Subtle gradient for text legibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/70 to-transparent" />
           
