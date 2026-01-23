@@ -191,7 +191,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "19",
     src: julyMoment,
-    location: "Add Location",
+    location: "Parrsboro, Nova Scotia, Canada",
     date: "July 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
