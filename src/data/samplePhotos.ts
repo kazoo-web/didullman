@@ -1,8 +1,8 @@
 import { Photo } from "@/types/photo";
 import holiFestival from "@/assets/photos/holi-festival.jpg";
-import img7953 from "@/assets/photos/img-7953-16x9.jpg";
-import img8425 from "@/assets/photos/img-8425-16x9.jpg";
-import img8473 from "@/assets/photos/img-8473-16x9.jpg";
+import cherryBlossomsDc from "@/assets/photos/cherry-blossoms-dc.png";
+import shenandoahFamily from "@/assets/photos/shenandoah-family.png";
+import vermontInnDoorway from "@/assets/photos/vermont-inn-doorway.png";
 import lobsterPool from "@/assets/photos/lobster-pool.jpg";
 import mistyLake from "@/assets/photos/misty-lake.jpg";
 import mosquitos from "@/assets/photos/mosquitos.jpg";
