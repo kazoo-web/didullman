@@ -82,14 +82,6 @@ export const samplePhotos: Photo[] = [
   },
   // April 2025
   {
-    id: "3",
-    src: cherryBlossomsDc,
-    location: "Cherry Blossoms, DC",
-    date: "April 2025",
-    katherineComment: "Peak bloom perfection!",
-    djComment: "Worth the crowds.",
-  },
-  {
     id: "7",
     src: mistyLake,
     location: "Lake Winnipesaukee, New Hampshire",
@@ -98,6 +90,14 @@ export const samplePhotos: Photo[] = [
     djComment: "Peaceful mornings like this are everything.",
   },
   // May 2025
+  {
+    id: "3",
+    src: cherryBlossomsDc,
+    location: "Cherry Blossoms, DC",
+    date: "May 2025",
+    katherineComment: "Peak bloom perfection!",
+    djComment: "Worth the crowds.",
+  },
   {
     id: "2",
     src: holiFestival,
