@@ -247,7 +247,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "26",
     src: foggyBeachVan,
-    location: "Nova Scotia Coast",
+    location: "Unknown",
     date: "July 2025",
     katherineComment: "Foggy morning adventures!",
     djComment: "The fog made everything feel so peaceful.",
