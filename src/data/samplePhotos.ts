@@ -166,7 +166,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "16",
     src: outdoorActivity,
-    location: "Add Location",
+    location: "Fundy National Park of Canada, New Brunswick, Canada",
     date: "June 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
