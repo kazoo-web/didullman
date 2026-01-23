@@ -50,7 +50,7 @@ export const samplePhotos: Photo[] = [
     src: sunsetBeach,
     location: "El Pescadero, Baja California Sur, Mexico",
     date: "January 2025",
-    katherineComment: "The golden hour was absolutely perfect.",
+    katherineComment: "This was before I found a woman on the east coat that I trusted to cut my hair",
     djComment: "Best sunset we've ever caught together.",
   },
   // February 2025
@@ -59,7 +59,7 @@ export const samplePhotos: Photo[] = [
     src: mosquitos,
     location: "Vieques, Puerto Rico",
     date: "February 2025",
-    katherineComment: "The sign was ironic - we got eaten alive!",
+    katherineComment: "We've learned the trick to Cambridge winters: go somewhere HOT in February",
     djComment: "Golf cart island life was pretty great though.",
   },
   // April 2025
@@ -68,7 +68,7 @@ export const samplePhotos: Photo[] = [
     src: mountainHike,
     location: "Lake Winnipesaukee, Gilford, NH",
     date: "April 2025",
-    katherineComment: "Cold but so worth it for this view!",
+    katherineComment: "A close hike with a great view!",
     djComment: "She only complained for the first 2 miles.",
   },
   {
@@ -76,7 +76,7 @@ export const samplePhotos: Photo[] = [
     src: mistyLake,
     location: "Lake Winnipesaukee, New Hampshire",
     date: "April 2025",
-    katherineComment: "The fog rolling in was magical.",
+    katherineComment: "DJ took this photo. It's a good photo",
     djComment: "Peaceful mornings like this are everything.",
   },
   // May 2025
@@ -85,7 +85,7 @@ export const samplePhotos: Photo[] = [
     src: cherryBlossomsDc,
     location: "Arnold Arboretum of Harvard University, Boston, MA",
     date: "May 2025",
-    katherineComment: "Peak bloom perfection!",
+    katherineComment: "A cherry blossom festival! Probably one of the few photos on here I initiated",
     djComment: "Worth the crowds.",
   },
   {
@@ -93,7 +93,7 @@ export const samplePhotos: Photo[] = [
     src: holiFestival,
     location: "Cambridge, MA",
     date: "May 2025",
-    katherineComment: "Holi was an explosion of joy!",
+    katherineComment: "My first Holi experience!",
     djComment: "That blue took three showers to wash off.",
   },
   {
@@ -101,7 +101,7 @@ export const samplePhotos: Photo[] = [
     src: lobsterPool,
     location: "Rockport, Massachusetts",
     date: "May 2025",
-    katherineComment: "I make a very convincing lobster!",
+    katherineComment: "A lobby roll pitstop whenever we are near Davey's dad's house in Gloucester, MA",
     djComment: "Best clam shack on the North Shore.",
   },
   {
@@ -109,7 +109,7 @@ export const samplePhotos: Photo[] = [
     src: beachSunset,
     location: "Indiana Dunes National Park, Porter, IN",
     date: "May 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "First day with the van (not pictured) - I was overdressed for a very steep dune hike",
     djComment: "Add DJ's comment",
   },
   // June 2025
@@ -118,7 +118,7 @@ export const samplePhotos: Photo[] = [
     src: formalEvent,
     location: "Boston, MA",
     date: "June 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "The day I learned I need more comfortable heels",
     djComment: "Add DJ's comment",
   },
   {
@@ -126,7 +126,7 @@ export const samplePhotos: Photo[] = [
     src: summerGarden,
     location: "Acadia National Park, Bar Harbor, ME",
     date: "June 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "I freaking love Maine",
     djComment: "Add DJ's comment",
   },
   {
@@ -134,7 +134,7 @@ export const samplePhotos: Photo[] = [
     src: eveningPortrait,
     location: "Acadia National Park, Bar Harbor, ME",
     date: "June 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "I think we ended the climb in the dark here",
     djComment: "Add DJ's comment",
   },
   {
@@ -142,7 +142,7 @@ export const samplePhotos: Photo[] = [
     src: outdoorActivity,
     location: "Fundy National Park of Canada, New Brunswick, Canada",
     date: "June 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "Foggy and rainy but GORGEOUS!",
     djComment: "Add DJ's comment",
   },
   {
@@ -150,7 +150,7 @@ export const samplePhotos: Photo[] = [
     src: daytimeAdventure,
     location: "Cape Breton, Nova Scotia, Canada",
     date: "June 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "I'm scared of falling?",
     djComment: "Add DJ's comment",
   },
   {
@@ -158,7 +158,7 @@ export const samplePhotos: Photo[] = [
     src: eveningScene,
     location: "Joggins, Nova Scotia, Canada",
     date: "June 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "I FOUND A FOSSIL!",
     djComment: "Add DJ's comment",
   },
   // July 2025
@@ -167,7 +167,7 @@ export const samplePhotos: Photo[] = [
     src: julyMoment,
     location: "Parrsboro, Nova Scotia, Canada",
     date: "July 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "Lunch",
     djComment: "Add DJ's comment",
   },
   {
@@ -175,7 +175,7 @@ export const samplePhotos: Photo[] = [
     src: summerNight,
     location: "Prince Edward Island, Canada",
     date: "July 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "Early in the PEI e-bike trip. Butt feeling fine",
     djComment: "Add DJ's comment",
   },
   {
@@ -183,7 +183,7 @@ export const samplePhotos: Photo[] = [
     src: fourthJuly,
     location: "Prince Edward Island, Canada",
     date: "July 2025",
-    katherineComment: "Add Katherine's comment",
+    katherineComment: "The north side of the island, very quaint!",
     djComment: "Add DJ's comment",
   },
   {
@@ -191,7 +191,7 @@ export const samplePhotos: Photo[] = [
     src: vanMorningView,
     location: "Unknown",
     date: "July 2025",
-    katherineComment: "Waking up to this view from the van!",
+    katherineComment: "Bedroom views",
     djComment: "Best bedroom window ever.",
   },
   {
@@ -199,7 +199,7 @@ export const samplePhotos: Photo[] = [
     src: redBarnSelfie,
     location: "Cape Breton, Nova Scotia, Canada",
     date: "July 2025",
-    katherineComment: "Found this adorable red barn!",
+    katherineComment: "We changed in the parking lot - one of the better meals on the trip",
     djComment: "The golden hour was perfect.",
   },
   {
@@ -207,7 +207,7 @@ export const samplePhotos: Photo[] = [
     src: cabotTrailOverlook,
     location: "Cape Breton, Nova Scotia, Canada",
     date: "July 2025",
-    katherineComment: "The views on the Cabot Trail are unreal!",
+    katherineComment: "How pretty is that? Probably smiling because I am about to see a moose!",
     djComment: "Mountains meet the sea. Doesn't get better than this.",
   },
   {
@@ -215,7 +215,7 @@ export const samplePhotos: Photo[] = [
     src: dockBeerPortrait,
     location: "Lunenburg, Nova Scotia, Canada",
     date: "July 2025",
-    katherineComment: "Cheers to vacation vibes!",
+    katherineComment: "I was glaring at DJ before this photo.",
     djComment: "She looks so cozy in that beanie.",
   },
   {
@@ -223,7 +223,7 @@ export const samplePhotos: Photo[] = [
     src: foggyBeachVan,
     location: "Unknown",
     date: "July 2025",
-    katherineComment: "Foggy morning adventures!",
+    katherineComment: "I had just peed",
     djComment: "The fog made everything feel so peaceful.",
   },
   {
@@ -231,7 +231,7 @@ export const samplePhotos: Photo[] = [
     src: waterfallCreek,
     location: "North Adams, MA",
     date: "July 2025",
-    katherineComment: "Cooling off in the creek!",
+    katherineComment: "Cute little hike on our favorite MA getaway trip",
     djComment: "She found the best swimming hole.",
   },
   // August 2025
@@ -240,7 +240,7 @@ export const samplePhotos: Photo[] = [
     src: photoShoot,
     location: "Mount Auburn Cemetery, Cambridge, MA",
     date: "August 2025",
-    katherineComment: "Behind the scenes of our engagement shoot!",
+    katherineComment: "Photoshoot for DJ's author photo; I came a long for moral support but ended up being a lighting assistant",
     djComment: "She insisted on being my personal lighting assistant.",
   },
   {
@@ -248,7 +248,7 @@ export const samplePhotos: Photo[] = [
     src: shenandoahFamily,
     location: "Shenandoah, Virginia",
     date: "August 2025",
-    katherineComment: "Family hike day!",
+    katherineComment: "Scenic pit stop with 2/3 nieces on our way to \"mine for gold!\"",
     djComment: "That view was incredible.",
   },
   {
@@ -256,7 +256,7 @@ export const samplePhotos: Photo[] = [
     src: vermontInnDoorway,
     location: "Cambridge, MA",
     date: "August 2025",
-    katherineComment: "Matching tie-dye vibes!",
+    katherineComment: "Camp Kaz tie-dye tees spotted on our fun weekend with Isla and Dan in Boston!",
     djComment: "The cutest doorway in New England.",
   },
   {
@@ -264,7 +264,7 @@ export const samplePhotos: Photo[] = [
     src: carterNotchHutGroup,
     location: "AMC Carter Notch Hut, Jackson, NH",
     date: "August 2025",
-    katherineComment: "The crew made it to the hut after a long day of hiking! We were exhausted but so happy to finally arrive.",
+    katherineComment: "Awesome outdoor QT with Matt this summer. Favorite part of the hike was probably hitchhiking in pick up truck or river floating at the end of it",
     djComment: "Heavy packs but worth every step. The views along the way were absolutely stunning and the hut felt like a paradise.",
   },
   {
@@ -272,7 +272,7 @@ export const samplePhotos: Photo[] = [
     src: katherineDad,
     location: "Bethesda, MD",
     date: "August 2025",
-    katherineComment: "Love my Dad!",
+    katherineComment: "Picked up parents and Spindrifts on our way to Bayse, VA to celebrate GM Nelly's 100th birthday!",
     djComment: "Great to visit family.",
   },
   {
@@ -280,7 +280,7 @@ export const samplePhotos: Photo[] = [
     src: cavernsFamily,
     location: "Luray Caverns, Luray, VA",
     date: "August 2025",
-    katherineComment: "Underground adventures with family!",
+    katherineComment: "Luray Caverns with Aoife and Ailis. It was really hard not to touch everything",
     djComment: "Those stalactites were incredible.",
   },
   {
@@ -288,7 +288,7 @@ export const samplePhotos: Photo[] = [
     src: mtbGroupSelfie,
     location: "Bryce Resort, Basye, VA",
     date: "August 2025",
-    katherineComment: "The whole crew ready to shred!",
+    katherineComment: "Ullman family mountain biking day organized by DJ",
     djComment: "First time mountain biking for some of us.",
   },
   {
@@ -296,7 +296,7 @@ export const samplePhotos: Photo[] = [
     src: katherineMtbBreak,
     location: "Bryce Resort, Basye, VA",
     date: "August 2025",
-    katherineComment: "Taking a breather between runs!",
+    katherineComment: "He told me he's never found me more attractive than in this moment",
     djComment: "She crushed it on the trails.",
   },
   {
@@ -304,7 +304,7 @@ export const samplePhotos: Photo[] = [
     src: grandmaLaughs,
     location: "Bryce Resort, Basye, VA",
     date: "August 2025",
-    katherineComment: "Three generations of giggles!",
+    katherineComment: "The matriarch herself - we love you GM Nelly!",
     djComment: "Grandma always knows how to make us laugh.",
   },
   {
@@ -312,7 +312,7 @@ export const samplePhotos: Photo[] = [
     src: bostonHarborDinner,
     location: "Boston, MA",
     date: "August 2025",
-    katherineComment: "Lobster with the best view!",
+    katherineComment: "Lobby rolls and other seafood with Isla and Dan!",
     djComment: "Nothing beats waterfront seafood.",
   },
   // September 2025
@@ -321,7 +321,7 @@ export const samplePhotos: Photo[] = [
     src: sushiClassCouple,
     location: "Boston, Massachusetts",
     date: "September 2025",
-    katherineComment: "Learning to make sushi together!",
+    katherineComment: "2nd wedding anniversary omakase dinner. There was an open question about whether I should be eating sushi and a solo diner next to DJ who wouldn't stop talking to him.",
     djComment: "Turns out rolling sushi is harder than it looks.",
   },
   {
@@ -329,7 +329,7 @@ export const samplePhotos: Photo[] = [
     src: notreDameGame,
     location: "South Bend, IN",
     date: "September 2025",
-    katherineComment: "Go Irish!",
+    katherineComment: "I tried to wear the colors, etc.",
     djComment: "The energy in that stadium was unreal.",
   },
   {
@@ -337,7 +337,7 @@ export const samplePhotos: Photo[] = [
     src: fallHikeSunbeam,
     location: "Acadia National Park, Bar Harbor, ME",
     date: "September 2025",
-    katherineComment: "Caught in a sunbeam on the trail!",
+    katherineComment: "Maine round 2 or 3 of the year?",
     djComment: "The fall colors were just starting to pop.",
   },
   {
@@ -345,7 +345,7 @@ export const samplePhotos: Photo[] = [
     src: hammockCampsite,
     location: "Acadia National Park, Bar Harbor, ME",
     date: "September 2025",
-    katherineComment: "Hammock setup complete!",
+    katherineComment: "We worked really hard to find the perfect hammock spot. Alas.",
     djComment: "Best campsite views in Acadia.",
   },
   {
@@ -353,7 +353,7 @@ export const samplePhotos: Photo[] = [
     src: oceanCliffClimbing,
     location: "Acadia National Park, Bar Harbor, ME",
     date: "September 2025",
-    katherineComment: "Climbing above the ocean!",
+    katherineComment: "Rock climbing in the first trimester - really proud of myself for that",
     djComment: "Otter Cliffs never disappoints.",
   },
   // November 2025
@@ -362,7 +362,7 @@ export const samplePhotos: Photo[] = [
     src: pizzaSelfieZurich,
     location: "Zurich, Switzerland",
     date: "November 2025",
-    katherineComment: "Together we are pizza!",
+    katherineComment: "I would move to Switzerland in a heartbeat (this is just a sign DJ thought was funny). We got red panda swag for Tracy and Marlowe next door.",
     djComment: "Cold morning, warm coffee vibes.",
   },
   {
@@ -370,7 +370,7 @@ export const samplePhotos: Photo[] = [
     src: lucerneBridgeSelfie,
     location: "Lake Lucerne, Switzerland",
     date: "November 2025",
-    katherineComment: "Chapel Bridge is iconic!",
+    katherineComment: "This is why I would move to Switzerland. A lake! A historic town! An hour by train from the airport! God bless them.",
     djComment: "The Alps in the background were stunning.",
   },
   {
@@ -378,7 +378,7 @@ export const samplePhotos: Photo[] = [
     src: swissMountainBike,
     location: "Catskills, NY",
     date: "November 2025",
-    katherineComment: "Biking with mountain views!",
+    katherineComment: "The best part of this 4-5 day insane trip to Munich - Dubai - Zurich",
     djComment: "The Swiss know how to do scenic roads.",
   },
   {
@@ -386,7 +386,7 @@ export const samplePhotos: Photo[] = [
     src: dinnerDateCozy,
     location: "Catskills, NY",
     date: "November 2025",
-    katherineComment: "Cozy dinner date vibes!",
+    katherineComment: "Having some non-van time in a van-heavy Thanksgiving week that included an exploration of the Hudson Valley",
     djComment: "That place was so romantic.",
   },
   {
@@ -394,7 +394,7 @@ export const samplePhotos: Photo[] = [
     src: bookstoreKazoo,
     location: "Rhinebeck, NY",
     date: "November 2025",
-    katherineComment: "Found my inner child!",
+    katherineComment: "In one of my favorite Hudson Valley towns, finding out that DJ's nickname for me is also the name of is a little kids' magazine, and then getting excited about our future kid reading said magazine.",
     djComment: "She had to show off the Kazoo magazine.",
   },
 ];
