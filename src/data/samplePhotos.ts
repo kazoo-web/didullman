@@ -44,12 +44,12 @@ import dinnerDateCozy from "@/assets/photos/dinner-date-cozy.jpg";
 import bookstoreKazoo from "@/assets/photos/bookstore-kazoo.jpg";
 
 export const samplePhotos: Photo[] = [
-  // October 2024
+  // August 2025
   {
     id: "10",
     src: photoShoot,
-    location: "Golden Gate Park, San Francisco",
-    date: "October 2024",
+    location: "Mount Auburn Cemetery, Cambridge, MA",
+    date: "August 2025",
     katherineComment: "Behind the scenes of our engagement shoot!",
     djComment: "She insisted on being my personal lighting assistant.",
   },
