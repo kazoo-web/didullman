@@ -62,7 +62,7 @@ export const samplePhotos: Photo[] = [
   },
   {
     id: "3",
-    src: img7953,
+    src: cherryBlossomsDc,
     location: "Cherry Blossoms, DC",
     date: "April 2025",
     katherineComment: "Peak bloom perfection!",
@@ -70,7 +70,7 @@ export const samplePhotos: Photo[] = [
   },
   {
     id: "4",
-    src: img8425,
+    src: shenandoahFamily,
     location: "Shenandoah, Virginia",
     date: "May 2025",
     katherineComment: "Family hike day!",
@@ -78,7 +78,7 @@ export const samplePhotos: Photo[] = [
   },
   {
     id: "5",
-    src: img8473,
+    src: vermontInnDoorway,
     location: "Historic Inn, Vermont",
     date: "June 2025",
     katherineComment: "Matching tie-dye vibes!",
