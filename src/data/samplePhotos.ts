@@ -260,20 +260,20 @@ export const samplePhotos: Photo[] = [
     djComment: "That view was incredible.",
   },
   {
-    id: "29",
-    src: katherineDad,
-    location: "Bethesda, MD",
-    date: "August 2025",
-    katherineComment: "Picked up parents and Spindrifts on our way to Bayse, VA to celebrate GM Nelly's 100th birthday!",
-    djComment: "Great to visit family.",
-  },
-  {
     id: "30",
     src: cavernsFamily,
     location: "Luray Caverns, Luray, VA",
     date: "August 2025",
     katherineComment: "Luray Caverns with Aoife and Ailis. It was really hard not to touch everything",
     djComment: "Those stalactites were incredible.",
+  },
+  {
+    id: "29",
+    src: katherineDad,
+    location: "Bethesda, MD",
+    date: "August 2025",
+    katherineComment: "Picked up parents and Spindrifts on our way to Bayse, VA to celebrate GM Nelly's 100th birthday!",
+    djComment: "Great to visit family.",
   },
   {
     id: "31",
