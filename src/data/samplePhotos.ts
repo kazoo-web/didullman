@@ -142,7 +142,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "13",
     src: formalEvent,
-    location: "Add Location",
+    location: "Boston, MA",
     date: "June 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
