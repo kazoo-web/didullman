@@ -93,7 +93,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "3",
     src: cherryBlossomsDc,
-    location: "Cherry Blossoms, DC",
+    location: "Arnold Arboretum of Harvard University, Boston, MA",
     date: "May 2025",
     katherineComment: "Peak bloom perfection!",
     djComment: "Worth the crowds.",
