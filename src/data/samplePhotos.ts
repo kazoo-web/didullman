@@ -44,22 +44,43 @@ import dinnerDateCozy from "@/assets/photos/dinner-date-cozy.jpg";
 import bookstoreKazoo from "@/assets/photos/bookstore-kazoo.jpg";
 
 export const samplePhotos: Photo[] = [
+  // October 2024
   {
-    id: "1",
-    src: carterNotchHutGroup,
-    location: "Carter Notch Hut, New Hampshire",
-    date: "August 2025",
-    katherineComment: "The crew made it to the hut after a long day of hiking! We were exhausted but so happy to finally arrive.",
-    djComment: "Heavy packs but worth every step. The views along the way were absolutely stunning and the hut felt like a paradise.",
+    id: "10",
+    src: photoShoot,
+    location: "Golden Gate Park, San Francisco",
+    date: "October 2024",
+    katherineComment: "Behind the scenes of our engagement shoot!",
+    djComment: "She insisted on being my personal lighting assistant.",
   },
+  // November 2024
   {
-    id: "2",
-    src: holiFestival,
-    location: "Somerville, Massachusetts",
-    date: "May 2025",
-    katherineComment: "Holi was an explosion of joy!",
-    djComment: "That blue took three showers to wash off.",
+    id: "9",
+    src: mountainHike,
+    location: "Adirondacks, New York",
+    date: "November 2024",
+    katherineComment: "Cold but so worth it for this view!",
+    djComment: "She only complained for the first 2 miles.",
   },
+  // January 2025
+  {
+    id: "11",
+    src: sunsetBeach,
+    location: "Malibu, California",
+    date: "January 2025",
+    katherineComment: "The golden hour was absolutely perfect.",
+    djComment: "Best sunset we've ever caught together.",
+  },
+  // February 2025
+  {
+    id: "8",
+    src: mosquitos,
+    location: "Culebra, Puerto Rico",
+    date: "February 2025",
+    katherineComment: "The sign was ironic - we got eaten alive!",
+    djComment: "Golf cart island life was pretty great though.",
+  },
+  // April 2025
   {
     id: "3",
     src: cherryBlossomsDc,
@@ -67,6 +88,23 @@ export const samplePhotos: Photo[] = [
     date: "April 2025",
     katherineComment: "Peak bloom perfection!",
     djComment: "Worth the crowds.",
+  },
+  {
+    id: "7",
+    src: mistyLake,
+    location: "Lake Winnipesaukee, New Hampshire",
+    date: "April 2025",
+    katherineComment: "The fog rolling in was magical.",
+    djComment: "Peaceful mornings like this are everything.",
+  },
+  // May 2025
+  {
+    id: "2",
+    src: holiFestival,
+    location: "Somerville, Massachusetts",
+    date: "May 2025",
+    katherineComment: "Holi was an explosion of joy!",
+    djComment: "That blue took three showers to wash off.",
   },
   {
     id: "4",
@@ -77,14 +115,6 @@ export const samplePhotos: Photo[] = [
     djComment: "That view was incredible.",
   },
   {
-    id: "5",
-    src: vermontInnDoorway,
-    location: "Historic Inn, Vermont",
-    date: "June 2025",
-    katherineComment: "Matching tie-dye vibes!",
-    djComment: "The cutest doorway in New England.",
-  },
-  {
     id: "6",
     src: lobsterPool,
     location: "Rockport, Massachusetts",
@@ -93,52 +123,21 @@ export const samplePhotos: Photo[] = [
     djComment: "Best clam shack on the North Shore.",
   },
   {
-    id: "7",
-    src: mistyLake,
-    location: "Lake Winnipesaukee, New Hampshire",
-    date: "April 2025",
-    katherineComment: "The fog rolling in was magical.",
-    djComment: "Peaceful mornings like this are everything.",
-  },
-  {
-    id: "8",
-    src: mosquitos,
-    location: "Culebra, Puerto Rico",
-    date: "February 2025",
-    katherineComment: "The sign was ironic - we got eaten alive!",
-    djComment: "Golf cart island life was pretty great though.",
-  },
-  {
-    id: "9",
-    src: mountainHike,
-    location: "Adirondacks, New York",
-    date: "November 2024",
-    katherineComment: "Cold but so worth it for this view!",
-    djComment: "She only complained for the first 2 miles.",
-  },
-  {
-    id: "10",
-    src: photoShoot,
-    location: "Golden Gate Park, San Francisco",
-    date: "October 2024",
-    katherineComment: "Behind the scenes of our engagement shoot!",
-    djComment: "She insisted on being my personal lighting assistant.",
-  },
-  {
-    id: "11",
-    src: sunsetBeach,
-    location: "Malibu, California",
-    date: "January 2025",
-    katherineComment: "The golden hour was absolutely perfect.",
-    djComment: "Best sunset we've ever caught together.",
-  },
-  {
     id: "12",
     src: beachSunset,
     location: "Add Location",
     date: "May 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
+  },
+  // June 2025
+  {
+    id: "5",
+    src: vermontInnDoorway,
+    location: "Historic Inn, Vermont",
+    date: "June 2025",
+    katherineComment: "Matching tie-dye vibes!",
+    djComment: "The cutest doorway in New England.",
   },
   {
     id: "13",
@@ -188,6 +187,7 @@ export const samplePhotos: Photo[] = [
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
   },
+  // July 2025
   {
     id: "19",
     src: julyMoment,
@@ -260,6 +260,15 @@ export const samplePhotos: Photo[] = [
     katherineComment: "Cooling off in the creek!",
     djComment: "She found the best swimming hole.",
   },
+  // August 2025
+  {
+    id: "1",
+    src: carterNotchHutGroup,
+    location: "Carter Notch Hut, New Hampshire",
+    date: "August 2025",
+    katherineComment: "The crew made it to the hut after a long day of hiking! We were exhausted but so happy to finally arrive.",
+    djComment: "Heavy packs but worth every step. The views along the way were absolutely stunning and the hut felt like a paradise.",
+  },
   {
     id: "29",
     src: katherineDad,
@@ -308,6 +317,7 @@ export const samplePhotos: Photo[] = [
     katherineComment: "Lobster with the best view!",
     djComment: "Nothing beats waterfront seafood.",
   },
+  // September 2025
   {
     id: "35",
     src: sushiClassCouple,
@@ -348,6 +358,7 @@ export const samplePhotos: Photo[] = [
     katherineComment: "Climbing above the ocean!",
     djComment: "Otter Cliffs never disappoints.",
   },
+  // November 2025
   {
     id: "40",
     src: pizzaSelfieZurich,
