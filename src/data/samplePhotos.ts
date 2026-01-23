@@ -223,7 +223,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "23",
     src: redBarnSelfie,
-    location: "Cape Breton, Nova Scotia",
+    location: "Cape Breton, Nova Scotia, Canada",
     date: "July 2025",
     katherineComment: "Found this adorable red barn!",
     djComment: "The golden hour was perfect.",
