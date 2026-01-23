@@ -255,7 +255,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "27",
     src: waterfallCreek,
-    location: "New Hampshire",
+    location: "North Adams, MA",
     date: "July 2025",
     katherineComment: "Cooling off in the creek!",
     djComment: "She found the best swimming hole.",
