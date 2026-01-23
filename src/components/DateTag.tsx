@@ -6,7 +6,7 @@ interface DateTagProps {
 
 export const DateTag = ({ date }: DateTagProps) => {
   return (
-    <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-sm">
+    <div className="inline-flex items-center gap-2 px-4 py-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-lg">
       <Calendar className="w-4 h-4 text-gold" />
       <span className="text-sm font-medium text-foreground">{date}</span>
     </div>
