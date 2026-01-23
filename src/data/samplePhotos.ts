@@ -199,7 +199,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "20",
     src: summerNight,
-    location: "Add Location",
+    location: "Prince Edward Island, Canada",
     date: "July 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
@@ -207,7 +207,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "21",
     src: fourthJuly,
-    location: "Add Location",
+    location: "Prince Edward Island, Canada",
     date: "July 2025",
     katherineComment: "Add Katherine's comment",
     djComment: "Add DJ's comment",
