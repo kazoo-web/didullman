@@ -368,7 +368,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "41",
     src: lucerneBridgeSelfie,
-    location: "Lucerne, Switzerland",
+    location: "Lake Lucerne, Switzerland",
     date: "November 2025",
     katherineComment: "Chapel Bridge is iconic!",
     djComment: "The Alps in the background were stunning.",
