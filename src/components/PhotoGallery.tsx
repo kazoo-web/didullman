@@ -83,7 +83,7 @@ export const PhotoGallery = ({ photos, autoPlayInterval = 6000 }: PhotoGalleryPr
       </div>
 
       {/* Progress Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-[190px] md:bottom-[170px] left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {photos.map((_, index) => (
           <button
             key={index}
