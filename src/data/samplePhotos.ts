@@ -101,7 +101,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "2",
     src: holiFestival,
-    location: "Somerville, Massachusetts",
+    location: "Cambridge, MA",
     date: "May 2025",
     katherineComment: "Holi was an explosion of joy!",
     djComment: "That blue took three showers to wash off.",
