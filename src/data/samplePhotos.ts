@@ -89,6 +89,14 @@ export const samplePhotos: Photo[] = [
     katherineComment: "The fog rolling in was magical.",
     djComment: "Peaceful mornings like this are everything.",
   },
+  {
+    id: "2",
+    src: holiFestival,
+    location: "Lake Winnipesaukee, Gilford, NH",
+    date: "April 2025",
+    katherineComment: "Holi was an explosion of joy!",
+    djComment: "That blue took three showers to wash off.",
+  },
   // May 2025
   {
     id: "3",
@@ -97,14 +105,6 @@ export const samplePhotos: Photo[] = [
     date: "May 2025",
     katherineComment: "Peak bloom perfection!",
     djComment: "Worth the crowds.",
-  },
-  {
-    id: "2",
-    src: holiFestival,
-    location: "Somerville, Massachusetts",
-    date: "May 2025",
-    katherineComment: "Holi was an explosion of joy!",
-    djComment: "That blue took three showers to wash off.",
   },
   {
     id: "4",
