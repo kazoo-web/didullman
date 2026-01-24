@@ -33,35 +33,38 @@ export const PhotoSlide = ({ photo, isActive, useFullPhoto = false }: PhotoSlide
           <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
         </div>
 
-        {/* Photo Container - positioned above metadata */}
-        <div className="absolute inset-x-0 top-0 bottom-[220px] md:bottom-[200px] flex justify-center items-center p-4">
-          <img 
-            src={photo.src} 
-            alt={photo.location}
-            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-          />
-        </div>
+        {/* Main Layout Container */}
+        <div className="absolute inset-0 flex flex-col">
+          {/* Photo Container - takes remaining space above metadata */}
+          <div className="flex-1 flex justify-center items-center p-4 pb-0 min-h-0">
+            <img 
+              src={photo.src} 
+              alt={photo.location}
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            />
+          </div>
 
-        {/* Content Overlay - fixed at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-[220px] md:h-[200px] flex flex-col justify-center items-center p-4 md:p-6 pointer-events-none">
-          {/* Subtle gradient for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/70 to-transparent" />
-          
-          <div className={`relative space-y-3 flex flex-col items-center pointer-events-auto ${isActive ? 'animate-slide-up' : ''}`}>
-            {/* Location and Date Tags */}
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <LocationTag location={photo.location} />
-              {photo.date && <DateTag date={photo.date} />}
-            </div>
+          {/* Content Overlay - auto height based on content, with bottom padding for progress bar */}
+          <div className="flex-shrink-0 flex flex-col items-center p-4 pb-12 md:p-6 md:pb-14 pointer-events-none">
+            {/* Subtle gradient for text legibility */}
+            <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background/95 via-background/70 to-transparent pointer-events-none" />
+            
+            <div className={`relative space-y-3 flex flex-col items-center pointer-events-auto ${isActive ? 'animate-slide-up' : ''}`}>
+              {/* Location and Date Tags */}
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <LocationTag location={photo.location} />
+                {photo.date && <DateTag date={photo.date} />}
+              </div>
 
-            {/* Commentary */}
-            <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center">
-              {photo.katherineComment && (
-                <Commentary author="katherine" comment={photo.katherineComment} />
-              )}
-              {photo.djComment && (
-                <Commentary author="dj" comment={photo.djComment} />
-              )}
+              {/* Commentary */}
+              <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center">
+                {photo.katherineComment && (
+                  <Commentary author="katherine" comment={photo.katherineComment} />
+                )}
+                {photo.djComment && (
+                  <Commentary author="dj" comment={photo.djComment} />
+                )}
+              </div>
             </div>
           </div>
         </div>
