@@ -57,7 +57,7 @@ export const PhotoSlide = ({ photo, isActive, useFullPhoto = false }: PhotoSlide
               </div>
 
               {/* Commentary */}
-              <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center">
+              <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-4 justify-center">
                 {photo.katherineComment && (
                   <Commentary author="katherine" comment={photo.katherineComment} />
                 )}
