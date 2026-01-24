@@ -221,7 +221,7 @@ export const samplePhotos: Photo[] = [
   {
     id: "26",
     src: foggyBeachVan,
-    location: "Unknown",
+    location: "Somewhere in Nova Scotia, Canada",
     date: "July 2025",
     katherineComment: "I had just peed",
     djComment: "Last night before taking the fast ferry from the southern tip of Nova Scotia back to Maine we boondocked at the end of a road which opened up to the beach. The fog cleared as the ferry left for 'Murica.",
