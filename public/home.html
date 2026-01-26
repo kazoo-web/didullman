@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katherine & DJ</title>
+  <meta name="description" content="Welcome to our shared memories">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: hsl(40, 33%, 96%);
+      --foreground: hsl(30, 10%, 20%);
+      --card: hsl(40, 30%, 98%);
+      --border: hsl(35, 20%, 85%);
+      --gold: hsl(42, 65%, 55%);
+      --gold-light: hsl(42, 50%, 94%);
+      --muted-foreground: hsl(30, 10%, 45%);
+      --accent: hsl(28, 60%, 55%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--muted-foreground);
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .link-card {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      padding: 1.25rem 1.5rem;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      text-decoration: none;
+      color: var(--foreground);
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .link-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .link-card .title {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .link-card .description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      font-weight: 300;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 2rem auto;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Katherine & DJ</h1>
+    <p class="subtitle">Our shared memories</p>
+    
+    <div class="divider"></div>
+    
+    <div class="links">
+      <a href="/" class="link-card">
+        <div class="title">Year in Review 2025</div>
+        <div class="description">A photo journey through our favorite moments</div>
+      </a>
+    </div>
+    
+    <footer>
+      <p>Made with love</p>
+    </footer>
+  </div>
+</body>
+</html>
