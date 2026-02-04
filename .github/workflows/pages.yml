@@ -32,7 +32,7 @@ jobs:
             cp CNAME dist/
             cp homepage.html dist/index.html
             mkdir -p dist/year-in-review-2025
-            cp -r dist-yir/* dist/year-in-review-2025/
+            cp -r dist-yir/ dist/year-in-review-2025
           
       - uses: actions/upload-pages-artifact@v3
         with:
