@@ -29,6 +29,7 @@ jobs:
         run: |
             mkdir -p dist
             cp -r public/* dist/
+            cp CNAME dist/
             cp homepage.html dist/index.html
             mkdir -p dist/year-in-review-2025
             cp -r dist-yir/* dist/year-in-review-2025/
