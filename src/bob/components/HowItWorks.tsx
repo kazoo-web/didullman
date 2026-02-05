@@ -14,10 +14,9 @@ interface RuleCardProps {
 const RuleCard = ({ icon, title, description }: RuleCardProps) => (
   <div className="bob-card p-6 flex items-start gap-4">
     <div
-      className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center"
-      style={{ backgroundColor: "hsl(35, 40%, 92%)" }}
+      className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center bob-gradient-bg"
     >
-      <div style={{ color: "var(--bob-coral)" }}>{icon}</div>
+      <div className="text-white">{icon}</div>
     </div>
     <div>
       <h3 className="font-display text-lg font-semibold" style={{ color: "var(--bob-text)" }}>
@@ -55,10 +54,10 @@ export const HowItWorks = ({ onNavigate }: HowItWorksProps) => {
   ];
 
   return (
-    <section className="relative z-10 px-6 py-12 md:py-16">
+    <section className="relative z-10 px-6 py-6 md:py-8">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <h2 className="font-display text-3xl md:text-4xl font-bold" style={{ color: "var(--bob-text)" }}>
             How It Works
           </h2>
@@ -75,7 +74,7 @@ export const HowItWorks = ({ onNavigate }: HowItWorksProps) => {
         </div>
 
         {/* Closing Date Badge */}
-        <div className="mt-10 text-center">
+        <div className="mt-6 text-center">
           <div
             className="inline-flex items-center gap-2 px-5 py-3 rounded-full"
             style={{ backgroundColor: "hsl(24, 80%, 95%)" }}
@@ -88,7 +87,7 @@ export const HowItWorks = ({ onNavigate }: HowItWorksProps) => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-10 text-center">
+        <div className="mt-6 text-center">
           <button
             onClick={() => onNavigate("guess")}
             className="bob-btn bob-btn-primary"

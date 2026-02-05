@@ -3,7 +3,7 @@ import { BabyIcon } from "./BabyIcon";
 
 export const Hero = () => {
   return (
-    <section className="relative z-10 flex flex-col items-center justify-center px-6 py-16 md:py-24 text-center">
+    <section className="relative z-10 flex flex-col items-center justify-center px-6 py-8 md:py-12 text-center">
       {/* Baby Icon */}
       <div className="animate-fade-in">
         <BabyIcon size="lg" />
