@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 dist-yir
+dist-bob
 *.local
 
 # Editor directories and files

@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:bob": "vite --config vite.config.bob.ts",
     "build": "vite build",
+    "build:bob": "vite build --config vite.config.bob.ts",
+    "build:all": "npm run build && npm run build:bob",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
