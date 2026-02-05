@@ -36,15 +36,25 @@ export const PhotoGallery = ({ photos, autoPlayInterval = 6000 }: PhotoGalleryPr
 
   return (
     <div className="relative w-full h-screen-safe overflow-hidden bg-background">
-      {/* Photos */}
-      {photos.map((photo, index) => (
-        <PhotoSlide 
-          key={photo.id} 
-          photo={photo} 
-          isActive={index === currentIndex}
-          useFullPhoto={true}
-        />
-      ))}
+      {/* Photos - Only render current and adjacent slides for memory efficiency */}
+      {photos.map((photo, index) => {
+        // Only render current, previous, and next slides to prevent memory issues on mobile
+        const isVisible =
+          index === currentIndex ||
+          index === (currentIndex - 1 + photos.length) % photos.length ||
+          index === (currentIndex + 1) % photos.length;
+
+        if (!isVisible) return null;
+
+        return (
+          <PhotoSlide
+            key={photo.id}
+            photo={photo}
+            isActive={index === currentIndex}
+            useFullPhoto={true}
+          />
+        );
+      })}
 
       {/* Navigation Controls */}
       <div className="absolute top-6 right-6 z-40 flex items-center gap-3">
