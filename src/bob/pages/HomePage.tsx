@@ -11,8 +11,8 @@ export const HomePage = ({ onNavigate }: HomePageProps) => {
   return (
     <div className="min-h-screen relative">
       <FloatingDecorations />
-      <Hero onNavigate={onNavigate} />
-      <HowItWorks />
+      <Hero />
+      <HowItWorks onNavigate={onNavigate} />
     </div>
   );
 };

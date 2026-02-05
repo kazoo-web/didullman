@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User, Mail, DollarSign, ArrowLeft } from "lucide-react";
+import { User, Mail, DollarSign, ArrowLeft, Baby } from "lucide-react";
 import { BabyIcon } from "./BabyIcon";
 import { AppView, GuessData } from "../App";
 
@@ -162,21 +162,11 @@ export const GuessForm = ({ onNavigate, onSubmit }: GuessFormProps) => {
                     }
                   `}
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <Baby
                     className="w-10 h-10"
+                    strokeWidth={1.5}
                     style={{ color: "var(--bob-boy-blue-text)" }}
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none" />
-                    <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none" />
-                    <path d="M8.5 14.5c1 1.5 5.5 1.5 7 0" />
-                  </svg>
+                  />
                   <span
                     className="font-medium"
                     style={{ color: "var(--bob-boy-blue-text)" }}
@@ -198,21 +188,11 @@ export const GuessForm = ({ onNavigate, onSubmit }: GuessFormProps) => {
                     }
                   `}
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <Baby
                     className="w-10 h-10"
+                    strokeWidth={1.5}
                     style={{ color: "var(--bob-girl-coral-text)" }}
-                  >
-                    <circle cx="12" cy="12" r="9" />
-                    <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none" />
-                    <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none" />
-                    <path d="M8.5 14.5c1 1.5 5.5 1.5 7 0" />
-                  </svg>
+                  />
                   <span
                     className="font-medium"
                     style={{ color: "var(--bob-girl-coral-text)" }}

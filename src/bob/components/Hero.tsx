@@ -1,12 +1,7 @@
-import { Calendar, Gift } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { BabyIcon } from "./BabyIcon";
-import { AppView } from "../App";
 
-interface HeroProps {
-  onNavigate: (view: AppView) => void;
-}
-
-export const Hero = ({ onNavigate }: HeroProps) => {
+export const Hero = () => {
   return (
     <section className="relative z-10 flex flex-col items-center justify-center px-6 py-16 md:py-24 text-center">
       {/* Baby Icon */}
@@ -34,22 +29,6 @@ export const Hero = ({ onNavigate }: HeroProps) => {
           <span className="font-semibold" style={{ color: "var(--bob-text)" }}>May 22, 2026</span>
         </div>
       </div>
-
-      {/* CTA Button */}
-      <div className="mt-8 animate-fade-in-delay-3">
-        <button
-          onClick={() => onNavigate("guess")}
-          className="bob-btn bob-btn-primary"
-        >
-          <Gift className="w-5 h-5" />
-          Make Your Guess
-        </button>
-      </div>
-
-      {/* Minimum contribution note */}
-      <p className="mt-4 text-sm animate-fade-in-delay-3" style={{ color: "var(--bob-text-muted)" }}>
-        Minimum contribution: $10
-      </p>
     </section>
   );
 };

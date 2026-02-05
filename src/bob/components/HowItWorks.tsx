@@ -1,4 +1,9 @@
-import { Calendar, CheckCircle, Trophy, Eye } from "lucide-react";
+import { Calendar, CheckCircle, Trophy, Eye, Gift } from "lucide-react";
+import { AppView } from "../App";
+
+interface HowItWorksProps {
+  onNavigate: (view: AppView) => void;
+}
 
 interface RuleCardProps {
   icon: React.ReactNode;
@@ -25,7 +30,7 @@ const RuleCard = ({ icon, title, description }: RuleCardProps) => (
   </div>
 );
 
-export const HowItWorks = () => {
+export const HowItWorks = ({ onNavigate }: HowItWorksProps) => {
   const rules = [
     {
       icon: <Calendar className="w-6 h-6" />,
@@ -80,6 +85,20 @@ export const HowItWorks = () => {
               Guessing closes: April 30, 2026
             </span>
           </div>
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-10 text-center">
+          <button
+            onClick={() => onNavigate("guess")}
+            className="bob-btn bob-btn-primary"
+          >
+            <Gift className="w-5 h-5" />
+            Make Your Guess
+          </button>
+          <p className="mt-4 text-sm" style={{ color: "var(--bob-text-muted)" }}>
+            Minimum contribution: $10
+          </p>
         </div>
       </div>
     </section>
