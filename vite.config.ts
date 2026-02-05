@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/year-in-review-2025",
+  base: "/year-in-review-2025/",
   build: {
   outDir: "dist-yir",
   emptyOutDir: true,
