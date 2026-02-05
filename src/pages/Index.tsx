@@ -3,7 +3,7 @@ import { samplePhotos } from "@/data/samplePhotos";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="h-screen-safe bg-background overflow-hidden">
       <PhotoGallery photos={samplePhotos} autoPlayInterval={6000} />
     </main>
   );

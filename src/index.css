@@ -80,9 +80,27 @@
     @apply border-border;
   }
 
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* iOS Safari 100vh fix - use dynamic viewport height where supported */
+  .h-screen-safe {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  /* Fallback for older iOS versions */
+  @supports (-webkit-touch-callout: none) {
+    .h-screen-safe {
+      height: -webkit-fill-available;
+    }
   }
 
   /* Ensure toast portals never block underlying UI (e.g., slideshow controls) */

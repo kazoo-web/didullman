@@ -35,7 +35,7 @@ export const PhotoGallery = ({ photos, autoPlayInterval = 6000 }: PhotoGalleryPr
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-background">
+    <div className="relative w-full h-screen-safe overflow-hidden bg-background">
       {/* Photos */}
       {photos.map((photo, index) => (
         <PhotoSlide 

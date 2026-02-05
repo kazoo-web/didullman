@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages SPA redirect
+    // Preserve the path for React Router to handle
+    var pathSegmentsToKeep = 1; // Keep /year-in-review-2025
+    var l = window.location;
+    var repo = '/year-in-review-2025';
+
+    // Only redirect if we're on a year-in-review-2025 subpath
+    if (l.pathname.startsWith(repo)) {
+      // Redirect to the year-in-review-2025 index with the path preserved as a query param
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        repo + '/?p=' + encodeURIComponent(l.pathname.slice(repo.length) + l.search) +
+        (l.hash || '')
+      );
+    } else {
+      // For other 404s, redirect to homepage
+      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/');
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
