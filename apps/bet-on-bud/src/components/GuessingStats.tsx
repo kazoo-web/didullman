@@ -230,7 +230,7 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
       </div>
 
       {/* Date Distribution Card */}
-      <div className="bob-card p-6 overflow-visible">
+      <div className="bob-card p-6">
         <div className="flex items-center gap-2 mb-6">
           <Calendar className="w-5 h-5" style={{ color: "var(--bob-coral)" }} />
           <span className="font-medium" style={{ color: "var(--bob-text)" }}>
@@ -238,109 +238,55 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
           </span>
         </div>
 
-        {/* Bar Chart */}
-        <div className="overflow-visible">
-          <div style={{ minWidth: Math.max(displayDates.length * 40, 200) }}>
-            {/* Y-axis labels and bars */}
-            <div className="flex">
-              {/* Y-axis - using absolute positioning for precise alignment */}
+        {/* Horizontal Bar Chart */}
+        <div className="space-y-2">
+          {displayDates.map((date) => {
+            const count = dateCounts[date];
+            const widthPercent = (count / maxDateCount) * 100;
+            const isHovered = hoveredDate === date;
+
+            return (
               <div
-                className="relative text-xs pr-2 text-right"
-                style={{ color: "var(--bob-text-muted)", height: "120px", minWidth: "24px" }}
+                key={date}
+                className="flex items-center gap-3 cursor-pointer"
+                onMouseEnter={() => setHoveredDate(date)}
+                onMouseLeave={() => setHoveredDate(null)}
               >
-                {yAxisLabels.map((label) => (
-                  <span
-                    key={label}
-                    className="absolute right-2"
-                    style={{
-                      top: `${((maxDateCount - label) / maxDateCount) * 100}%`,
-                      transform: "translateY(-50%)",
-                    }}
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
-
-              {/* Bars container with gridlines */}
-              <div
-                className="flex-1 relative border-l"
-                style={{ borderColor: "var(--bob-border)", height: "120px" }}
-              >
-                {/* Horizontal gridlines */}
-                {yAxisLabels.map((label) => (
-                  <div
-                    key={label}
-                    className="absolute w-full border-b"
-                    style={{
-                      bottom: `${(label / maxDateCount) * 100}%`,
-                      borderColor: label === 0 ? "var(--bob-border)" : "rgba(0,0,0,0.1)",
-                    }}
-                  />
-                ))}
-
-                {/* Bars */}
-                <div className="absolute inset-0 flex items-end gap-1 px-1">
-                  {displayDates.map((date) => {
-                    const count = dateCounts[date];
-                    // Calculate exact height based on count relative to max
-                    const heightPercent = (count / maxDateCount) * 100;
-                    const isHovered = hoveredDate === date;
-
-                    return (
-                      <div
-                        key={date}
-                        className="flex-1 flex flex-col items-center justify-end relative"
-                        style={{ maxWidth: "40px", height: "100%" }}
-                        onMouseEnter={() => setHoveredDate(date)}
-                        onMouseLeave={() => setHoveredDate(null)}
-                      >
-                        {/* Only show bar if count > 0 */}
-                        {count > 0 && (
-                          <div
-                            className="w-full rounded-t cursor-pointer transition-all"
-                            style={{
-                              height: `${heightPercent}%`,
-                              backgroundColor: isHovered ? "#d4694a" : "#e8805c",
-                            }}
-                          />
-                        )}
-                        {/* Tooltip */}
-                        {isHovered && (
-                          <div
-                            className="absolute bottom-full mb-2 bg-white shadow-lg rounded-lg px-3 py-2 text-sm z-50 whitespace-nowrap"
-                            style={{
-                              border: "1px solid var(--bob-border)",
-                              left: "50%",
-                              transform: "translateX(-50%)",
-                            }}
-                          >
-                            <div className="font-medium">{formatShortDate(date)}</div>
-                            <div style={{ color: "var(--bob-text-muted)" }}>
-                              {count} {count === 1 ? "guess" : "guesses"}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* X-axis labels - aligned with bars */}
-            <div className="flex gap-1 mt-2" style={{ marginLeft: "24px", paddingLeft: "4px", paddingRight: "4px" }}>
-              {displayDates.map((date) => (
+                {/* Date label */}
                 <div
-                  key={date}
-                  className="flex-1 text-center"
-                  style={{ color: "var(--bob-text-muted)", maxWidth: "40px" }}
+                  className="text-sm w-12 text-right flex-shrink-0"
+                  style={{ color: isHovered ? "var(--bob-coral)" : "var(--bob-text-muted)" }}
                 >
-                  <span className="text-xs">{formatAxisDate(date)}</span>
+                  {formatAxisDate(date)}
                 </div>
-              ))}
-            </div>
-          </div>
+
+                {/* Bar container */}
+                <div
+                  className="flex-1 h-6 rounded-lg overflow-hidden"
+                  style={{ backgroundColor: "var(--bob-border)" }}
+                >
+                  {count > 0 && (
+                    <div
+                      className="h-full rounded-lg transition-all"
+                      style={{
+                        width: `${widthPercent}%`,
+                        backgroundColor: isHovered ? "#d4694a" : "#e8805c",
+                        minWidth: "8px",
+                      }}
+                    />
+                  )}
+                </div>
+
+                {/* Count label */}
+                <div
+                  className="text-sm w-8 flex-shrink-0"
+                  style={{ color: isHovered ? "var(--bob-coral)" : "var(--bob-text-muted)" }}
+                >
+                  {count}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
