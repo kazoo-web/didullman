@@ -16,11 +16,22 @@ const MIN_OFFSET = -14; // May 8, 2026
 const MAX_OFFSET = 14; // June 5, 2026
 const MIN_CONTRIBUTION = 10;
 
+// Pre-calculate the min and max dates
+const MIN_DATE = new Date("2026-05-08");
+const MAX_DATE = new Date("2026-06-05");
+
 const formatDate = (date: Date): string => {
   return date.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
+  });
+};
+
+const formatShortDate = (date: Date): string => {
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
   });
 };
 
@@ -238,16 +249,16 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
 
               {/* Slider Labels */}
               <div className="flex justify-between text-sm mt-2" style={{ color: "var(--bob-text-muted)" }}>
-                <span>{MIN_OFFSET} days</span>
+                <span>{formatShortDate(MIN_DATE)}</span>
                 <span className="font-medium" style={{ color: "var(--bob-text)" }}>
                   {formatDate(selectedDate)}
                 </span>
-                <span>+{MAX_OFFSET} days</span>
+                <span>{formatShortDate(MAX_DATE)}</span>
               </div>
 
               {/* Due date reference */}
               <p className="text-center text-sm mt-2" style={{ color: "var(--bob-text-muted)" }}>
-                Due date: {formatDate(DUE_DATE)}
+                Due date: {formatShortDate(DUE_DATE)} (±14 days)
               </p>
             </div>
 
