@@ -234,7 +234,7 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
         <div className="flex items-center gap-2 mb-6">
           <Calendar className="w-5 h-5" style={{ color: "var(--bob-coral)" }} />
           <span className="font-medium" style={{ color: "var(--bob-text)" }}>
-            When will B.U.D. arrive?
+            What date will B.U.D. arrive?
           </span>
         </div>
 
@@ -328,8 +328,8 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
               </div>
             </div>
 
-            {/* X-axis labels - show all dates in consistent M/D format */}
-            <div className="flex mt-2" style={{ marginLeft: "24px", paddingLeft: "4px", paddingRight: "4px" }}>
+            {/* X-axis labels - aligned with bars */}
+            <div className="flex gap-1 mt-2" style={{ marginLeft: "24px", paddingLeft: "4px", paddingRight: "4px" }}>
               {displayDates.map((date) => (
                 <div
                   key={date}
