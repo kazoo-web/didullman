@@ -1,14 +1,14 @@
 /**
- * Stripe Integration using Payment Links
+ * Stripe Integration using Checkout Sessions
  *
  * Setup:
- * 1. Create a Payment Link in Stripe Dashboard with "Customer chooses amount"
- * 2. Set VITE_STRIPE_PAYMENT_LINK_ID to the Payment Link ID (e.g., "plink_xxx" or just the ID part)
- * 3. Configure success URL in Stripe to: https://yourdomain.com/bet-on-bud/?payment=success
+ * 1. Deploy to Vercel (it will automatically use the /api folder)
+ * 2. Set STRIPE_SECRET_KEY in Vercel environment variables
+ * 3. Set VITE_API_URL to your Vercel deployment URL (or leave empty for same-origin)
  */
 
-// Payment Link ID from Stripe Dashboard (the ID after buy.stripe.com/)
-const STRIPE_PAYMENT_LINK_ID = import.meta.env.VITE_STRIPE_PAYMENT_LINK_ID || "";
+// API URL - empty means same origin (Vercel deployment)
+const API_URL = import.meta.env.VITE_API_URL || "";
 
 export interface CreateCheckoutParams {
   amount: number; // in dollars
@@ -17,30 +17,61 @@ export interface CreateCheckoutParams {
   guessId: string;
 }
 
-// Redirect to Stripe Payment Link
+// Create Stripe Checkout Session and redirect
 export const redirectToCheckout = async ({
+  amount,
+  guesserName,
   guesserEmail,
   guessId,
 }: CreateCheckoutParams): Promise<{ error?: string }> => {
 
-  if (!STRIPE_PAYMENT_LINK_ID) {
-    // Skip payment for testing - return error to trigger the fallback flow
-    console.log(`[TEST MODE] Stripe Payment Link not configured, skipping payment`);
+  // Determine the API endpoint
+  const apiEndpoint = API_URL ? `${API_URL}/api/create-checkout` : "/api/create-checkout";
+
+  // Build success/cancel URLs
+  const baseUrl = window.location.origin;
+  const successUrl = `${baseUrl}/bet-on-bud/?payment=success`;
+  const cancelUrl = `${baseUrl}/bet-on-bud/?payment=cancelled`;
+
+  try {
+    const response = await fetch(apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: amount * 100, // Convert to cents
+        guesserName,
+        guesserEmail,
+        guessId,
+        successUrl,
+        cancelUrl,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      // If API not available, fall back to test mode
+      if (response.status === 404) {
+        console.log("[TEST MODE] API not available, skipping payment");
+        return { error: "Stripe not configured - test mode" };
+      }
+      return { error: errorData.error || "Failed to create checkout session" };
+    }
+
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+      return {};
+    }
+
+    return { error: "No checkout URL returned" };
+  } catch (error) {
+    console.error("Checkout error:", error);
+    // Network error - likely API not deployed, fall back to test mode
+    console.log("[TEST MODE] API not reachable, skipping payment");
     return { error: "Stripe not configured - test mode" };
   }
-
-  // Build the Stripe Payment Link URL
-  // Format: https://buy.stripe.com/{id}?prefilled_email=xxx&client_reference_id=xxx
-  const params = new URLSearchParams({
-    prefilled_email: guesserEmail,
-    client_reference_id: guessId, // This will appear in Stripe Dashboard for tracking
-  });
-
-  const checkoutUrl = `https://buy.stripe.com/${STRIPE_PAYMENT_LINK_ID}?${params.toString()}`;
-
-  // Redirect to Stripe
-  window.location.href = checkoutUrl;
-
-  return {};
 };
 
