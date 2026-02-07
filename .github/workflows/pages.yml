@@ -38,7 +38,6 @@ jobs:
             cp -r dist-yir/* dist/year-in-review-2025/
             mkdir -p dist/bet-on-bud
             cp -r dist-bob/* dist/bet-on-bud/
-            mv dist/bet-on-bud/index-bob.html dist/bet-on-bud/index.html
           
       - uses: actions/upload-pages-artifact@v3
         with:
