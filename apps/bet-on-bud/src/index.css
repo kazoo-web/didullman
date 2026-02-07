@@ -29,11 +29,17 @@
 @layer base {
   * {
     box-sizing: border-box;
+    /* Prevent text selection on touch devices for better UX */
+    -webkit-tap-highlight-color: transparent;
   }
 
   html, body {
     margin: 0;
     padding: 0;
+    /* Smooth scrolling for all browsers */
+    scroll-behavior: smooth;
+    /* Prevent iOS bounce/overscroll */
+    overscroll-behavior: none;
   }
 
   body {
@@ -41,12 +47,32 @@
     background: linear-gradient(180deg, var(--bob-cream) 0%, var(--bob-cream-dark) 100%);
     color: var(--bob-text);
     min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Safe area padding for iOS notch/home indicator */
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   #root {
     min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Improve touch scrolling on iOS */
+  .overflow-x-auto,
+  .overflow-y-auto,
+  .overflow-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure buttons and interactive elements have good touch targets */
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
