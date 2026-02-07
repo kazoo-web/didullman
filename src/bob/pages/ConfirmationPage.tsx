@@ -70,6 +70,15 @@ export const ConfirmationPage = ({ guess, onNavigate }: ConfirmationPageProps) =
                   ${guess.contributionAmount}
                 </span>
               </div>
+
+              {guess.parentingAdvice && (
+                <div className="pt-3 mt-3 border-t" style={{ borderColor: "var(--bob-border)" }}>
+                  <span className="text-sm" style={{ color: "var(--bob-text-muted)" }}>Your advice:</span>
+                  <p className="mt-1 text-sm italic" style={{ color: "var(--bob-text)" }}>
+                    "{guess.parentingAdvice}"
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 

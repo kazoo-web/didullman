@@ -11,6 +11,7 @@ export interface GuessData {
   sex: "boy" | "girl";
   date: Date;
   contributionAmount: number;
+  parentingAdvice?: string;
 }
 
 function App() {
