@@ -230,7 +230,7 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
       </div>
 
       {/* Date Distribution Card */}
-      <div className="bob-card p-6">
+      <div className="bob-card p-6 overflow-visible">
         <div className="flex items-center gap-2 mb-6">
           <Calendar className="w-5 h-5" style={{ color: "var(--bob-coral)" }} />
           <span className="font-medium" style={{ color: "var(--bob-text)" }}>
@@ -240,117 +240,122 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
 
         {/* Vertical Bar Chart with horizontal scroll */}
         <div
-          className="overflow-x-auto pb-2"
+          className="overflow-x-auto pb-2 overflow-y-visible"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
-          <div style={{ minWidth: Math.max(displayDates.length * 36, 280) }}>
-            {/* Y-axis labels and bars */}
-            <div className="flex">
-              {/* Y-axis */}
-              <div
-                className="relative text-xs pr-2 text-right flex-shrink-0"
-                style={{ color: "var(--bob-text-muted)", height: "100px", minWidth: "20px" }}
-              >
-                {yAxisLabels.map((label) => (
-                  <span
-                    key={label}
-                    className="absolute right-2"
-                    style={{
-                      top: `${((maxDateCount - label) / maxDateCount) * 100}%`,
-                      transform: "translateY(-50%)",
-                    }}
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
+          {/* Dynamic chart height: base 80px + 20px per count level, min 100px, max 300px */}
+          {(() => {
+            const chartHeight = Math.min(Math.max(80 + maxDateCount * 20, 100), 300);
+            const yAxisWidth = maxDateCount >= 10 ? 28 : 20;
 
-              {/* Bars container */}
-              <div
-                className="flex-1 relative border-l border-b"
-                style={{ borderColor: "var(--bob-border)", height: "100px" }}
-              >
-                {/* Horizontal gridlines */}
-                {yAxisLabels.slice(0, -1).map((label) => (
+            return (
+              <div style={{ minWidth: Math.max(displayDates.length * 32, 280), paddingTop: "40px" }}>
+                {/* Y-axis labels and bars */}
+                <div className="flex">
+                  {/* Y-axis */}
                   <div
-                    key={label}
-                    className="absolute w-full border-b"
-                    style={{
-                      bottom: `${(label / maxDateCount) * 100}%`,
-                      borderColor: "rgba(0,0,0,0.05)",
-                    }}
-                  />
-                ))}
-
-                {/* Bars */}
-                <div className="absolute inset-0 flex items-end">
-                  {displayDates.map((date) => {
-                    const count = dateCounts[date];
-                    const heightPercent = (count / maxDateCount) * 100;
-                    const isHovered = hoveredDate === date;
-
-                    return (
-                      <div
-                        key={date}
-                        className="flex-1 flex flex-col items-center justify-end relative px-0.5"
-                        style={{ height: "100%" }}
-                        onMouseEnter={() => setHoveredDate(date)}
-                        onMouseLeave={() => setHoveredDate(null)}
-                        onTouchStart={() => setHoveredDate(date)}
-                        onTouchEnd={() => setHoveredDate(null)}
+                    className="relative text-xs pr-2 text-right flex-shrink-0"
+                    style={{ color: "var(--bob-text-muted)", height: `${chartHeight}px`, minWidth: `${yAxisWidth}px` }}
+                  >
+                    {yAxisLabels.map((label) => (
+                      <span
+                        key={label}
+                        className="absolute right-2"
+                        style={{
+                          top: `${((maxDateCount - label) / maxDateCount) * 100}%`,
+                          transform: "translateY(-50%)",
+                        }}
                       >
-                        {count > 0 && (
+                        {label}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bars container */}
+                  <div
+                    className="flex-1 relative border-l border-b"
+                    style={{ borderColor: "var(--bob-border)", height: `${chartHeight}px` }}
+                  >
+                    {/* Horizontal gridlines */}
+                    {yAxisLabels.slice(0, -1).map((label) => (
+                      <div
+                        key={label}
+                        className="absolute w-full border-b"
+                        style={{
+                          bottom: `${(label / maxDateCount) * 100}%`,
+                          borderColor: "rgba(0,0,0,0.08)",
+                        }}
+                      />
+                    ))}
+
+                    {/* Bars */}
+                    <div className="absolute inset-0 flex items-end overflow-visible">
+                      {displayDates.map((date) => {
+                        const count = dateCounts[date];
+                        const heightPercent = (count / maxDateCount) * 100;
+                        const isHovered = hoveredDate === date;
+
+                        return (
                           <div
-                            className="w-full rounded-t transition-all"
-                            style={{
-                              height: `${heightPercent}%`,
-                              backgroundColor: isHovered ? "#d4694a" : "#e8805c",
-                              minHeight: "4px",
-                            }}
-                          />
-                        )}
-                        {/* Tooltip */}
-                        {isHovered && (
-                          <div
-                            className="absolute bottom-full mb-1 bg-white shadow-lg rounded px-2 py-1 text-xs z-50 whitespace-nowrap"
-                            style={{
-                              border: "1px solid var(--bob-border)",
-                              left: "50%",
-                              transform: "translateX(-50%)",
-                            }}
+                            key={date}
+                            className="flex-1 flex flex-col items-center justify-end relative px-0.5 overflow-visible"
+                            style={{ height: "100%" }}
+                            onMouseEnter={() => setHoveredDate(date)}
+                            onMouseLeave={() => setHoveredDate(null)}
+                            onTouchStart={() => setHoveredDate(date)}
+                            onTouchEnd={() => setHoveredDate(null)}
                           >
-                            <div className="font-medium">{formatShortDate(date)}</div>
-                            <div style={{ color: "var(--bob-text-muted)" }}>
-                              {count} {count === 1 ? "guess" : "guesses"}
-                            </div>
+                            {count > 0 && (
+                              <div
+                                className="w-full rounded-t transition-all cursor-pointer"
+                                style={{
+                                  height: `${heightPercent}%`,
+                                  backgroundColor: isHovered ? "#d4694a" : "#e8805c",
+                                  minHeight: "4px",
+                                }}
+                              />
+                            )}
+                            {/* Tooltip - positioned above the bar */}
+                            {isHovered && (
+                              <div
+                                className="absolute bg-white shadow-lg rounded px-2 py-1 text-xs whitespace-nowrap pointer-events-none"
+                                style={{
+                                  border: "1px solid var(--bob-border)",
+                                  left: "50%",
+                                  transform: "translateX(-50%)",
+                                  bottom: `${heightPercent}%`,
+                                  marginBottom: "4px",
+                                  zIndex: 100,
+                                }}
+                              >
+                                <div className="font-medium">{formatShortDate(date)}</div>
+                                <div style={{ color: "var(--bob-text-muted)" }}>
+                                  {count} {count === 1 ? "guess" : "guesses"}
+                                </div>
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                {/* X-axis labels - show ALL dates */}
+                <div className="flex" style={{ marginLeft: `${yAxisWidth}px` }}>
+                  {displayDates.map((date) => (
+                    <div
+                      key={date}
+                      className="flex-1 text-center px-0.5"
+                      style={{ color: "var(--bob-text-muted)" }}
+                    >
+                      <span className="text-xs">{formatAxisDate(date)}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-
-            {/* X-axis labels */}
-            <div className="flex" style={{ marginLeft: "20px" }}>
-              {displayDates.map((date, i) => {
-                // Show every label on larger screens, fewer on mobile
-                const showLabel = displayDates.length <= 14 || i % 2 === 0 || i === displayDates.length - 1;
-                return (
-                  <div
-                    key={date}
-                    className="flex-1 text-center px-0.5"
-                    style={{ color: "var(--bob-text-muted)" }}
-                  >
-                    {showLabel && (
-                      <span className="text-xs">{formatAxisDate(date)}</span>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+            );
+          })()}
         </div>
       </div>
 
