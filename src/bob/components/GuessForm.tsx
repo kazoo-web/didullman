@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { User, Mail, DollarSign, ArrowLeft, Baby, MessageSquare } from "lucide-react";
+import { User, Mail, DollarSign, ArrowLeft, Baby, MessageSquare, Loader2 } from "lucide-react";
 import { BabyIcon } from "./BabyIcon";
 import { AppView, GuessData } from "../App";
 
 interface GuessFormProps {
   onNavigate: (view: AppView) => void;
   onSubmit: (guess: GuessData) => void;
+  isSubmitting: boolean;
+  submitError: string | null;
 }
 
 // Configuration
@@ -28,7 +30,7 @@ const addDays = (date: Date, days: number): Date => {
   return result;
 };
 
-export const GuessForm = ({ onNavigate, onSubmit }: GuessFormProps) => {
+export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: GuessFormProps) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [sex, setSex] = useState<"boy" | "girl" | null>(null);
@@ -303,9 +305,27 @@ export const GuessForm = ({ onNavigate, onSubmit }: GuessFormProps) => {
               </p>
             </div>
 
+            {/* Submit Error */}
+            {submitError && (
+              <div className="p-4 rounded-lg bg-red-50 border border-red-200">
+                <p className="text-sm text-red-600">{submitError}</p>
+              </div>
+            )}
+
             {/* Submit Button */}
-            <button type="submit" className="bob-btn bob-btn-primary w-full">
-              Complete & Pay
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="bob-btn bob-btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Submitting...
+                </>
+              ) : (
+                "Complete & Pay"
+              )}
             </button>
           </form>
 
