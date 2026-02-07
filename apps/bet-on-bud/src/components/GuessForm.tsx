@@ -1,7 +1,15 @@
 import { useState } from "react";
-import { User, Mail, DollarSign, ArrowLeft, Baby, MessageSquare, Loader2 } from "lucide-react";
+import { User, Mail, DollarSign, ArrowLeft, Baby, MessageSquare, Loader2, Clock } from "lucide-react";
 import { BabyIcon } from "./BabyIcon";
 import { AppView, GuessData } from "../App";
+import { TimeOfDay } from "../lib/guessService";
+
+const TIME_OF_DAY_OPTIONS: { value: TimeOfDay; label: string; range: string }[] = [
+  { value: "overnight", label: "Overnight", range: "12:00 AM - 5:59 AM" },
+  { value: "morning", label: "Morning", range: "6:00 AM - 11:59 AM" },
+  { value: "afternoon", label: "Afternoon", range: "12:00 PM - 5:59 PM" },
+  { value: "evening", label: "Evening", range: "6:00 PM - 11:59 PM" },
+];
 
 interface GuessFormProps {
   onNavigate: (view: AppView) => void;
@@ -46,6 +54,7 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
   const [email, setEmail] = useState("");
   const [sex, setSex] = useState<"boy" | "girl" | null>(null);
   const [dateOffset, setDateOffset] = useState(0);
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>("morning");
   const [amount, setAmount] = useState(MIN_CONTRIBUTION);
   const [advice, setAdvice] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -89,6 +98,7 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
       email: email.trim(),
       sex,
       date: selectedDate,
+      timeOfDay,
       contributionAmount: amount,
       parentingAdvice: advice.trim() || undefined,
     });
@@ -254,6 +264,45 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
                   {formatDate(selectedDate)}
                 </span>
                 <span>{formatShortDate(MAX_DATE)}</span>
+              </div>
+            </div>
+
+            {/* Time of Day */}
+            <div>
+              <label className="block text-sm font-medium mb-3" style={{ color: "var(--bob-text)" }}>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" style={{ color: "var(--bob-coral)" }} />
+                  Time of Day
+                </div>
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                {TIME_OF_DAY_OPTIONS.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => setTimeOfDay(option.value)}
+                    className={`
+                      p-3 rounded-xl border-2 transition-all text-left
+                      ${timeOfDay === option.value
+                        ? "border-[var(--bob-coral)] bg-[var(--bob-girl-coral)]"
+                        : "border-[var(--bob-border)] bg-white hover:border-[var(--bob-coral)]"
+                      }
+                    `}
+                  >
+                    <div
+                      className="font-medium text-sm"
+                      style={{ color: timeOfDay === option.value ? "var(--bob-girl-coral-text)" : "var(--bob-text)" }}
+                    >
+                      {option.label}
+                    </div>
+                    <div
+                      className="text-xs mt-0.5"
+                      style={{ color: timeOfDay === option.value ? "var(--bob-girl-coral-text)" : "var(--bob-text-muted)", opacity: timeOfDay === option.value ? 0.8 : 1 }}
+                    >
+                      {option.range}
+                    </div>
+                  </button>
+                ))}
               </div>
             </div>
 

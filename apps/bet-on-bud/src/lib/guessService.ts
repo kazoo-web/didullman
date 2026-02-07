@@ -1,12 +1,15 @@
 import { supabase } from "./supabase";
 import type { GuessData } from "../App";
 
+export type TimeOfDay = "overnight" | "morning" | "afternoon" | "evening";
+
 export interface GuessRecord {
   id: string;
   name: string;
   email: string;
   sex: "boy" | "girl";
   guess_date: string;
+  time_of_day: TimeOfDay;
   contribution_amount: number;
   parenting_advice: string | null;
   created_at: string;
@@ -27,6 +30,7 @@ export async function submitGuess(guess: GuessData): Promise<SubmitGuessResult> 
         email: guess.email,
         sex: guess.sex,
         guess_date: guess.date.toISOString().split("T")[0],
+        time_of_day: guess.timeOfDay,
         contribution_amount: guess.contributionAmount,
         parenting_advice: guess.parentingAdvice || null,
       })

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HomePage } from "./pages/HomePage";
 import { GuessPage } from "./pages/GuessPage";
 import { ConfirmationPage } from "./pages/ConfirmationPage";
-import { submitGuess } from "./lib/guessService";
+import { submitGuess, TimeOfDay } from "./lib/guessService";
 
 export type AppView = "home" | "guess" | "confirmation";
 
@@ -11,6 +11,7 @@ export interface GuessData {
   email: string;
   sex: "boy" | "girl";
   date: Date;
+  timeOfDay: TimeOfDay;
   contributionAmount: number;
   parentingAdvice?: string;
 }

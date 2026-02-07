@@ -1,6 +1,13 @@
 import { useState } from "react";
-import { Baby, Calendar, Users, DollarSign } from "lucide-react";
-import { GuessRecord } from "../lib/guessService";
+import { Baby, Calendar, Users, DollarSign, Clock } from "lucide-react";
+import { GuessRecord, TimeOfDay } from "../lib/guessService";
+
+const TIME_OF_DAY_CONFIG: { value: TimeOfDay; label: string; range: string }[] = [
+  { value: "overnight", label: "Overnight", range: "12am-6am" },
+  { value: "morning", label: "Morning", range: "6am-12pm" },
+  { value: "afternoon", label: "Afternoon", range: "12pm-6pm" },
+  { value: "evening", label: "Evening", range: "6pm-12am" },
+];
 
 interface GuessingStatsProps {
   guesses: GuessRecord[];
@@ -32,6 +39,7 @@ const generateDateRange = (minDate: string, maxDate: string): string[] => {
 export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
   const [hoveredSegment, setHoveredSegment] = useState<"boy" | "girl" | null>(null);
   const [hoveredDate, setHoveredDate] = useState<string | null>(null);
+  const [hoveredTime, setHoveredTime] = useState<TimeOfDay | null>(null);
 
   // Calculate sex stats
   const boyCount = guesses.filter((g) => g.sex === "boy").length;
@@ -63,6 +71,20 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
   for (let i = maxDateCount; i >= 0; i--) {
     yAxisLabels.push(i);
   }
+
+  // Calculate time of day distribution
+  const timeCounts: Record<TimeOfDay, number> = {
+    overnight: 0,
+    morning: 0,
+    afternoon: 0,
+    evening: 0,
+  };
+  guesses.forEach((g) => {
+    if (g.time_of_day && timeCounts[g.time_of_day] !== undefined) {
+      timeCounts[g.time_of_day]++;
+    }
+  });
+  const maxTimeCount = Math.max(...Object.values(timeCounts), 1);
 
   // Donut chart calculations
   const size = 160;
@@ -319,6 +341,56 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Time of Day Distribution Card */}
+      <div className="bob-card p-6">
+        <div className="flex items-center gap-2 mb-6">
+          <Clock className="w-5 h-5" style={{ color: "var(--bob-coral)" }} />
+          <span className="font-medium" style={{ color: "var(--bob-text)" }}>
+            What time will B.U.D. arrive?
+          </span>
+        </div>
+
+        <div className="space-y-3">
+          {TIME_OF_DAY_CONFIG.map((timeOption) => {
+            const count = timeCounts[timeOption.value];
+            const percent = total > 0 ? (count / total) * 100 : 0;
+            const isHovered = hoveredTime === timeOption.value;
+
+            return (
+              <div
+                key={timeOption.value}
+                className="cursor-pointer"
+                onMouseEnter={() => setHoveredTime(timeOption.value)}
+                onMouseLeave={() => setHoveredTime(null)}
+              >
+                <div className="flex justify-between text-sm mb-1">
+                  <span style={{ color: "var(--bob-text)" }}>
+                    {timeOption.label}{" "}
+                    <span style={{ color: "var(--bob-text-muted)" }}>({timeOption.range})</span>
+                  </span>
+                  <span style={{ color: isHovered ? "var(--bob-coral)" : "var(--bob-text-muted)" }}>
+                    {count} {count === 1 ? "guess" : "guesses"}
+                  </span>
+                </div>
+                <div
+                  className="h-6 rounded-lg overflow-hidden"
+                  style={{ backgroundColor: "var(--bob-border)" }}
+                >
+                  <div
+                    className="h-full rounded-lg transition-all"
+                    style={{
+                      width: `${percent}%`,
+                      backgroundColor: isHovered ? "#d4694a" : "#e8805c",
+                      minWidth: count > 0 ? "8px" : "0",
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
