@@ -11,6 +11,12 @@ const formatShortDate = (dateStr: string): string => {
   return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 };
 
+// Compact format for x-axis labels (M/D format)
+const formatAxisDate = (dateStr: string): string => {
+  const date = new Date(dateStr + "T12:00:00");
+  return `${date.getMonth() + 1}/${date.getDate()}`;
+};
+
 // Generate dates between min and max (inclusive)
 const generateDateRange = (minDate: string, maxDate: string): string[] => {
   const dates: string[] = [];
@@ -300,7 +306,7 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
               </div>
             </div>
 
-            {/* X-axis labels - show all dates */}
+            {/* X-axis labels - show all dates in consistent M/D format */}
             <div className="flex mt-2" style={{ marginLeft: "24px", paddingLeft: "4px", paddingRight: "4px" }}>
               {displayDates.map((date) => (
                 <div
@@ -308,7 +314,7 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
                   className="flex-1 text-center"
                   style={{ color: "var(--bob-text-muted)", maxWidth: "40px" }}
                 >
-                  <span className="text-xs">{formatShortDate(date)}</span>
+                  <span className="text-xs">{formatAxisDate(date)}</span>
                 </div>
               ))}
             </div>
@@ -318,7 +324,7 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-2 gap-4">
-        {/* Betters Card */}
+        {/* Participants Card */}
         <div className="bob-card p-6">
           <div className="flex items-center gap-3 mb-2">
             <div
@@ -327,7 +333,7 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
             >
               <Users className="w-5 h-5" style={{ color: "var(--bob-girl-coral-text)" }} />
             </div>
-            <span style={{ color: "var(--bob-text-muted)" }}>Betters</span>
+            <span style={{ color: "var(--bob-text-muted)" }}>Participants</span>
           </div>
           <p className="text-4xl font-bold" style={{ color: "var(--bob-text)" }}>
             {total}
@@ -339,9 +345,9 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
           <div className="flex items-center gap-3 mb-2">
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: "var(--bob-gold)", opacity: 0.3 }}
+              style={{ backgroundColor: "var(--bob-girl-coral)" }}
             >
-              <DollarSign className="w-5 h-5" style={{ color: "var(--bob-gold)" }} />
+              <DollarSign className="w-5 h-5" style={{ color: "var(--bob-girl-coral-text)" }} />
             </div>
             <span style={{ color: "var(--bob-text-muted)" }}>Baby Fund</span>
           </div>
