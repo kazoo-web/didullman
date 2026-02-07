@@ -3,6 +3,8 @@ import type { GuessData } from "../App";
 
 export type TimeOfDay = "overnight" | "morning" | "afternoon" | "evening";
 
+export type PaymentStatus = "pending" | "completed" | "failed";
+
 export interface GuessRecord {
   id: string;
   name: string;
@@ -12,6 +14,8 @@ export interface GuessRecord {
   time_of_day: TimeOfDay;
   contribution_amount: number;
   parenting_advice: string | null;
+  payment_status: PaymentStatus;
+  stripe_session_id?: string;
   created_at: string;
 }
 
@@ -33,6 +37,7 @@ export async function submitGuess(guess: GuessData): Promise<SubmitGuessResult> 
         time_of_day: guess.timeOfDay,
         contribution_amount: guess.contributionAmount,
         parenting_advice: guess.parentingAdvice || null,
+        payment_status: "pending",
       })
       .select()
       .single();
@@ -70,4 +75,45 @@ export async function getGuesses(): Promise<GuessRecord[]> {
   }
 
   return data as GuessRecord[];
+}
+
+export async function getGuessById(id: string): Promise<GuessRecord | null> {
+  const { data, error } = await supabase
+    .from("guesses")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error("Error fetching guess:", error);
+    return null;
+  }
+
+  return data as GuessRecord;
+}
+
+export async function updatePaymentStatus(
+  guessId: string,
+  status: PaymentStatus,
+  stripeSessionId?: string
+): Promise<boolean> {
+  const updateData: { payment_status: PaymentStatus; stripe_session_id?: string } = {
+    payment_status: status,
+  };
+
+  if (stripeSessionId) {
+    updateData.stripe_session_id = stripeSessionId;
+  }
+
+  const { error } = await supabase
+    .from("guesses")
+    .update(updateData)
+    .eq("id", guessId);
+
+  if (error) {
+    console.error("Error updating payment status:", error);
+    return false;
+  }
+
+  return true;
 }
