@@ -9,6 +9,7 @@ import { getGuesses, GuessRecord } from "../lib/guessService";
 interface ConfirmationPageProps {
   guess: GuessData;
   onNavigate: (view: AppView) => void;
+  paymentSuccess?: boolean;
 }
 
 const formatDate = (date: Date): string => {
@@ -19,7 +20,7 @@ const formatDate = (date: Date): string => {
   });
 };
 
-export const ConfirmationPage = ({ guess, onNavigate }: ConfirmationPageProps) => {
+export const ConfirmationPage = ({ guess, onNavigate, paymentSuccess }: ConfirmationPageProps) => {
   const [allGuesses, setAllGuesses] = useState<GuessRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 

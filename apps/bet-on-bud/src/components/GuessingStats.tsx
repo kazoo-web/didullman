@@ -246,10 +246,10 @@ export const GuessingStats = ({ guesses }: GuessingStatsProps) => {
           {/* Dynamic chart height: base 80px + 20px per count level, min 100px, max 300px */}
           {(() => {
             const chartHeight = Math.min(Math.max(80 + maxDateCount * 20, 100), 300);
-            const yAxisWidth = maxDateCount >= 10 ? 28 : 20;
+            const yAxisWidth = maxDateCount >= 10 ? 32 : 24;
 
             return (
-              <div style={{ minWidth: Math.max(displayDates.length * 32, 280), paddingTop: "40px" }}>
+              <div style={{ minWidth: Math.max(displayDates.length * 32, 280), paddingTop: "40px", paddingLeft: "4px" }}>
                 {/* Y-axis labels and bars */}
                 <div className="flex">
                   {/* Y-axis */}
