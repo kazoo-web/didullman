@@ -1,7 +1,10 @@
-import { CheckCircle, Home } from "lucide-react";
+import { useEffect, useState } from "react";
+import { CheckCircle, Home, Loader2 } from "lucide-react";
 import { FloatingDecorations } from "../components/FloatingDecorations";
 import { BabyIcon } from "../components/BabyIcon";
+import { GuessingStats } from "../components/GuessingStats";
 import { AppView, GuessData } from "../App";
+import { getGuesses, GuessRecord } from "../lib/guessService";
 
 interface ConfirmationPageProps {
   guess: GuessData;
@@ -17,34 +20,50 @@ const formatDate = (date: Date): string => {
 };
 
 export const ConfirmationPage = ({ guess, onNavigate }: ConfirmationPageProps) => {
+  const [allGuesses, setAllGuesses] = useState<GuessRecord[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchGuesses = async () => {
+      setIsLoading(true);
+      const guesses = await getGuesses();
+      setAllGuesses(guesses);
+      setIsLoading(false);
+    };
+    fetchGuesses();
+  }, []);
+
   return (
     <div className="min-h-screen relative">
       <FloatingDecorations />
 
-      <div className="min-h-screen flex items-center justify-center py-12 px-4">
-        <div className="max-w-md w-full text-center">
-          {/* Success Icon */}
-          <div className="relative inline-block">
-            <BabyIcon size="lg" className="mx-auto" />
-            <div
-              className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: "hsl(142, 76%, 45%)" }}
-            >
-              <CheckCircle className="w-5 h-5 text-white" />
+      <div className="min-h-screen py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          {/* Success Header */}
+          <div className="text-center">
+            {/* Success Icon */}
+            <div className="relative inline-block">
+              <BabyIcon size="lg" className="mx-auto" />
+              <div
+                className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: "hsl(142, 76%, 45%)" }}
+              >
+                <CheckCircle className="w-5 h-5 text-white" />
+              </div>
             </div>
+
+            {/* Title */}
+            <h1 className="mt-8 font-display text-3xl md:text-4xl font-bold" style={{ color: "var(--bob-text)" }}>
+              You're In!
+            </h1>
+
+            <p className="mt-4 text-lg" style={{ color: "var(--bob-text-muted)" }}>
+              Thanks for your guess, {guess.name}!
+            </p>
           </div>
 
-          {/* Title */}
-          <h1 className="mt-8 font-display text-3xl md:text-4xl font-bold" style={{ color: "var(--bob-text)" }}>
-            You're In!
-          </h1>
-
-          <p className="mt-4 text-lg" style={{ color: "var(--bob-text-muted)" }}>
-            Thanks for your guess, {guess.name}!
-          </p>
-
           {/* Summary Card */}
-          <div className="bob-card p-6 mt-8 text-left">
+          <div className="bob-card p-6 mt-8">
             <h2 className="font-display text-lg font-semibold mb-4" style={{ color: "var(--bob-text)" }}>
               Your Prediction
             </h2>
@@ -83,18 +102,32 @@ export const ConfirmationPage = ({ guess, onNavigate }: ConfirmationPageProps) =
           </div>
 
           {/* Thank you message */}
-          <p className="mt-6 text-sm" style={{ color: "var(--bob-text-muted)" }}>
+          <p className="mt-6 text-sm text-center" style={{ color: "var(--bob-text-muted)" }}>
             DJ & Kaz appreciate your support! You'll receive an email confirmation shortly.
           </p>
 
+          {/* Stats Section */}
+          <div className="mt-12">
+            {isLoading ? (
+              <div className="flex flex-col items-center justify-center py-12">
+                <Loader2 className="w-8 h-8 animate-spin" style={{ color: "var(--bob-coral)" }} />
+                <p className="mt-4" style={{ color: "var(--bob-text-muted)" }}>Loading stats...</p>
+              </div>
+            ) : (
+              <GuessingStats guesses={allGuesses} />
+            )}
+          </div>
+
           {/* Back to home button */}
-          <button
-            onClick={() => onNavigate("home")}
-            className="bob-btn bob-btn-primary mt-8"
-          >
-            <Home className="w-5 h-5" />
-            Back to Home
-          </button>
+          <div className="text-center mt-8">
+            <button
+              onClick={() => onNavigate("home")}
+              className="bob-btn bob-btn-primary"
+            >
+              <Home className="w-5 h-5" />
+              Back to Home
+            </button>
+          </div>
         </div>
       </div>
     </div>
