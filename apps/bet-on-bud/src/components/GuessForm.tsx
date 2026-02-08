@@ -167,7 +167,7 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
             Make Your Guess
           </h1>
           <p className="mt-2" style={{ color: "var(--bob-text-muted)" }}>
-            Fill in your prediction for DJ & Kaz's baby
+            Bet on B.U.D.'s arrival date, time, and sex.
           </p>
         </div>
 
