@@ -37,9 +37,9 @@ export const redirectToCheckout = async ({
   const functionPath = USE_NETLIFY ? "/.netlify/functions/create-checkout" : "/api/create-checkout";
   const apiEndpoint = API_URL ? `${API_URL}${functionPath}` : functionPath;
 
-  // Build success/cancel URLs
+  // Build success/cancel URLs (include guessId in success URL for reliability)
   const baseUrl = window.location.origin;
-  const successUrl = `${baseUrl}/bet-on-bud/?payment=success`;
+  const successUrl = `${baseUrl}/bet-on-bud/?payment=success&guessId=${guessId}`;
   const cancelUrl = `${baseUrl}/bet-on-bud/?payment=cancelled`;
 
   try {
