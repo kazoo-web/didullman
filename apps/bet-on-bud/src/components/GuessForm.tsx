@@ -173,6 +173,16 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
 
         {/* Form Card */}
         <div className="bob-card p-6 md:p-8">
+          {/* Back Link at top */}
+          <button
+            onClick={() => onNavigate("home")}
+            className="mb-6 flex items-center gap-2 text-sm"
+            style={{ color: "var(--bob-text-muted)" }}
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to home
+          </button>
+
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name Field */}
             <div>
@@ -453,16 +463,6 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
               )}
             </button>
           </form>
-
-          {/* Back Link */}
-          <button
-            onClick={() => onNavigate("home")}
-            className="mt-6 w-full flex items-center justify-center gap-2 text-sm"
-            style={{ color: "var(--bob-text-muted)" }}
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to home
-          </button>
         </div>
       </div>
     </div>
