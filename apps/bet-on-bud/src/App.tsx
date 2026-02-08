@@ -61,6 +61,7 @@ function App() {
       window.history.replaceState({}, "", window.location.pathname);
     } else if (payment === "cancelled") {
       setSubmitError("Payment was cancelled. Please try again.");
+      setCurrentView("guess"); // Return to guess page so they can try again
       localStorage.removeItem("pendingGuessId");
       // Clean up URL
       window.history.replaceState({}, "", window.location.pathname);
