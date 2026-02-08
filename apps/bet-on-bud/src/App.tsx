@@ -60,8 +60,8 @@ function App() {
       // Clean up URL
       window.history.replaceState({}, "", window.location.pathname);
     } else if (payment === "cancelled") {
-      setSubmitError("Payment was cancelled. Please try again.");
-      setCurrentView("guess"); // Return to guess page so they can try again
+      // User chose to go back from Stripe - just return to guess page without error
+      setCurrentView("guess");
       localStorage.removeItem("pendingGuessId");
       // Clean up URL
       window.history.replaceState({}, "", window.location.pathname);
