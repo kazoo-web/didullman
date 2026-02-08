@@ -58,7 +58,7 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
   const [sex, setSex] = useState<"boy" | "girl" | null>(null);
   const [dateOffset, setDateOffset] = useState(0);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>("morning");
-  const [amount, setAmount] = useState(MIN_CONTRIBUTION);
+  const [amount, setAmount] = useState<number | "">(MIN_CONTRIBUTION);
   const [advice, setAdvice] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
@@ -128,7 +128,8 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
       newErrors.sex = "Please select boy or girl";
     }
 
-    if (amount < MIN_CONTRIBUTION) {
+    const numAmount = amount === "" ? 0 : amount;
+    if (numAmount < MIN_CONTRIBUTION) {
       newErrors.amount = `Minimum contribution is $${MIN_CONTRIBUTION}`;
     }
 
@@ -151,7 +152,7 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
       sex,
       date: selectedDate,
       timeOfDay,
-      contributionAmount: amount,
+      contributionAmount: amount === "" ? 0 : amount,
       parentingAdvice: advice.trim() || undefined,
     });
   };
@@ -371,7 +372,17 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
                 <input
                   type="number"
                   value={amount}
-                  onChange={(e) => setAmount(Math.max(0, parseInt(e.target.value) || 0))}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value === "") {
+                      setAmount("");
+                    } else {
+                      const num = parseInt(value);
+                      if (!isNaN(num)) {
+                        setAmount(Math.max(0, num));
+                      }
+                    }
+                  }}
                   min={MIN_CONTRIBUTION}
                   className="bob-input"
                 />
