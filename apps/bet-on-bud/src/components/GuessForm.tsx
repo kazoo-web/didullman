@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { User, Mail, DollarSign, ArrowLeft, Baby, MessageSquare, Loader2, Clock } from "lucide-react";
 import { BabyIcon } from "./BabyIcon";
 import { AppView, GuessData } from "../App";
@@ -63,8 +63,8 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
 
-  // Load saved form data from localStorage (e.g., after cancelled payment)
-  useEffect(() => {
+  // Function to load saved form data from localStorage
+  const loadSavedFormData = useCallback(() => {
     const savedData = localStorage.getItem(FORM_DATA_KEY);
     if (savedData) {
       try {
@@ -83,6 +83,23 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
       }
     }
   }, []);
+
+  // Load saved form data on mount and when returning via back button (bfcache)
+  useEffect(() => {
+    // Load on initial mount
+    loadSavedFormData();
+
+    // Handle back button navigation (page restored from bfcache)
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        // Page was restored from bfcache (back/forward navigation)
+        loadSavedFormData();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, [loadSavedFormData]);
 
   // Save form data to localStorage before navigating away
   const saveFormData = () => {
