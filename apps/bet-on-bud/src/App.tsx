@@ -30,8 +30,8 @@ function App() {
     const payment = urlParams.get("payment");
 
     if (payment === "success") {
-      // Get the guessId from localStorage (stored before redirect)
-      const guessId = localStorage.getItem("pendingGuessId");
+      // Get the guessId from URL params (more reliable than localStorage on mobile)
+      const guessId = urlParams.get("guessId") || localStorage.getItem("pendingGuessId");
 
       if (guessId) {
         // Payment successful - update status and show confirmation
