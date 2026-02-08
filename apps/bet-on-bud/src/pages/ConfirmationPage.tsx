@@ -20,6 +20,16 @@ const formatDate = (date: Date): string => {
   });
 };
 
+const formatTimeOfDay = (timeOfDay: string): string => {
+  const labels: Record<string, string> = {
+    overnight: "Overnight (12am - 6am)",
+    morning: "Morning (6am - 12pm)",
+    afternoon: "Afternoon (12pm - 6pm)",
+    evening: "Evening (6pm - 12am)",
+  };
+  return labels[timeOfDay] || timeOfDay;
+};
+
 export const ConfirmationPage = ({ guess, onNavigate, paymentSuccess }: ConfirmationPageProps) => {
   const [allGuesses, setAllGuesses] = useState<GuessRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -85,6 +95,13 @@ export const ConfirmationPage = ({ guess, onNavigate, paymentSuccess }: Confirma
               </div>
 
               <div className="flex justify-between">
+                <span style={{ color: "var(--bob-text-muted)" }}>Time of Day:</span>
+                <span className="font-medium" style={{ color: "var(--bob-text)" }}>
+                  {formatTimeOfDay(guess.timeOfDay)}
+                </span>
+              </div>
+
+              <div className="flex justify-between">
                 <span style={{ color: "var(--bob-text-muted)" }}>Contribution:</span>
                 <span className="font-medium" style={{ color: "var(--bob-text)" }}>
                   ${guess.contributionAmount}
@@ -104,7 +121,7 @@ export const ConfirmationPage = ({ guess, onNavigate, paymentSuccess }: Confirma
 
           {/* Thank you message */}
           <p className="mt-6 text-sm text-center" style={{ color: "var(--bob-text-muted)" }}>
-            DJ & Kaz appreciate your support! You'll receive an email confirmation shortly.
+            We appreciate your support! Your guess has been recorded on our end and you'll receive an email receipt shortly. If you want to remember it for your own records, mark it down now!
           </p>
 
           {/* Stats Section */}

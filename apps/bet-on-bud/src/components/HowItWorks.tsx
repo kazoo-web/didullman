@@ -1,4 +1,4 @@
-import { Calendar, CheckCircle, Trophy, Eye, Gift } from "lucide-react";
+import { Calendar, CheckCircle, Lightbulb, Eye, Gift } from "lucide-react";
 import { AppView } from "../App";
 
 interface HowItWorksProps {
@@ -33,8 +33,8 @@ export const HowItWorks = ({ onNavigate }: HowItWorksProps) => {
   const rules = [
     {
       icon: <Calendar className="w-6 h-6" />,
-      title: "Pick a date",
-      description: "Choose a date between May 8, 2026 and June 5, 2026",
+      title: "Pick a date and time",
+      description: "Choose a date around the due date and pick whether the baby will come morning, afternoon, evening, or overnight!",
     },
     {
       icon: <CheckCircle className="w-6 h-6" />,
@@ -42,14 +42,14 @@ export const HowItWorks = ({ onNavigate }: HowItWorksProps) => {
       description: "Will it be a boy or a girl?",
     },
     {
-      icon: <Trophy className="w-6 h-6" />,
-      title: "Winners are chosen",
-      description: "Exact match wins! If no exact match, closest date to actual birth wins.",
+      icon: <Lightbulb className="w-6 h-6" />,
+      title: "Send us some wisdom",
+      description: "Give us your best parenting advice, we've all either parented or been parented!",
     },
     {
       icon: <Eye className="w-6 h-6" />,
       title: "See all guesses",
-      description: "After you participate, you can see everyone's guesses (shown separately for privacy).",
+      description: "After you participate, you can see what others have guessed!",
     },
   ];
 
@@ -61,9 +61,6 @@ export const HowItWorks = ({ onNavigate }: HowItWorksProps) => {
           <h2 className="font-display text-3xl md:text-4xl font-bold" style={{ color: "var(--bob-text)" }}>
             How It Works
           </h2>
-          <p className="mt-3 text-lg" style={{ color: "var(--bob-text-muted)" }}>
-            Simple rules, transparent guesses, and all contributions go to the parents.
-          </p>
         </div>
 
         {/* Rules Grid */}

@@ -38,6 +38,9 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
       };
     }
 
+    // Append session_id placeholder to success URL - Stripe replaces {CHECKOUT_SESSION_ID}
+    const successUrlWithSession = `${successUrl}&session_id={CHECKOUT_SESSION_ID}`;
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
@@ -54,9 +57,13 @@ const handler: Handler = async (event: HandlerEvent, context: HandlerContext) =>
         },
       ],
       mode: "payment",
-      success_url: successUrl,
+      success_url: successUrlWithSession,
       cancel_url: cancelUrl,
       customer_email: guesserEmail || undefined,
+      // Enable email receipt for the payment
+      payment_intent_data: guesserEmail ? {
+        receipt_email: guesserEmail,
+      } : undefined,
       metadata: {
         guessId,
         guesserName: guesserName || "",

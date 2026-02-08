@@ -30,16 +30,18 @@ function App() {
     const payment = urlParams.get("payment");
 
     if (payment === "success") {
-      // Get the guessId from URL params (more reliable than localStorage on mobile)
+      // Get the guessId and session_id from URL params
       const guessId = urlParams.get("guessId") || localStorage.getItem("pendingGuessId");
+      const stripeSessionId = urlParams.get("session_id") || undefined;
 
       console.log("[Payment Success] guessId from URL:", urlParams.get("guessId"));
       console.log("[Payment Success] guessId from localStorage:", localStorage.getItem("pendingGuessId"));
       console.log("[Payment Success] using guessId:", guessId);
+      console.log("[Payment Success] stripeSessionId:", stripeSessionId);
 
       if (guessId) {
         // Payment successful - update status and show confirmation
-        updatePaymentStatus(guessId, "completed").then((success) => {
+        updatePaymentStatus(guessId, "completed", stripeSessionId).then((success) => {
           console.log("[Payment Success] updatePaymentStatus result:", success);
 
           if (!success) {
