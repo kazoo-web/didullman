@@ -16,7 +16,7 @@ export const Hero = () => {
 
       {/* Subtitle */}
       <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed animate-fade-in-delay-2" style={{ color: "var(--bob-text-muted)" }}>
-        Join us, DJ and Kaz, in celebrating the arrival of Baby Ullman DiDonna (aka B.U.D.) with one of our favorite pass times - betting on silly things! Guess the baby's arrival date, time, and sex, and if you'd like, offer up some wisdom! In lieu of a registry, as we are trying to get as many hand-me-downs and used goods as possible, all contributions will help us with meals, diapers, care, or unexpected needs after baby arrives.
+        Join us, DJ and Kaz, in celebrating the arrival of Baby Ullman DiDonna (aka B.U.D.) with one of our favorite pastimes - betting on silly things! Guess the baby's arrival date, time, and sex, and if you'd like, offer up some wisdom! In lieu of a registry, as we are trying to get as many hand-me-downs and used goods as possible, all contributions will help us with meals, diapers, care, or unexpected needs after baby arrives.
       </p>
 
       {/* Due Date Badge */}
