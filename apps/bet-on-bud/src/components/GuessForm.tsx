@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { User, Mail, DollarSign, ArrowLeft, Baby, MessageSquare, Loader2, Clock } from "lucide-react";
 import { BabyIcon } from "./BabyIcon";
 import { AppView, GuessData } from "../App";
 import { TimeOfDay } from "../lib/guessService";
+
+// Key for storing form data in localStorage
+const FORM_DATA_KEY = "pendingGuessFormData";
 
 const TIME_OF_DAY_OPTIONS: { value: TimeOfDay; label: string; range: string }[] = [
   { value: "overnight", label: "Overnight", range: "12:00 AM - 5:59 AM" },
@@ -58,6 +61,34 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
   const [amount, setAmount] = useState(MIN_CONTRIBUTION);
   const [advice, setAdvice] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
+
+  // Load saved form data from localStorage (e.g., after cancelled payment)
+  useEffect(() => {
+    const savedData = localStorage.getItem(FORM_DATA_KEY);
+    if (savedData) {
+      try {
+        const data = JSON.parse(savedData);
+        if (data.name) setName(data.name);
+        if (data.email) setEmail(data.email);
+        if (data.sex) setSex(data.sex);
+        if (data.dateOffset !== undefined) setDateOffset(data.dateOffset);
+        if (data.timeOfDay) setTimeOfDay(data.timeOfDay);
+        if (data.amount) setAmount(data.amount);
+        if (data.advice) setAdvice(data.advice);
+        // Clear after loading
+        localStorage.removeItem(FORM_DATA_KEY);
+      } catch (e) {
+        console.error("Failed to parse saved form data", e);
+      }
+    }
+  }, []);
+
+  // Save form data to localStorage before navigating away
+  const saveFormData = () => {
+    const formData = { name, email, sex, dateOffset, timeOfDay, amount, advice };
+    localStorage.setItem(FORM_DATA_KEY, JSON.stringify(formData));
+  };
 
   const selectedDate = addDays(DUE_DATE, dateOffset);
 
@@ -90,8 +121,12 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setHasAttemptedSubmit(true);
 
     if (!validate() || !sex) return;
+
+    // Save form data before redirect to Stripe
+    saveFormData();
 
     onSubmit({
       name: name.trim(),
@@ -364,6 +399,13 @@ export const GuessForm = ({ onNavigate, onSubmit, isSubmitting, submitError }: G
             {submitError && (
               <div className="p-4 rounded-lg bg-red-50 border border-red-200">
                 <p className="text-sm text-red-600">{submitError}</p>
+              </div>
+            )}
+
+            {/* Validation Error Summary */}
+            {hasAttemptedSubmit && Object.keys(errors).length > 0 && (
+              <div className="p-4 rounded-lg bg-red-50 border border-red-200">
+                <p className="text-sm text-red-600">Please enter missing information above</p>
               </div>
             )}
 
