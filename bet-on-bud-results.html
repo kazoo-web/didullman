@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bet on B.U.D. Results | The DiDullmans</title>
+  <meta name="description" content="See what everyone is guessing for B.U.D.'s arrival">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root {
+      --bob-coral: hsl(24, 95%, 65%);
+      --bob-coral-light: hsl(24, 80%, 85%);
+      --bob-peach: hsl(35, 95%, 55%);
+      --bob-cream: hsl(40, 40%, 96%);
+      --bob-cream-dark: hsl(35, 30%, 92%);
+      --bob-boy-blue: hsl(210, 70%, 85%);
+      --bob-boy-blue-text: hsl(210, 70%, 45%);
+      --bob-girl-coral: hsl(24, 80%, 85%);
+      --bob-girl-coral-text: hsl(24, 60%, 45%);
+      --bob-text: hsl(30, 10%, 25%);
+      --bob-text-muted: hsl(30, 10%, 50%);
+      --bob-card: hsl(0, 0%, 100%);
+      --bob-border: hsl(35, 20%, 88%);
+      --bob-gradient: linear-gradient(135deg, var(--bob-coral) 0%, var(--bob-peach) 100%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html, body { scroll-behavior: smooth; overscroll-behavior: none; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(180deg, var(--bob-cream) 0%, var(--bob-cream-dark) 100%);
+      color: var(--bob-text);
+      min-height: 100vh;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    .bob-gradient-bg { background: linear-gradient(135deg, #e8805c 0%, #d4a34a 100%); }
+
+    .bob-card {
+      background: var(--bob-card);
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Floating decorations */
+    .decorations { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+    .decorations svg { position: absolute; }
+
+    @keyframes flicker {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+    }
+    @keyframes flicker-slow {
+      0%, 100% { transform: scale(1); opacity: 0.35; }
+      50% { transform: scale(1.25); opacity: 0.65; }
+    }
+    @keyframes flicker-fast {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.15); opacity: 0.6; }
+    }
+
+    .flicker { animation: flicker 3s ease-in-out infinite; }
+    .flicker-slow { animation: flicker-slow 4s ease-in-out infinite; }
+    .flicker-fast { animation: flicker-fast 2s ease-in-out infinite; }
+
+    /* Layout */
+    .page { min-height: 100vh; position: relative; }
+    .container { max-width: 42rem; margin: 0 auto; padding: 3rem 1rem; }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--bob-text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--bob-text); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 2rem; }
+    .header-icon {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .header h1 {
+      margin-top: 1.5rem;
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--bob-text);
+    }
+    .header p {
+      margin-top: 0.75rem;
+      font-size: 1.125rem;
+      color: var(--bob-text-muted);
+    }
+
+    /* Section cards */
+    .stats-section { display: flex; flex-direction: column; gap: 1rem; }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card-header svg { width: 20px; height: 20px; color: var(--bob-coral); flex-shrink: 0; }
+    .card-header span { font-weight: 500; color: var(--bob-text); }
+
+    /* Sex distribution */
+    .sex-row { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .donut-wrap { position: relative; flex-shrink: 0; }
+    .donut-center {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .vote-cards { display: flex; gap: 0.75rem; width: 100%; flex: 1; }
+    .vote-card {
+      flex: 1; padding: 1rem; border-radius: 0.75rem;
+      cursor: pointer; transition: transform 0.2s;
+    }
+    .vote-card:hover { transform: scale(1.05); }
+    .vote-card-top { display: flex; align-items: center; justify-content: space-between; }
+    .vote-card-label { display: flex; align-items: center; gap: 0.5rem; }
+    .vote-card-label svg { width: 20px; height: 20px; }
+    .vote-card-pct { font-size: 1.5rem; font-weight: 700; }
+    .vote-card-count { font-size: 0.875rem; margin-top: 0.25rem; opacity: 0.8; }
+
+    /* Date chart */
+    .chart-scroll { overflow-x: auto; padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch; overflow-y: visible; }
+    .chart-inner { padding-top: 40px; padding-left: 4px; }
+    .chart-flex { display: flex; }
+    .y-axis {
+      position: relative; font-size: 0.75rem; padding-right: 0.5rem; text-align: right; flex-shrink: 0;
+      color: var(--bob-text-muted);
+    }
+    .y-label { position: absolute; right: 8px; transform: translateY(-50%); }
+    .bars-container {
+      flex: 1; position: relative;
+      border-left: 1px solid var(--bob-border);
+      border-bottom: 1px solid var(--bob-border);
+    }
+    .gridline {
+      position: absolute; width: 100%; border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .bars-inner {
+      position: absolute; inset: 0;
+      display: flex; align-items: flex-end; overflow: visible;
+    }
+    .bar-col {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      position: relative; padding: 0 2px; height: 100%;
+    }
+    .bar {
+      width: 100%; border-radius: 4px 4px 0 0;
+      transition: background-color 0.2s; cursor: pointer;
+      min-height: 4px; background-color: #e8805c;
+    }
+    .bar:hover { background-color: #d4694a; }
+    .bar-tooltip {
+      position: absolute; background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 1px solid var(--bob-border);
+      border-radius: 4px; padding: 4px 8px;
+      font-size: 0.75rem; white-space: nowrap;
+      pointer-events: none; left: 50%;
+      transform: translateX(-50%); z-index: 100;
+      display: none;
+    }
+    .bar-col:hover .bar-tooltip { display: block; }
+    .x-axis { display: flex; }
+    .x-label { flex: 1; text-align: center; padding: 0 2px; font-size: 0.75rem; color: var(--bob-text-muted); }
+
+    /* Time of day */
+    .time-row { margin-bottom: 0.75rem; cursor: pointer; }
+    .time-row:last-child { margin-bottom: 0; }
+    .time-label-row { display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.25rem; }
+    .time-name { color: var(--bob-text); }
+    .time-range { color: var(--bob-text-muted); }
+    .time-count { color: var(--bob-text-muted); transition: color 0.2s; }
+    .time-row:hover .time-count { color: var(--bob-coral); }
+    .time-track { height: 1.5rem; border-radius: 0.5rem; background-color: var(--bob-border); overflow: hidden; }
+    .time-fill {
+      height: 100%; border-radius: 0.5rem;
+      background-color: #e8805c; transition: background-color 0.2s, width 0.5s;
+    }
+    .time-row:hover .time-fill { background-color: #d4694a; }
+
+    /* Summary cards */
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .summary-icon {
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background-color: var(--bob-girl-coral);
+    }
+    .summary-icon svg { width: 20px; height: 20px; color: var(--bob-girl-coral-text); }
+    .summary-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
+    .summary-label { color: var(--bob-text-muted); }
+    .summary-value { font-size: 2.25rem; font-weight: 700; color: var(--bob-text); }
+    .summary-sub { font-size: 0.875rem; color: var(--bob-text-muted); margin-top: 0.25rem; }
+
+    /* CTA */
+    .cta { text-align: center; margin-top: 2rem; }
+    .cta a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 1rem 2rem; font-weight: 500; font-size: 1.125rem;
+      border-radius: 0.75rem; color: white; text-decoration: none;
+      background: linear-gradient(135deg, #e8805c 0%, #d4a34a 100%);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+
+    /* Loading */
+    .loading { display: flex; flex-direction: column; align-items: center; padding: 3rem 0; }
+    .spinner {
+      width: 2rem; height: 2rem; border: 3px solid var(--bob-border);
+      border-top-color: var(--bob-coral); border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading p { margin-top: 1rem; color: var(--bob-text-muted); }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .header h1 { font-size: 2.25rem; }
+      .sex-row { flex-direction: row; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating decorations -->
+  <div class="decorations">
+    <svg viewBox="0 0 24 24" fill="hsl(45, 80%, 65%)" class="flicker" style="width:20px;height:20px;top:8%;left:10%"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(40, 70%, 70%)" class="flicker-slow" style="width:16px;height:16px;top:35%;right:8%;animation-delay:0.5s"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(45, 75%, 68%)" class="flicker" style="width:20px;height:20px;bottom:30%;left:18%;animation-delay:1s"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(42, 70%, 65%)" class="flicker-fast" style="width:16px;height:16px;bottom:15%;right:15%;animation-delay:0.3s"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(350, 60%, 75%)" class="flicker-slow" style="width:16px;height:16px;top:30%;left:5%;animation-delay:0.7s"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(355, 55%, 72%)" class="flicker" style="width:16px;height:16px;top:55%;right:5%;animation-delay:1.2s"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(350, 50%, 78%)" class="flicker-fast" style="width:12px;height:12px;bottom:12%;right:30%;animation-delay:0.2s"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(210, 70%, 70%)" class="flicker" style="width:20px;height:20px;top:50%;left:3%;animation-delay:0.8s"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+    <svg viewBox="0 0 24 24" fill="hsl(20, 60%, 75%)" class="flicker-fast" style="width:16px;height:16px;top:15%;right:12%;animation-delay:0.4s"><path d="M12 2l2.4 7.4h7.6l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/></svg>
+  </div>
+
+  <div class="page">
+    <div class="container">
+      <a href="/" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to home
+      </a>
+
+      <!-- Header -->
+      <div class="header">
+        <div class="header-icon bob-gradient-bg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12h.01"/><path d="M15 12h.01"/>
+            <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/>
+            <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>
+          </svg>
+        </div>
+        <h1 class="font-display">The Stats</h1>
+        <p>See what everyone is guessing for B.U.D.</p>
+      </div>
+
+      <!-- Stats rendered by JS -->
+      <div id="stats">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Loading stats...</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta">
+        <a href="/bet-on-bud/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+          </svg>
+          Make Your Guess
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (async function() {
+      const SUPABASE_URL = 'https://qdbehcgcfuytdvozjuik.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFkYmVoY2djZnV5dGR2b3pqdWlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0NjY5OTEsImV4cCI6MjA4NjA0Mjk5MX0.BXYIjWRYpIP1BJmxlZn5Xpj0avVeYu8P-q8pBa0tZ1o';
+
+      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      const { data: guesses, error } = await supabase
+        .from('guesses')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error || !guesses) {
+        document.getElementById('stats').innerHTML = '<p style="text-align:center;color:var(--bob-text-muted)">Could not load stats. Please try again later.</p>';
+        return;
+      }
+
+      const total = guesses.length;
+      if (total === 0) {
+        document.getElementById('stats').innerHTML = '<div class="bob-card" style="padding:2rem;text-align:center"><p style="color:var(--bob-text-muted)">No guesses yet. Be the first!</p></div>';
+        return;
+      }
+
+      // --- Calculations ---
+      const boyCount = guesses.filter(g => g.sex === 'boy').length;
+      const girlCount = guesses.filter(g => g.sex === 'girl').length;
+      const boyPct = Math.round((boyCount / total) * 100);
+      const girlPct = 100 - boyPct;
+      const totalFund = guesses.reduce((s, g) => s + g.contribution_amount, 0);
+
+      // Date distribution
+      const guessDates = guesses.map(g => g.guess_date).sort();
+      const minDate = guessDates[0];
+      const maxDate = guessDates[guessDates.length - 1];
+      const displayDates = [];
+      for (let d = new Date(minDate + 'T12:00:00'); d <= new Date(maxDate + 'T12:00:00'); d.setDate(d.getDate() + 1)) {
+        displayDates.push(d.toISOString().split('T')[0]);
+      }
+      const dateCounts = {};
+      displayDates.forEach(d => dateCounts[d] = 0);
+      guesses.forEach(g => { if (dateCounts[g.guess_date] !== undefined) dateCounts[g.guess_date]++; });
+      const maxDateCount = Math.max(...Object.values(dateCounts), 1);
+
+      // Time of day
+      const timeConfig = [
+        { value: 'overnight', label: 'Overnight', range: '12am-6am' },
+        { value: 'morning', label: 'Morning', range: '6am-12pm' },
+        { value: 'afternoon', label: 'Afternoon', range: '12pm-6pm' },
+        { value: 'evening', label: 'Evening', range: '6pm-12am' },
+      ];
+      const timeCounts = { overnight: 0, morning: 0, afternoon: 0, evening: 0 };
+      guesses.forEach(g => { if (timeCounts[g.time_of_day] !== undefined) timeCounts[g.time_of_day]++; });
+
+      // --- Donut chart SVG ---
+      const size = 160, sw = 24, r = (size - sw) / 2, cx = size / 2;
+      function polar(angle) {
+        const rad = (angle - 90) * Math.PI / 180;
+        return { x: cx + r * Math.cos(rad), y: cx + r * Math.sin(rad) };
+      }
+      function arc(s, e) {
+        const start = polar(e), end = polar(s);
+        const large = (e - s) <= 180 ? '0' : '1';
+        return 'M ' + start.x + ' ' + start.y + ' A ' + r + ' ' + r + ' 0 ' + large + ' 0 ' + end.x + ' ' + end.y;
+      }
+      const boyAngle = (boyPct / 100) * 360;
+      const girlAngle = (girlPct / 100) * 360;
+
+      let donutPaths = '';
+      if (boyPct > 0) donutPaths += '<path d="' + arc(0, boyAngle) + '" fill="none" stroke="#93c5fd" stroke-width="' + sw + '" stroke-linecap="round" data-seg="boy" style="cursor:pointer;transition:stroke 0.2s"/>';
+      if (girlPct > 0) donutPaths += '<path d="' + arc(boyAngle, boyAngle + girlAngle) + '" fill="none" stroke="#e8805c" stroke-width="' + sw + '" stroke-linecap="round" data-seg="girl" style="cursor:pointer;transition:stroke 0.2s"/>';
+
+      // --- Date bars ---
+      const chartHeight = Math.min(Math.max(80 + maxDateCount * 20, 100), 300);
+      const yAxisWidth = maxDateCount >= 10 ? 32 : 24;
+      const chartMinWidth = Math.max(displayDates.length * 32, 280);
+
+      let yLabelsHtml = '';
+      for (let i = maxDateCount; i >= 0; i--) {
+        yLabelsHtml += '<span class="y-label" style="top:' + ((maxDateCount - i) / maxDateCount * 100) + '%">' + i + '</span>';
+      }
+
+      let gridlinesHtml = '';
+      for (let i = maxDateCount; i > 0; i--) {
+        gridlinesHtml += '<div class="gridline" style="bottom:' + (i / maxDateCount * 100) + '%"></div>';
+      }
+
+      let barsHtml = '';
+      displayDates.forEach(date => {
+        const count = dateCounts[date];
+        const hPct = (count / maxDateCount) * 100;
+        const d = new Date(date + 'T12:00:00');
+        const shortDate = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        const barDiv = count > 0
+          ? '<div class="bar" style="height:' + hPct + '%"></div>'
+          : '';
+        const tooltip = '<div class="bar-tooltip" style="bottom:' + hPct + '%;margin-bottom:4px"><div style="font-weight:500">' + shortDate + '</div><div style="color:var(--bob-text-muted)">' + count + (count === 1 ? ' guess' : ' guesses') + '</div></div>';
+        barsHtml += '<div class="bar-col">' + barDiv + tooltip + '</div>';
+      });
+
+      let xLabelsHtml = '';
+      displayDates.forEach(date => {
+        const d = new Date(date + 'T12:00:00');
+        xLabelsHtml += '<div class="x-label">' + (d.getMonth() + 1) + '/' + d.getDate() + '</div>';
+      });
+
+      // --- Time bars ---
+      let timeHtml = '';
+      timeConfig.forEach(t => {
+        const count = timeCounts[t.value];
+        const pct = (count / total) * 100;
+        const minW = count > 0 ? 'min-width:8px;' : '';
+        timeHtml += '<div class="time-row">'
+          + '<div class="time-label-row"><span><span class="time-name">' + t.label + '</span> <span class="time-range">(' + t.range + ')</span></span>'
+          + '<span class="time-count">' + count + (count === 1 ? ' guess' : ' guesses') + '</span></div>'
+          + '<div class="time-track"><div class="time-fill" style="width:' + pct + '%;' + minW + '"></div></div>'
+          + '</div>';
+      });
+
+      // Baby icon SVG (inline for cards)
+      const babyIconSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/></svg>';
+
+      // Icons
+      const usersIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>';
+      const dollarIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>';
+      const calendarIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+      const clockIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+
+      // --- Render ---
+      document.getElementById('stats').innerHTML = '<div class="stats-section">'
+        // Sex distribution
+        + '<div class="bob-card" style="padding:1.5rem">'
+        + '<div class="card-header">' + babyIconSvg.replace('stroke="currentColor"', 'stroke="' + 'var(--bob-coral)' + '"') + '<span>What will B.U.D.\'s sex be?</span></div>'
+        + '<div class="sex-row">'
+        + '<div class="donut-wrap"><svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '">' + donutPaths + '</svg>'
+        + '<div class="donut-center" id="donut-center"><div style="font-size:1.125rem;font-weight:500;color:var(--bob-text)">' + total + '</div><div style="font-size:0.75rem;color:var(--bob-text-muted)">total</div></div></div>'
+        + '<div class="vote-cards">'
+        + '<div class="vote-card" style="background-color:var(--bob-boy-blue)" data-seg="boy"><div class="vote-card-top"><div class="vote-card-label">' + babyIconSvg.replace('stroke="currentColor"', 'stroke="var(--bob-boy-blue-text)"') + '<span style="font-weight:500;color:var(--bob-boy-blue-text)">Boy</span></div><span class="vote-card-pct" style="color:var(--bob-boy-blue-text)">' + boyPct + '%</span></div><p class="vote-card-count" style="color:var(--bob-boy-blue-text)">' + boyCount + (boyCount === 1 ? ' vote' : ' votes') + '</p></div>'
+        + '<div class="vote-card" style="background-color:var(--bob-girl-coral)" data-seg="girl"><div class="vote-card-top"><div class="vote-card-label">' + babyIconSvg.replace('stroke="currentColor"', 'stroke="var(--bob-girl-coral-text)"') + '<span style="font-weight:500;color:var(--bob-girl-coral-text)">Girl</span></div><span class="vote-card-pct" style="color:var(--bob-girl-coral-text)">' + girlPct + '%</span></div><p class="vote-card-count" style="color:var(--bob-girl-coral-text)">' + girlCount + (girlCount === 1 ? ' vote' : ' votes') + '</p></div>'
+        + '</div></div></div>'
+
+        // Date distribution
+        + '<div class="bob-card" style="padding:1.5rem;overflow:visible">'
+        + '<div class="card-header">' + calendarIcon + '<span>What date will B.U.D. arrive?</span></div>'
+        + '<div class="chart-scroll"><div class="chart-inner" style="min-width:' + chartMinWidth + 'px">'
+        + '<div class="chart-flex"><div class="y-axis" style="height:' + chartHeight + 'px;min-width:' + yAxisWidth + 'px">' + yLabelsHtml + '</div>'
+        + '<div class="bars-container" style="height:' + chartHeight + 'px">' + gridlinesHtml + '<div class="bars-inner">' + barsHtml + '</div></div></div>'
+        + '<div class="x-axis" style="margin-left:' + yAxisWidth + 'px">' + xLabelsHtml + '</div>'
+        + '</div></div></div>'
+
+        // Time of day
+        + '<div class="bob-card" style="padding:1.5rem">'
+        + '<div class="card-header">' + clockIcon + '<span>What time will B.U.D. arrive?</span></div>'
+        + timeHtml + '</div>'
+
+        // Summary
+        + '<div class="summary-grid">'
+        + '<div class="bob-card" style="padding:1.5rem"><div class="summary-header"><div class="summary-icon">' + usersIcon + '</div><span class="summary-label">Participants</span></div><p class="summary-value">' + total + '</p></div>'
+        + '<div class="bob-card" style="padding:1.5rem"><div class="summary-header"><div class="summary-icon">' + dollarIcon + '</div><span class="summary-label">Baby Fund</span></div><p class="summary-value">$' + totalFund + '</p><p class="summary-sub">for the little one</p></div>'
+        + '</div>'
+
+        + '</div>';
+
+      // Donut hover interactivity
+      document.querySelectorAll('[data-seg]').forEach(el => {
+        el.addEventListener('mouseenter', function() {
+          const seg = this.getAttribute('data-seg');
+          const center = document.getElementById('donut-center');
+          const pct = seg === 'boy' ? boyPct : girlPct;
+          const count = seg === 'boy' ? boyCount : girlCount;
+          const color = seg === 'boy' ? '#3b82f6' : '#e8805c';
+          center.innerHTML = '<div style="font-size:1.5rem;font-weight:700;color:' + color + '">' + pct + '%</div><div style="font-size:0.875rem;color:var(--bob-text-muted)">' + count + (count === 1 ? ' vote' : ' votes') + '</div>';
+          // Highlight donut segment
+          document.querySelectorAll('svg path[data-seg]').forEach(p => {
+            if (p.getAttribute('data-seg') === seg) {
+              p.setAttribute('stroke', seg === 'boy' ? '#60a5fa' : '#d4694a');
+            }
+          });
+        });
+        el.addEventListener('mouseleave', function() {
+          const center = document.getElementById('donut-center');
+          center.innerHTML = '<div style="font-size:1.125rem;font-weight:500;color:var(--bob-text)">' + total + '</div><div style="font-size:0.75rem;color:var(--bob-text-muted)">total</div>';
+          // Reset donut segments
+          document.querySelectorAll('svg path[data-seg="boy"]').forEach(p => p.setAttribute('stroke', '#93c5fd'));
+          document.querySelectorAll('svg path[data-seg="girl"]').forEach(p => p.setAttribute('stroke', '#e8805c'));
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
