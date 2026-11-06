@@ -40,7 +40,9 @@ anyway, see step 2.5.
    Because this is your own unverified script, you may see **"Google hasn't
    verified this app."** If so, click **Advanced → Go to (project name)
    (unsafe)**, then **Allow**. The only access granted is to this script,
-   running as you.
+   running as you. The permission should mention only *this* spreadsheet
+   (the `@OnlyCurrentDoc` line at the top of the script limits it). If it
+   asks for all your spreadsheets, check that line was pasted too.
 5. Copy the **Web app URL**. It looks like
    `https://script.google.com/macros/s/AKfy…/exec`.
 

@@ -1,4 +1,9 @@
 /**
+ * @OnlyCurrentDoc
+ * Limits this script's access to the spreadsheet it's attached to.
+ */
+
+/**
  * Book club poll backend: Google Apps Script web app bound to a Google Sheet.
  * Setup steps are in DEPLOY.md, next to this file.
  *
