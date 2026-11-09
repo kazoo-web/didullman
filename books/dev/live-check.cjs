@@ -42,7 +42,7 @@ const { start } = require('./server.cjs');
     }
     await page.waitForSelector('.plate', { timeout: 30000 });
     console.log('submit: ok');
-    await page.waitForSelector('.ix, .group .notice', { timeout: 30000 });
+    await page.waitForSelector('#group .row, #group .notice', { timeout: 30000 });
     const groupText = await page.textContent('#group');
     assert.ok(!/Couldn’t load/.test(groupText), 'group results loaded');
     assert.ok(!groupText.includes('@'), 'no emails in group results');

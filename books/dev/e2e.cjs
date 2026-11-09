@@ -84,7 +84,7 @@ const shots = process.argv[2];
 
     // Results.
     await page.waitForSelector('.plate');
-    await page.waitForSelector('.ix');
+    await page.waitForSelector('#group .row');
     await page.waitForTimeout(800);
     await snap('4-results');
     const resp = backend.sheets.Responses.rows;
@@ -94,7 +94,7 @@ const shots = process.argv[2];
     const myMatchups = backend.sheets.Matchups.rows.filter((r) => r[1] === 'katherine@example.com');
     assert.equal(myMatchups.length, 6);
     const groupText = await page.textContent('#group');
-    assert.match(groupText, /Four people have voted so far/);
+    assert.match(groupText, /4 people have voted so far/);
     assert.match(groupText, /Not enough readers yet/);
     assert.ok(!/@/.test(groupText));
 
@@ -107,7 +107,7 @@ const shots = process.argv[2];
     await p2.waitForSelector('text=You’ve already voted');
     await p2.waitForTimeout(400); if (shots) await p2.screenshot({ path: `${shots}/5-already-voted.png`, fullPage: true });
     await p2.click('text=See the group ranking');
-    await p2.waitForSelector('.ix');
+    await p2.waitForSelector('#group .row');
     await p2.waitForTimeout(400); if (shots) await p2.screenshot({ path: `${shots}/6-group-only.png`, fullPage: true });
 
     // Network: no preflights, POST sent as text/plain, all calls followed the redirect.
