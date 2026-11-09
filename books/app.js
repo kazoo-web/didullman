@@ -67,7 +67,7 @@
     return '<img src="covers/' + id + '.jpg" alt="' + esc(b.title) + ' by ' + esc(b.author) + '"' +
       (cls ? ' class="' + cls + '"' : '') + ' width="330" height="500">';
   }
-  function running() { return '<div class="running sc">The Book Club · MMXXVI</div>'; }
+  function running() { return '<div class="running">Book Club 2026</div>'; }
   function head(kicker, title, dek, extra) {
     return '<header class="head">' +
       (kicker ? '<div class="kicker">' + kicker + '</div>' : '') +
@@ -75,9 +75,18 @@
       (dek ? '<p class="dek">' + dek + '</p>' : '') +
       '</header>';
   }
-  var WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
-  function word(n) { return WORDS[n] || String(n); }
   function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+  function ordinal(n) {
+    var s = (n % 100 >= 11 && n % 100 <= 13) ? 'th' : ({ 1: 'st', 2: 'nd', 3: 'rd' }[n % 10] || 'th');
+    return n + s;
+  }
+  function rankRow(id, place, tied, sub, cls) {
+    var b = BY_ID[id];
+    return '<div class="row' + (cls ? ' ' + cls : '') + '">' +
+      '<div class="ord">' + (place ? ordinal(place) : '') + '</div>' + cover(id) +
+      '<div class="body"><div class="t">' + esc(b.title) + (tied ? '<span class="tie">Tied</span>' : '') + '</div>' +
+      '<div class="a">' + (sub == null ? esc(b.author) : sub) + '</div></div></div>';
+  }
   function pairsFor(n) { return n * (n - 1) / 2; }
   function screen(html, cls) {
     app.innerHTML = '<div class="screen fade ' + (cls || '') + '">' + html + '</div>';
@@ -100,18 +109,16 @@
 
   function renderNotConfigured() {
     screen('<div class="scroll">' + running() +
-      head('Book club poll', 'Not open yet', 'The poll hasn’t been connected to its spreadsheet. Check back soon.') +
+      head(null, 'Not open yet', 'The poll hasn’t been connected to its spreadsheet. Check back soon.') +
       '</div>');
   }
 
   function renderEmail() {
     screen('<div class="scroll">' + running() +
-      head('Book club poll', 'Rank this year’s books',
-        'Mark the books you read, then choose between them two at a time. It takes about three minutes.') +
+      head(null, 'Rank this year’s books', 'It’ll take about 3 minutes.') +
       '<form class="field" id="emailForm" novalidate>' +
-        '<label for="email" class="sc">Your email</label>' +
+        '<label for="email">Your email</label>' +
         '<input id="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required value="' + esc(state.email) + '">' +
-        '<p class="help">Used only to make sure everyone votes once. It isn’t shown to anyone.</p>' +
         '<p class="error" id="err" role="alert"></p>' +
         '<div class="actions"><button class="btn solid block" id="start" type="submit">Start</button></div>' +
       '</form>' +
@@ -145,7 +152,7 @@
 
   function renderAlreadyVoted() {
     screen('<div class="scroll">' + running() +
-      head('Book club poll', 'You’ve already voted',
+      head(null, 'You’ve already voted',
         'Each email can vote once, and <b>' + esc(state.email) + '</b> already has. You can still see how the group ranked the books.') +
       '<div class="actions"><a class="btn solid block" href="#results">See the group ranking</a></div>' +
       '<div class="foot"><button class="link" id="other">Use a different email</button></div>' +
@@ -158,7 +165,7 @@
       var on = state.read.indexOf(b.id) !== -1;
       return '<button class="tile" type="button" data-id="' + b.id + '" aria-pressed="' + on + '">' +
         cover(b.id) + '<span class="stamp" aria-hidden="true">✓</span>' +
-        '<span class="m sc">' + b.month + '</span></button>';
+        '<span class="m">' + b.month + '</span></button>';
     }).join('');
     screen('<div class="scroll">' + running() +
       head('Step 1 of 2', 'Which books did you read?', 'Tap each one you finished. Select at least two.') +
@@ -203,15 +210,15 @@
     var L = BY_ID[m.left], Rt = BY_ID[m.right];
     var close = R.isCloseCall(m.left, m.right, state.choices);
     screen('<div class="scroll">' + running() +
-      '<div class="prog"><span class="sc">' + (i + 1) + ' of ' + total + '</span>' +
+      '<div class="prog"><span>' + (i + 1) + ' of ' + total + '</span>' +
       '<div class="track"><i style="width:' + (i / total * 100) + '%"></i></div></div>' +
       head('Step 2 of 2', 'Which did you prefer?', null, close ? '<span class="dagger" aria-hidden="true">†</span>' : '') +
       '<div class="vs">' +
         '<button class="pick" type="button" data-side="left">' + cover(L.id) +
-          '<span class="t">' + esc(L.title) + '</span><span class="a sc">' + esc(L.author) + '</span></button>' +
+          '<span class="t">' + esc(L.title) + '</span><span class="a">' + esc(L.author) + '</span></button>' +
         '<div class="or" aria-hidden="true">or</div>' +
         '<button class="pick" type="button" data-side="right">' + cover(Rt.id) +
-          '<span class="t">' + esc(Rt.title) + '</span><span class="a sc">' + esc(Rt.author) + '</span></button>' +
+          '<span class="t">' + esc(Rt.title) + '</span><span class="a">' + esc(Rt.author) + '</span></button>' +
       '</div>' +
       '<div class="under"><button class="link" id="undo" type="button">' +
         (i === 0 ? 'Back to the book list' : 'Undo last choice') + '</button></div>' +
@@ -272,43 +279,30 @@
 
   function renderResults() {
     var ranking = state.ranking || R.personalRanking(state.read, state.choices);
-    var n = state.read.length;
     var top = ranking.filter(function (x) { return x.rank === 1; });
     var rest = ranking.filter(function (x) { return x.rank !== 1; });
 
     var plate;
     if (top.length === 1) {
       var b = BY_ID[top[0].id];
-      var w = top[0].wins;
-      plate = '<div class="label sc">Your #1</div>' +
+      plate = '<div class="label">Your top choice</div>' +
         '<div class="covers">' + cover(b.id) + '</div>' +
         '<div class="t">' + esc(b.title) + '</div>' +
-        '<div class="a sc">' + esc(b.author) + ' · ' + b.month + '</div>' +
-        '<div class="note">' + (n === 2 ? 'Won its only matchup.'
-          : w === n - 1 ? 'Won all ' + w + ' of its matchups.'
-          : 'Won ' + w + ' of ' + (n - 1) + ' matchups.') + '</div>';
+        '<div class="a">' + esc(b.author) + ' · ' + b.month + '</div>';
     } else {
-      plate = '<div class="label sc">Tied for #1</div>' +
+      plate = '<div class="label">Tied for your top choice</div>' +
         '<div class="covers many">' + top.map(function (x) { return cover(x.id); }).join('') + '</div>' +
-        '<div class="t">' + top.map(function (x) { return esc(BY_ID[x.id].title); }).join(', ') + '</div>' +
-        '<div class="note">Each won ' + plural(top[0].wins, 'matchup', 'matchups') + '.</div>';
+        '<div class="t">' + top.map(function (x) { return esc(BY_ID[x.id].title); }).join(', ') + '</div>';
     }
 
     var anyTie = ranking.some(function (x) { return x.tied; });
-    var list = rest.map(function (x) {
-      var b = BY_ID[x.id];
-      return '<div class="entry"><span class="rk">' + x.rank + (x.tied ? '<span class="ast">*</span>' : '') + '</span>' +
-        '<span class="t">' + esc(b.title) + '<span class="a sc">' + esc(b.author) + '</span></span>' +
-        '<span class="dots"></span><span class="v">' + plural(x.wins, 'win', 'wins') + '</span></div>';
-    }).join('');
+    var list = rest.map(function (x) { return rankRow(x.id, x.rank, x.tied); }).join('');
 
     screen('<div class="scroll">' + running() +
       head('Results', 'Your ranking', null) +
-      '<div class="plate reveal"><div class="plate-in">' +
-        '<span class="corner l" aria-hidden="true">❧</span><span class="corner r" aria-hidden="true">❧</span>' +
-        plate + '</div></div>' +
-      (list ? '<div class="subhead sc">The rest</div><div>' + list + '</div>' : '') +
-      (anyTie ? '<p class="tie-note"><span class="ast">*</span> Tied: these books each beat one another, so there’s no clear order between them.</p>' : '') +
+      '<div class="plate reveal"><div class="plate-in">' + plate + '</div></div>' +
+      (list ? '<div class="list">' + list + '</div>' : '') +
+      (anyTie ? '<p class="tie-note">Tied books each beat one another, so there’s no order between them.</p>' : '') +
       '<div class="fleuron" aria-hidden="true">❦</div>' +
       '<section id="group">' + groupHeader() + '<p class="notice">Loading the group ranking…</p></section>' +
       '<div class="foot"><button class="link" id="other" type="button">Voting for someone else on this device? Start over</button></div>' +
@@ -318,13 +312,12 @@
   }
 
   function groupHeader(count) {
-    return '<header class="head" style="margin-top:6px"><h1 style="font-size:30px">Group ranking</h1>' +
+    return '<header class="head group-head"><h1>Group ranking</h1>' +
       '<p class="dek" id="voters">' + (count == null ? '&nbsp;' : votedLine(count)) + '</p></header>';
   }
   function votedLine(n) {
     if (n === 0) return 'No one has voted yet.';
-    return (n <= 10 ? word(n).replace(/^./, function (c) { return c.toUpperCase(); }) : n) +
-      (n === 1 ? ' person has' : ' people have') + ' voted so far. Percentages show the share of matchups each book won.';
+    return n + (n === 1 ? ' person has' : ' people have') + ' voted so far.';
   }
 
   function loadGroup(el) {
@@ -341,31 +334,23 @@
     });
   }
 
-  function firstLine(n) {
-    return n === 0 ? 'no one’s #1' : '#1 for ' + plural(n, 'person', 'people');
-  }
-
   function groupBody(g) {
     var ranked = g.ranked.filter(function (s) { return BY_ID[s.id]; }).map(function (s) {
-      var b = BY_ID[s.id];
-      return '<div class="ix"><span class="rk">' + Number(s.rank) + '</span>' + cover(b.id) +
-        '<div class="body"><div class="line"><span class="t">' + esc(b.title) + '</span>' +
-        '<span class="dots"></span><span class="pct">' + Math.round(Number(s.winRate) * 100) + '%</span></div>' +
-        '<div class="meta">' + plural(Number(s.readers), 'reader', 'readers') +
-        ' · ' + firstLine(Number(s.firstPlace)) + '</div></div></div>';
+      var tops = Number(s.firstPlace);
+      var sub = 'Read by ' + Number(s.readers) + (tops > 0 ? ' · Top choice for ' + tops : '');
+      return rankRow(s.id, Number(s.rank), false, sub);
     }).join('');
     var un = (g.unranked || []).filter(function (s) { return BY_ID[s.id]; }).map(function (s) {
-      var b = BY_ID[s.id];
       var r = Number(s.readers);
-      return '<div class="row">' + cover(b.id) + '<div><div class="t">' + esc(b.title) + '</div>' +
-        '<div class="m">' + (r === 0 ? 'No readers yet' : plural(r, 'reader', 'readers') + ' so far') + '</div></div></div>';
+      return rankRow(s.id, null, false, r === 0 ? 'No readers yet' : 'Read by ' + r + ' so far', 'muted');
     }).join('');
     var min = Number(g.minReaders) || 3;
-    return '<div class="group">' +
-      (ranked || '<p class="notice">Books appear here once ' + word(min) + ' people have read them.</p>') +
+    return '<div class="list">' +
+      (ranked || '<p class="notice">Books appear here once ' + min + ' people have read them.</p>') +
       '</div>' +
-      (un ? '<div class="fleuron" aria-hidden="true">❦</div><div class="addenda"><h3 class="sc">Not enough readers yet</h3>' +
-        '<p class="why">A book needs at least ' + word(min) + ' readers to be ranked.</p>' + un + '</div>' : '');
+      (un ? '<div class="unr">Not enough readers yet</div>' +
+        '<p class="why">A book needs at least ' + min + ' readers to be ranked.</p>' +
+        '<div class="list">' + un + '</div>' : '');
   }
 
   function renderGroupOnly() {
