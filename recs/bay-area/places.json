@@ -690,24 +690,6 @@
       }
     },
     {
-      "id": "tsuta",
-      "name": "Tsuta",
-      "area": "SoMa",
-      "address": "155 4th St, San Francisco",
-      "lat": 37.78404,
-      "lng": -122.40346,
-      "recommendedFor": [
-        "dinner"
-      ],
-      "website": null,
-      "context": "Ramen",
-      "tags": [],
-      "notes": {
-        "kaz": "",
-        "dj": "The first US location of the famous Tokyo ramen shop. Amazing ramen for a very reasonable wait."
-      }
-    },
-    {
       "id": "ramenshop",
       "name": "Ramen Shop",
       "area": "Oakland · Rockridge",
