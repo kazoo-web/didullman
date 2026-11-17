@@ -6,7 +6,6 @@
   <title>Bet on B.U.D. Results | The DiDullmans</title>
   <meta name="description" content="See what everyone is guessing for B.U.D.'s arrival">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     :root {
       --bob-coral: hsl(24, 95%, 65%);
@@ -279,7 +278,7 @@
           </svg>
         </div>
         <h1 class="font-display">The Stats</h1>
-        <p>See what everyone is guessing for B.U.D.</p>
+        <p>What everyone guessed for B.U.D.</p>
       </div>
 
       <!-- Stats rendered by JS -->
@@ -289,30 +288,14 @@
           <p>Loading stats...</p>
         </div>
       </div>
-
-      <!-- CTA -->
-      <div class="cta">
-        <a href="/bet-on-bud/">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-          </svg>
-          Make Your Guess
-        </a>
-      </div>
     </div>
   </div>
 
   <script>
     (async function() {
-      const SUPABASE_URL = 'https://qdbehcgcfuytdvozjuik.supabase.co';
-      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFkYmVoY2djZnV5dGR2b3pqdWlrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0NjY5OTEsImV4cCI6MjA4NjA0Mjk5MX0.BXYIjWRYpIP1BJmxlZn5Xpj0avVeYu8P-q8pBa0tZ1o';
-
-      const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-      const { data: guesses, error } = await supabase
-        .from('guesses')
-        .select('*')
-        .order('created_at', { ascending: false });
+      // Snapshot of all guesses, saved when the pool closed (no live database).
+      const guesses = [{"sex": "girl", "guess_date": "2026-05-18", "contribution_amount": 10, "time_of_day": "morning"}, {"sex": "boy", "guess_date": "2026-05-15", "contribution_amount": 10, "time_of_day": "morning"}, {"sex": "girl", "guess_date": "2026-05-28", "contribution_amount": 20, "time_of_day": "overnight"}, {"sex": "boy", "guess_date": "2026-05-24", "contribution_amount": 20, "time_of_day": "morning"}, {"sex": "boy", "guess_date": "2026-05-25", "contribution_amount": 10, "time_of_day": "overnight"}, {"sex": "girl", "guess_date": "2026-05-24", "contribution_amount": 50, "time_of_day": "overnight"}, {"sex": "boy", "guess_date": "2026-05-22", "contribution_amount": 150, "time_of_day": "morning"}, {"sex": "boy", "guess_date": "2026-05-20", "contribution_amount": 50, "time_of_day": "morning"}, {"sex": "girl", "guess_date": "2026-05-23", "contribution_amount": 150, "time_of_day": "evening"}];
+      const error = null;
 
       if (error || !guesses) {
         document.getElementById('stats').innerHTML = '<p style="text-align:center;color:var(--bob-text-muted)">Could not load stats. Please try again later.</p>';
