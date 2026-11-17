@@ -170,8 +170,11 @@
 
   // Pins that land on (almost) the same spot get fanned out side by side, so every one stays visible
   // and tappable at any zoom. Re-run whenever the zoom or the filters change.
-  var SPREAD_PX = 26, NEAR_PX = 22;
+  // Only at street level (zoom 14+) and only for small stacks, laid out in a tight ring around the
+  // real spot. Zoomed out, pins stay exactly where they are, even if they overlap.
+  var SPREAD_PX = 26, NEAR_PX = 22, DECLUTTER_MIN_ZOOM = 14, MAX_STACK = 6;
   function declutter() {
+    var zoomedIn = map.getZoom() >= DECLUTTER_MIN_ZOOM;
     var shown = places.filter(function (p) { return markers[p.id] && matches(p); });
     var pts = shown.map(function (p) { var s = map.project([p.lng, p.lat]); return { p: p, x: s.x, y: s.y, group: -1 }; });
     var groups = [];
@@ -188,14 +191,20 @@
       groups.push(g);
     });
     places.forEach(function (p) { if (markers[p.id]) markers[p.id].marker.setOffset([0, 0]); });
+    if (!zoomedIn) return;
     groups.forEach(function (g) {
-      if (g.length < 2) return;
+      if (g.length < 2 || g.length > MAX_STACK) return;
       var cx = g.reduce(function (s, q) { return s + q.x; }, 0) / g.length;
       var cy = g.reduce(function (s, q) { return s + q.y; }, 0) / g.length;
       g.sort(function (u, v) { return u.x - v.x || u.y - v.y; });
+      if (g.length === 2) {
+        g.forEach(function (q, i) { markers[q.p.id].marker.setOffset([cx + (i - 0.5) * SPREAD_PX - q.x, cy - q.y]); });
+        return;
+      }
+      var r = SPREAD_PX / (2 * Math.sin(Math.PI / g.length));
       g.forEach(function (q, i) {
-        var dx = (i - (g.length - 1) / 2) * SPREAD_PX;
-        markers[q.p.id].marker.setOffset([cx + dx - q.x, cy - q.y]);
+        var ang = -Math.PI / 2 + (2 * Math.PI * i) / g.length;
+        markers[q.p.id].marker.setOffset([cx + r * Math.cos(ang) - q.x, cy + r * Math.sin(ang) - q.y]);
       });
     });
   }
@@ -297,7 +306,9 @@
       zoom: isWide() ? START.zoomWide : START.zoomPhone,
       attributionControl: false,
       dragRotate: false,
-      pitchWithRotate: false
+      pitchWithRotate: false,
+      minZoom: 10,
+      maxBounds: [[-71.45, 42.18], [-70.85, 42.55]]
     });
     map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-left');
