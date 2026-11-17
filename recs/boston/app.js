@@ -72,7 +72,9 @@
       svg.appendChild(defs);
       fill = 'url(#' + gid + ')';
     }
-    svg.appendChild(svgEl('path', { d: PIN_PATH, fill: fill, stroke: '#141414', 'stroke-width': '1.6', 'stroke-linejoin': 'round' }));
+    // Only the pin's own shape takes taps, so a pin peeking out from behind another stays tappable.
+    svg.appendChild(svgEl('path', { d: PIN_PATH, class: 'pin-hit', fill: 'transparent', stroke: 'transparent', 'stroke-width': '4' }));
+    svg.appendChild(svgEl('path', { d: PIN_PATH, class: 'pin-shape', fill: fill, stroke: '#141414', 'stroke-width': '1.6', 'stroke-linejoin': 'round' }));
     svg.appendChild(svgEl('path', { d: DOT_PATH, fill: '#FFFFFF', stroke: '#141414', 'stroke-width': '1.4' }));
     return svg;
   }
@@ -128,6 +130,8 @@
       var btn = el('button', { type: 'button', class: 'pin', 'aria-label': p.name });
       btn.appendChild(pinSvg(colors, 'pg-' + p.id));
       btn.addEventListener('click', function (e) { e.stopPropagation(); select(p.id); });
+      btn.addEventListener('mouseenter', function () { if (selectedId !== p.id) btn.style.zIndex = '4'; });
+      btn.addEventListener('mouseleave', function () { if (selectedId !== p.id) btn.style.zIndex = ''; });
       var m = new maplibregl.Marker({ element: btn, anchor: 'bottom' }).setLngLat([p.lng, p.lat]).addTo(map);
       markers[p.id] = { marker: m, el: btn };
     });
@@ -184,6 +188,7 @@
     var m = markers[id];
     if (!m) return;
     m.el.classList.toggle('is-selected', on);
+    m.el.style.zIndex = on ? '10' : '';
     m.el.setAttribute('aria-pressed', on ? 'true' : 'false');
     var label = m.el.querySelector('.pin-label');
     if (on && !label) {
