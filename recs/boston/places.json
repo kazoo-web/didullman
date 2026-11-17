@@ -1,0 +1,599 @@
+{
+  "_readme": "Boston recs shown at didullman.com/recs/boston. recommendedFor: any of breakfast, brunch, lunch, dinner, bar (one color by default; list two only when we say a place is good for both). notes.kaz / notes.dj: our own notes, shown publicly. website: null hides the link. context: short line under the name.",
+  "places": [
+    {
+      "id": "elephantine",
+      "name": "Elephantine Bakery",
+      "area": "Fort Point",
+      "address": "332 Congress St, Boston",
+      "lat": 42.35111,
+      "lng": -71.04913,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.elephantinebakery.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "sofra",
+      "name": "Sofra",
+      "area": "Huron Village",
+      "address": "1 Belmont St, Cambridge",
+      "lat": 42.37488,
+      "lng": -71.15031,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.sofrabakery.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "sarma",
+      "name": "Sarma",
+      "area": "Winter Hill",
+      "address": "249 Pearl St, Somerville",
+      "lat": 42.38819,
+      "lng": -71.09548,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.sarmarestaurant.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "spoke",
+      "name": "Spoke Wine Bar",
+      "area": "Davis Square",
+      "address": "89 Holland St, Somerville",
+      "lat": 42.39889,
+      "lng": -71.12431,
+      "recommendedFor": [
+        "bar"
+      ],
+      "website": "https://www.spokewinebar.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "yume",
+      "name": "Yume Ga Arukara",
+      "area": "Porter Square",
+      "address": "1815 Massachusetts Ave, Cambridge",
+      "lat": 42.38734,
+      "lng": -71.11846,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://yumegaarukara.com",
+      "context": "Udon",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "gufo",
+      "name": "Gufo",
+      "area": "East Cambridge",
+      "address": "660 Cambridge St, Cambridge",
+      "lat": 42.37184,
+      "lng": -71.08761,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.gufocambridge.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "beatrice",
+      "name": "Cafe Beatrice",
+      "area": "Cambridge Crossing",
+      "address": "100 N First St, Cambridge",
+      "lat": 42.37205,
+      "lng": -71.07557,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.thelexingtoncx.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "faro",
+      "name": "Faro Cafe",
+      "area": "Harvard Square",
+      "address": "5 Arrow St, Cambridge",
+      "lat": 42.37127,
+      "lng": -71.11472,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": null,
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "imagine",
+      "name": "Imagine",
+      "area": "Huron Village",
+      "address": "358 Huron Ave, Cambridge",
+      "lat": 42.38112,
+      "lng": -71.13844,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": null,
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "lifealive",
+      "name": "Life Alive",
+      "area": "Central Square",
+      "address": "765 Massachusetts Ave, Cambridge",
+      "lat": 42.36664,
+      "lng": -71.10543,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://www.lifealive.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "clover",
+      "name": "Clover",
+      "area": "Central Square",
+      "address": "496 Massachusetts Ave, Cambridge",
+      "lat": 42.36394,
+      "lng": -71.1016,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://www.cloverfoodlab.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "parish",
+      "name": "Parish Cafe",
+      "area": "Back Bay",
+      "address": "361 Boylston St, Boston",
+      "lat": 42.35185,
+      "lng": -71.07164,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": null,
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "tonino",
+      "name": "Tonino",
+      "area": "Jamaica Plain",
+      "address": "669A Centre St, Jamaica Plain",
+      "lat": 42.31256,
+      "lng": -71.1143,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.toninojp.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "brassica",
+      "name": "Brassica Kitchen",
+      "area": "Jamaica Plain",
+      "address": "3712 Washington St, Jamaica Plain",
+      "lat": 42.30045,
+      "lng": -71.11309,
+      "recommendedFor": [
+        "brunch"
+      ],
+      "website": "https://www.brassicakitchen.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "mamalehs",
+      "name": "Mamaleh's",
+      "area": "Kendall Square",
+      "address": "15 Hampshire St, Cambridge",
+      "lat": 42.36612,
+      "lng": -71.09092,
+      "recommendedFor": [
+        "brunch"
+      ],
+      "website": "https://www.mamalehs.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "thirdtime",
+      "name": "Third Time Together",
+      "area": "Kendall Square",
+      "address": "399 Binney St, Cambridge",
+      "lat": 42.36796,
+      "lng": -71.09034,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://www.thirdtimetogether.co",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "amba",
+      "name": "Amba",
+      "area": "East Cambridge",
+      "address": "59 First St, Cambridge",
+      "lat": 42.36898,
+      "lng": -71.0776,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://www.ambacambridge.com",
+      "context": "Takeout",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "pammys",
+      "name": "Pammy's",
+      "area": "Mid-Cambridge",
+      "address": "928 Massachusetts Ave, Cambridge",
+      "lat": 42.36843,
+      "lng": -71.10919,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.pammyscambridge.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "saigon",
+      "name": "Saigon Babylon",
+      "area": "Central Square",
+      "address": "907 Main St, Cambridge",
+      "lat": 42.36371,
+      "lng": -71.09955,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.instagram.com/saigon_babylon",
+      "context": "Rooftop",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "notch",
+      "name": "Notch Beer Garden",
+      "area": "Allston-Brighton",
+      "address": "525 Western Ave, Brighton",
+      "lat": 42.36172,
+      "lng": -71.14485,
+      "recommendedFor": [
+        "bar"
+      ],
+      "website": null,
+      "context": "At Charles River Speedway",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "koji",
+      "name": "The Koji Club",
+      "area": "Allston-Brighton",
+      "address": "525 Western Ave, Brighton",
+      "lat": 42.36172,
+      "lng": -71.14453,
+      "recommendedFor": [
+        "bar"
+      ],
+      "website": "https://thekojiclub.com",
+      "context": "At Charles River Speedway",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "pizzaproject",
+      "name": "Pizza Project",
+      "area": "Allston-Brighton",
+      "address": "525 Western Ave, Brighton",
+      "lat": 42.36148,
+      "lng": -71.14485,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": null,
+      "context": "At Charles River Speedway",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "linger",
+      "name": "Linger",
+      "area": "Allston-Brighton",
+      "address": "525 Western Ave, Brighton",
+      "lat": 42.36148,
+      "lng": -71.14453,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": null,
+      "context": "At Charles River Speedway",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "nagomi",
+      "name": "Nagomi Bento",
+      "area": "Union Square",
+      "address": "1 Bow Market Way, Somerville",
+      "lat": 42.38126,
+      "lng": -71.09835,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": null,
+      "context": "At Bow Market",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "vietcitron",
+      "name": "Viet Citron",
+      "area": "Union Square",
+      "address": "1 Bow Market Way, Somerville",
+      "lat": 42.38126,
+      "lng": -71.09807,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": null,
+      "context": "At Bow Market",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "shoreleave",
+      "name": "Shore Leave",
+      "area": "South End",
+      "address": "11 William E Mullins Way, Boston",
+      "lat": 42.34542,
+      "lng": -71.06427,
+      "recommendedFor": [
+        "bar"
+      ],
+      "website": "https://www.shoreleaveboston.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "bagelsaurus",
+      "name": "Bagelsaurus",
+      "area": "Porter Square",
+      "address": "1796 Massachusetts Ave, Cambridge",
+      "lat": 42.38595,
+      "lng": -71.11961,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": null,
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "vinalbakery",
+      "name": "Vinal Bakery",
+      "area": "Union Square",
+      "address": "222 Somerville Ave, Somerville",
+      "lat": 42.378,
+      "lng": -71.09144,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.vinalbakery.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "vinalgeneral",
+      "name": "Vinal General Store",
+      "area": "Union Square",
+      "address": "220 Somerville Ave, Somerville",
+      "lat": 42.378,
+      "lng": -71.09164,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://www.vinalgeneralstore.com",
+      "context": "Next door to Vinal Bakery",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "honeycomb",
+      "name": "Honeycomb Creamery",
+      "area": "Porter Square",
+      "address": "1702 Massachusetts Ave, Cambridge",
+      "lat": 42.3832,
+      "lng": -71.11985,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": null,
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "avenue",
+      "name": "Avenue Kitchen + Bar",
+      "area": "Ball Square",
+      "address": "158 Boston Ave, Somerville",
+      "lat": 42.3993,
+      "lng": -71.11138,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://avenuesomerville.com",
+      "context": "Detroit-style pizza",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "broadsheet",
+      "name": "Broadsheet Coffee",
+      "area": "Mid-Cambridge",
+      "address": "100 Kirkland St, Cambridge",
+      "lat": 42.37786,
+      "lng": -71.10739,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://broadsheetcoffee.com",
+      "context": "Next to Savenor's",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "josephine",
+      "name": "Josephine",
+      "area": "Somerville",
+      "address": "515 Somerville Ave, Somerville",
+      "lat": 42.38335,
+      "lng": -71.10587,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": null,
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    }
+  ]
+}

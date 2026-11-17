@@ -42,6 +42,7 @@ jobs:
             mkdir -p dist/bet-on-bud
             cp -r dist-bob/* dist/bet-on-bud/
             mkdir -p dist/books && cp -r books/* dist/books/ && rm -rf dist/books/apps-script dist/books/dev
+            mkdir -p dist/recs && cp -r recs/* dist/recs/
           
       - uses: actions/upload-pages-artifact@v3
         with:
