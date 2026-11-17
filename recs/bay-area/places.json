@@ -528,7 +528,7 @@
     },
     {
       "id": "balompie",
-      "name": "Balompie Cafe",
+      "name": "Balompié Cafe",
       "area": "Mission",
       "address": "3349 18th St, San Francisco",
       "lat": 37.76178,
@@ -536,7 +536,7 @@
       "recommendedFor": [
         "lunch"
       ],
-      "website": null,
+      "website": "https://www.balompie3.com",
       "context": null,
       "tags": [],
       "notes": {
