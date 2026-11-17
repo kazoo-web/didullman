@@ -1518,24 +1518,6 @@
         "kaz": "",
         "dj": "Grab something fresh, cold and fancy to take up Bernal Hill."
       }
-    },
-    {
-      "id": "hodala",
-      "name": "HoDaLa",
-      "area": "Outer Richmond",
-      "address": "5801 Geary Blvd, San Francisco",
-      "lat": 37.7804,
-      "lng": -122.48085,
-      "recommendedFor": [
-        "dinner"
-      ],
-      "website": null,
-      "context": "Taiwanese",
-      "tags": [],
-      "notes": {
-        "kaz": "",
-        "dj": "Authentic, delicious and a lot less expensive than downtown. One of our favorites out west."
-      }
     }
   ]
 }
