@@ -1446,6 +1446,24 @@
         "kaz": "Really great sushi.",
         "dj": ""
       }
+    },
+    {
+      "id": "supersimple",
+      "name": "Super Simple",
+      "area": "Mission",
+      "address": "855 Valencia St, San Francisco",
+      "lat": 37.75925,
+      "lng": -122.42155,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://shopsupersimple.com",
+      "context": "Design + home",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
     }
   ]
 }
