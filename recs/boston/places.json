@@ -1,5 +1,5 @@
 {
-  "_readme": "Boston recs shown at didullman.com/recs/boston. recommendedFor: any of breakfast, brunch, lunch, dinner, bar (one color by default; list two only when we say a place is good for both). notes.kaz / notes.dj: our own notes, shown publicly. website: null hides the link. context: short line under the name.",
+  "_readme": "Boston recs shown at didullman.com/recs/boston. recommendedFor: any of breakfast, brunch, lunch, dinner, bar, coffee (one color by default; list two only when we say a place is good for both). notes.kaz / notes.dj: our own notes, shown publicly. website: null hides the link. context: short line under the name.",
   "places": [
     {
       "id": "elephantine",
@@ -135,7 +135,7 @@
       "lat": 42.37127,
       "lng": -71.11472,
       "recommendedFor": [
-        "breakfast"
+        "coffee"
       ],
       "website": null,
       "context": null,
@@ -153,7 +153,7 @@
       "lat": 42.38112,
       "lng": -71.13844,
       "recommendedFor": [
-        "breakfast"
+        "coffee"
       ],
       "website": null,
       "context": null,
@@ -405,7 +405,7 @@
       "lat": 42.36148,
       "lng": -71.14453,
       "recommendedFor": [
-        "breakfast"
+        "coffee"
       ],
       "website": null,
       "context": "At Charles River Speedway",
@@ -567,7 +567,7 @@
       "lat": 42.37786,
       "lng": -71.10739,
       "recommendedFor": [
-        "breakfast"
+        "coffee"
       ],
       "website": "https://broadsheetcoffee.com",
       "context": "Next to Savenor's",

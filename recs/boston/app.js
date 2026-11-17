@@ -6,7 +6,8 @@
     brunch:    { label: 'Brunch',    color: '#F4A261' },
     lunch:     { label: 'Lunch',     color: '#8AB17D' },
     dinner:    { label: 'Dinner',    color: '#E76F51' },
-    bar:       { label: 'Bar',       color: '#264653' }
+    bar:       { label: 'Bar',       color: '#264653' },
+    coffee:    { label: 'Coffee',    color: '#8B5E3C' }
   };
   var MAP_COLORS = {
     land: '#FBF5EA', water: '#A8CBD4', park: '#CFDDB9', building: '#F1E4CF',
@@ -18,8 +19,7 @@
 
   var els = {
     intro: document.getElementById('intro'),
-    count: document.getElementById('count'),
-    legend: document.getElementById('legend'),
+    filters: document.getElementById('filters'),
     detail: document.getElementById('detail'),
     name: document.getElementById('d-name'),
     meta: document.getElementById('d-meta'),
@@ -36,6 +36,7 @@
   var places = [];
   var markers = {};
   var selectedId = null;
+  var activeFilters = [];
   var map;
 
   function isWide() { return window.matchMedia('(min-width: 900px)').matches; }
@@ -79,15 +80,41 @@
     return svg;
   }
 
-  function buildLegend() {
+  // Meal buttons double as the legend and a filter. None pressed = show everything.
+  function buildFilters() {
     Object.keys(MEALS).forEach(function (k) {
-      var li = el('li');
+      var b = el('button', { type: 'button', class: 'filter', 'aria-pressed': 'false', 'data-meal': k });
       var s = pinSvg([MEALS[k].color], 'lg-' + k);
       s.setAttribute('width', '18'); s.setAttribute('height', '18');
-      li.appendChild(s);
-      li.appendChild(document.createTextNode(MEALS[k].label));
-      els.legend.appendChild(li);
+      b.appendChild(s);
+      b.appendChild(document.createTextNode(MEALS[k].label));
+      b.style.setProperty('--meal', MEALS[k].color);
+      b.addEventListener('click', function () { toggleFilter(k, b); });
+      els.filters.appendChild(b);
     });
+  }
+
+  function toggleFilter(k, b) {
+    var i = activeFilters.indexOf(k);
+    if (i >= 0) activeFilters.splice(i, 1); else activeFilters.push(k);
+    b.setAttribute('aria-pressed', i >= 0 ? 'false' : 'true');
+    applyFilters();
+  }
+
+  function matches(p) {
+    if (!activeFilters.length) return true;
+    return mealKeys(p).some(function (k) { return activeFilters.indexOf(k) >= 0; });
+  }
+
+  function applyFilters() {
+    places.forEach(function (p) {
+      var m = markers[p.id];
+      if (m) m.el.hidden = !matches(p);
+    });
+    if (selectedId) {
+      var sel = places.find(function (x) { return x.id === selectedId; });
+      if (sel && !matches(sel)) closeDetail();
+    }
   }
 
   // Recolor the free OpenFreeMap basemap into the Earth & Clay palette.
@@ -225,8 +252,7 @@
 
   function init(data) {
     places = (data && data.places) || [];
-    els.count.textContent = places.length + ' places';
-    buildLegend();
+    buildFilters();
 
     map = new maplibregl.Map({
       container: 'map',
@@ -257,5 +283,5 @@
   fetch('places.json', { cache: 'no-cache' })
     .then(function (r) { return r.json(); })
     .then(init)
-    .catch(function () { els.count.textContent = 'Could not load the places. Try refreshing.'; });
+    .catch(function () { els.filters.textContent = 'Could not load the places. Try refreshing.'; });
 })();
