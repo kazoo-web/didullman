@@ -873,9 +873,9 @@
       "id": "nari",
       "name": "Nari",
       "area": "Japantown",
-      "address": "833 Sutter St, San Francisco",
-      "lat": 37.78846,
-      "lng": -122.41417,
+      "address": "1625 Post St, San Francisco",
+      "lat": 37.7856,
+      "lng": -122.4286,
       "recommendedFor": [
         "dinner"
       ],
@@ -1427,6 +1427,24 @@
       "notes": {
         "kaz": "",
         "dj": "Grab something fresh, cold and fancy to take up Bernal Hill."
+      }
+    },
+    {
+      "id": "shodoku",
+      "name": "Shokudou Sushi & Izakaya",
+      "area": "Bernal Heights",
+      "address": "1000 Cortland Ave, San Francisco",
+      "lat": 37.73905,
+      "lng": -122.41185,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://order.online/store/-24049419",
+      "context": "Sushi",
+      "tags": [],
+      "notes": {
+        "kaz": "Really great sushi.",
+        "dj": ""
       }
     }
   ]
