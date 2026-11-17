@@ -292,20 +292,20 @@
       }
     },
     {
-      "id": "trouble",
-      "name": "Trouble Coffee",
+      "id": "andytown",
+      "name": "Andytown Coffee Roasters",
       "area": "Outer Sunset",
-      "address": "4033 Judah St, San Francisco",
-      "lat": 37.76025,
-      "lng": -122.50539,
+      "address": "3655 Lawton St, San Francisco",
+      "lat": 37.75679,
+      "lng": -122.50231,
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://www.andytownsf.com",
       "context": null,
       "tags": [],
       "notes": {
-        "kaz": "The OG of the $4 toast. The owner's story is awesome and worth a read. Walk to Ocean Beach after.",
+        "kaz": "We used to recommend Trouble Coffee, but it's closed. This is our swap.",
         "dj": ""
       }
     },
