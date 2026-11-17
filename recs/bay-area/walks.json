@@ -1,0 +1,316 @@
+{
+  "_readme": "Walks and the read & watch list for didullman.com/recs/bay-area. Routes are drawn as straight dashed lines between stops (connect-the-dots, not turn-by-turn). A stop with a placeId opens that place's card.",
+  "walks": [
+    {
+      "id": "bernal",
+      "title": "Bernal Heights loop",
+      "meta": "~1 hr · walk",
+      "summary": "Over the hill and back: coffee and pastries on Cortland, hidden stairways, and the best sunset view in the city.",
+      "stops": [
+        {
+          "name": "Pinhole Coffee",
+          "placeId": "pinhole",
+          "lat": 37.73958,
+          "lng": -122.41902,
+          "note": "Morning coffee on Cortland."
+        },
+        {
+          "name": "Black Jet Baking Co.",
+          "placeId": "blackjet",
+          "lat": 37.73909,
+          "lng": -122.41414,
+          "note": "Grab baked goods for the walk."
+        },
+        {
+          "name": "Bernal Heights summit",
+          "lat": 37.7432,
+          "lng": -122.4141,
+          "note": "Up and over the hill. In the evening, bring United Dumplings takeout and watch the sunset."
+        },
+        {
+          "name": "Esmeralda slides",
+          "lat": 37.74355,
+          "lng": -122.4186,
+          "note": "Trace Bernal's western edge, find the hidden stairways, and try the slides."
+        },
+        {
+          "name": "The Royal Cuckoo",
+          "placeId": "royalcuckoo",
+          "lat": 37.74533,
+          "lng": -122.42014,
+          "note": "Post-sundowner: the Royal Cuckoo or Barebottle. Pick your poison."
+        }
+      ]
+    },
+    {
+      "id": "valencia",
+      "title": "Valencia to Dolores Park",
+      "meta": "2+ hrs · walk",
+      "summary": "Down Valencia (the parallel, bougier version of Mission Street) to a seat on the grass, then back through the murals.",
+      "stops": [
+        {
+          "name": "Dog Eared Books",
+          "placeId": "dogeared",
+          "lat": 37.75844,
+          "lng": -122.42134,
+          "note": "Our favorite bookstore, and good for a designy gift."
+        },
+        {
+          "name": "Craftsman and Wolves",
+          "placeId": "craftsman",
+          "lat": 37.76096,
+          "lng": -122.42182,
+          "note": "Coffee, bread or a sandwich. If you're extra patient, the famous Tartine is a few blocks over."
+        },
+        {
+          "name": "Dolores Park",
+          "lat": 37.7596,
+          "lng": -122.4269,
+          "note": "Grab a seat on the grass and soak up the city views. Depending on the day, you'll see the park come alive."
+        },
+        {
+          "name": "Clarion Alley",
+          "lat": 37.7631,
+          "lng": -122.4216,
+          "note": "Murals, plus our friend's mural in the graffiti alley off Caledonia Street."
+        }
+      ]
+    },
+    {
+      "id": "outwest",
+      "title": "Way out west",
+      "meta": "~4 mi · half day",
+      "summary": "Coffee, a bookstore, the beach, then museums and gardens on the way back through Golden Gate Park.",
+      "stops": [
+        {
+          "name": "Andytown Coffee Roasters",
+          "placeId": "andytown",
+          "lat": 37.75679,
+          "lng": -122.50231,
+          "note": "Get here by Uber. (We used to send people to Trouble Coffee, but it's closed.)"
+        },
+        {
+          "name": "Outerlands",
+          "placeId": "outerlands",
+          "lat": 37.76025,
+          "lng": -122.50503,
+          "note": "A few blocks away, if you want to make a full brunch of it."
+        },
+        {
+          "name": "Ocean Beach",
+          "lat": 37.7605,
+          "lng": -122.5105,
+          "note": "Walk the beach, or bike or scooter the Great Highway."
+        },
+        {
+          "name": "Japanese Tea Garden",
+          "lat": 37.7702,
+          "lng": -122.4703,
+          "note": "A natural oasis. The botanical garden is right next door."
+        },
+        {
+          "name": "de Young Museum",
+          "lat": 37.7715,
+          "lng": -122.4687,
+          "note": "Get your art fix, and go up the tower for a panoramic view of the city."
+        }
+      ]
+    },
+    {
+      "id": "landsend",
+      "title": "Lands End",
+      "meta": "~4 mi · hike + dinner",
+      "summary": "Coffee, a rugged coastal hike inside the city, and a great dinner date.",
+      "stops": [
+        {
+          "name": "Andytown Coffee Roasters",
+          "placeId": "andytown",
+          "lat": 37.75679,
+          "lng": -122.50231,
+          "note": "Start with coffee. (We used to send people to Trouble Coffee, but it's closed.)"
+        },
+        {
+          "name": "Lands End Lookout",
+          "lat": 37.7798,
+          "lng": -122.5113,
+          "note": "Up from Ocean Beach, then follow the trail along the rugged northwest coast to Sea Cliff."
+        },
+        {
+          "name": "Lincoln Park Steps",
+          "lat": 37.7843,
+          "lng": -122.492,
+          "note": "Walk down the picturesque steps."
+        },
+        {
+          "name": "Pizzetta 211",
+          "placeId": "pizzetta",
+          "lat": 37.78374,
+          "lng": -122.48293,
+          "note": "Our favorite date-night pizza."
+        }
+      ]
+    },
+    {
+      "id": "goldengate",
+      "title": "Trek to the Golden Gate",
+      "meta": "~7 mi · long walk",
+      "summary": "Rugged cliffs and a rare view of the bridge, ending with dinner and a drink in the city. Long, but a very different look at a few SF neighborhoods.",
+      "stops": [
+        {
+          "name": "Lands End Lookout",
+          "lat": 37.7798,
+          "lng": -122.5113,
+          "note": "Start here, or start at the bridge and walk west if the sun is setting."
+        },
+        {
+          "name": "Baker Beach",
+          "lat": 37.7936,
+          "lng": -122.4836,
+          "note": "Dirt trails along the cliffs, past Baker and Marshall's beaches."
+        },
+        {
+          "name": "Golden Gate Bridge",
+          "lat": 37.8078,
+          "lng": -122.475,
+          "note": "A rare perspective on the bridge."
+        },
+        {
+          "name": "Crissy Field",
+          "lat": 37.8039,
+          "lng": -122.4643,
+          "note": "Down to the water and along the Marina."
+        },
+        {
+          "name": "The Interval",
+          "placeId": "interval",
+          "lat": 37.80635,
+          "lng": -122.43215,
+          "note": "End with a drink. Peruvian, Japanese curry or German food are all close by in the Marina."
+        }
+      ]
+    },
+    {
+      "id": "embarcadero",
+      "title": "Obligatory Embarcadero",
+      "meta": "~3 mi · scooter + walk",
+      "summary": "Only the coolest parts of the tourist trail. Rent a scooter (live a little!) and do the touristy things, just don't tell us about it.",
+      "stops": [
+        {
+          "name": "Ferry Building",
+          "placeId": "ferry",
+          "lat": 37.79555,
+          "lng": -122.39347,
+          "note": "Midnite Bagel if at all possible, or the farmers market. A ferry to Sausalito or Angel Island is a must if you have time."
+        },
+        {
+          "name": "Fisherman's Wharf",
+          "lat": 37.808,
+          "lng": -122.4177,
+          "note": "Which you will (and should) absolutely hate."
+        },
+        {
+          "name": "The Buena Vista",
+          "placeId": "buenavista",
+          "lat": 37.80631,
+          "lng": -122.42056,
+          "note": "You must (MUST!) have an Irish coffee."
+        },
+        {
+          "name": "City Lights",
+          "placeId": "citylights",
+          "lat": 37.79755,
+          "lng": -122.40633,
+          "note": "Walk south on Columbus. Don't miss it."
+        },
+        {
+          "name": "Coit Tower",
+          "lat": 37.8024,
+          "lng": -122.4058,
+          "note": "The view from the top is chef's kiss. Dinner at China Live or Tony's, or go wild in Chinatown."
+        }
+      ]
+    },
+    {
+      "id": "eastbay",
+      "title": "East Bay fun day",
+      "meta": "BART · full day",
+      "summary": "Bagels in Temescal, people-watching at Lake Merritt, and the Cheese Board line in North Berkeley.",
+      "stops": [
+        {
+          "name": "Beauty's Bagel Shop",
+          "placeId": "beautys",
+          "lat": 37.82776,
+          "lng": -122.26453,
+          "note": "MacArthur BART. A heavy brunch: add butter-braised greens and/or a sausage patty."
+        },
+        {
+          "name": "Temescal Alley",
+          "placeId": "temescal",
+          "lat": 37.83577,
+          "lng": -122.26263,
+          "note": "Cute shops in former horse stalls."
+        },
+        {
+          "name": "Lake Merritt",
+          "lat": 37.8085,
+          "lng": -122.258,
+          "note": "Walk north along the lake and people-watch. Saturday farmers market at Grand Lake. Culture nerds: Oakland Museum. Nature lovers: the Rose Garden."
+        },
+        {
+          "name": "Cheese Board Pizza",
+          "placeId": "cheeseboard",
+          "lat": 37.87986,
+          "lng": -122.26947,
+          "note": "Stand in line for the famous veggie pizza."
+        },
+        {
+          "name": "Comal",
+          "placeId": "comal",
+          "lat": 37.87188,
+          "lng": -122.26845,
+          "note": "End on the back patio with a cocktail, or get mochi donuts at Third Culture."
+        }
+      ]
+    },
+    {
+      "id": "crosstown",
+      "title": "Crosstown Trail",
+      "meta": "17 mi · a full day (or two)",
+      "summary": "Only for the truly walking-obsessed: the trail across the whole city, from Candlestick to Lands End.",
+      "link": "https://www.crosstowntrail.org",
+      "stops": []
+    }
+  ],
+  "readWatch": [
+    {
+      "kind": "Book",
+      "title": "Season of the Witch",
+      "note": "A sprawling, entertaining journey through SF in the turbulent 60s and 70s. An alternative take on the good ol' days, and the roots of today's issues."
+    },
+    {
+      "kind": "Film",
+      "title": "The Last Black Man in San Francisco",
+      "note": "Beautiful, heartbreaking and creative."
+    },
+    {
+      "kind": "Reporting",
+      "title": "SF Chronicle: the homelessness special report",
+      "note": "Context on the city's biggest debate."
+    },
+    {
+      "kind": "Series",
+      "title": "Devs",
+      "note": "Beautifully shot in SF and at UC Santa Cruz, 90 minutes south."
+    },
+    {
+      "kind": "Recent",
+      "title": "The Matrix Resurrections · Shang-Chi",
+      "note": "Shot in San Francisco."
+    },
+    {
+      "kind": "Vintage SF",
+      "title": "Vertigo · Dirty Harry · The Birds · The Rock",
+      "note": "The Birds is Bodega Bay, but it counts. And The Rock is somehow vintage now."
+    }
+  ]
+}

@@ -1,0 +1,1433 @@
+{
+  "_readme": "Bay Area recs shown at didullman.com/recs/bay-area. recommendedFor: any of coffee, breakfast, lunch, dinner, drinks, shopping. notes.kaz / notes.dj are shown publicly.",
+  "places": [
+    {
+      "id": "pinhole",
+      "name": "Pinhole Coffee",
+      "area": "Bernal Heights",
+      "address": "231 Cortland Ave, San Francisco",
+      "lat": 37.73958,
+      "lng": -122.41902,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.pinholecoffee.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "The undisputed Bernal coffee shop. Friendly owners, design on point. Check out the mural on the side of the building, and follow the artist's murals around the city.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "sightglass",
+      "name": "Sightglass",
+      "area": "Mission",
+      "address": "3014 20th St, San Francisco",
+      "lat": 37.7592,
+      "lng": -122.41099,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://sightglasscoffee.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Tucked under trees on a side street. Limited but charming seating inside."
+      }
+    },
+    {
+      "id": "dynamo",
+      "name": "Dynamo Donut + Coffee",
+      "area": "Mission",
+      "address": "2760 24th St, San Francisco",
+      "lat": 37.75304,
+      "lng": -122.40765,
+      "recommendedFor": [
+        "coffee",
+        "breakfast"
+      ],
+      "website": "https://dynamodonuts.squarespace.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Coffee plus donuts. They often have gluten-free ones.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "stable",
+      "name": "Stable Cafe",
+      "area": "Mission",
+      "address": "2128 Folsom St, San Francisco",
+      "lat": 37.76323,
+      "lng": -122.41544,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.stablecafe.com",
+      "context": "Best to work from",
+      "tags": [],
+      "notes": {
+        "kaz": "Our pick for working from a cafe when it's REALLY nice outside.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "fourbarrel",
+      "name": "Four Barrel",
+      "area": "Mission",
+      "address": "375 Valencia St, San Francisco",
+      "lat": 37.76702,
+      "lng": -122.42179,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.fourbarrelcoffee.com",
+      "context": "Best to work from",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Another good one to work from."
+      }
+    },
+    {
+      "id": "sightglasssoma",
+      "name": "Sightglass (SoMa)",
+      "area": "SoMa",
+      "address": "270 7th St, San Francisco",
+      "lat": 37.77698,
+      "lng": -122.40855,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://sightglasscoffee.com",
+      "context": "Best to work from",
+      "tags": [],
+      "notes": {
+        "kaz": "The big SoMa roastery. Lots of room to work.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "sextant",
+      "name": "Sextant Coffee",
+      "area": "SoMa",
+      "address": "1415 Folsom St, San Francisco",
+      "lat": 37.77243,
+      "lng": -122.41291,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://sextantcoffee.com",
+      "context": "Best to work from",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "A good spot to work from."
+      }
+    },
+    {
+      "id": "coffeeshop",
+      "name": "Coffeeshop",
+      "area": "Outer Mission",
+      "address": "3139 Mission St, San Francisco",
+      "lat": 37.74702,
+      "lng": -122.41869,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://coffeeshopsf.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Not the most charming location (or the most original name), but one of the best cups of coffee in the city."
+      }
+    },
+    {
+      "id": "precita",
+      "name": "Precita Park Cafe",
+      "area": "Bernal Heights",
+      "address": "500 Precita Ave, San Francisco",
+      "lat": 37.74705,
+      "lng": -122.41044,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "http://www.parkcafelife.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Totally OK at everything it does, from coffee to lunch to ice cream. Right on the park.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "flywheel",
+      "name": "Flywheel Coffee",
+      "area": "Upper Haight",
+      "address": "672 Stanyan St, San Francisco",
+      "lat": 37.7697,
+      "lng": -122.45336,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://flywheelcoffee.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Their Amaro Gayo beans are our favorite in the whole wide world."
+      }
+    },
+    {
+      "id": "reveille",
+      "name": "Café Réveille",
+      "area": "Lower Haight",
+      "address": null,
+      "lat": 37.77107,
+      "lng": -122.4321,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.cafereveille.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Feels very European, especially great when it's warm out.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "themill",
+      "name": "The Mill",
+      "area": "NoPa",
+      "address": "736 Divisadero St, San Francisco",
+      "lat": 37.77647,
+      "lng": -122.43778,
+      "recommendedFor": [
+        "coffee",
+        "breakfast"
+      ],
+      "website": "https://www.themillsf.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Beautiful, airy bakery. Grab a coffee and pastry and walk up to Alamo Square for the view of the city and the Painted Ladies.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "stonemill",
+      "name": "Stonemill Matcha",
+      "area": "Mission",
+      "address": "561 Valencia St, San Francisco",
+      "lat": 37.76402,
+      "lng": -122.42153,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.stonemillmatcha.com",
+      "context": "Matcha",
+      "tags": [],
+      "notes": {
+        "kaz": "An adorable, very Japanese matcha shop. Hard to figure out when it's open; I've probably tried and failed to go more often than I've actually been in.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "bobaguys",
+      "name": "Boba Guys",
+      "area": "Mission",
+      "address": "3491 19th St, San Francisco",
+      "lat": 37.76003,
+      "lng": -122.4211,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.bobaguys.com",
+      "context": "Boba (several locations)",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "We're boba snobs, and this local chain is pretty awesome. You're never more than a 20-minute walk from one."
+      }
+    },
+    {
+      "id": "blacksugar",
+      "name": "Black Sugar",
+      "area": "Union Square",
+      "address": "",
+      "lat": 37.78629,
+      "lng": -122.41022,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.blacksugarboba.com",
+      "context": "Boba",
+      "tags": [],
+      "notes": {
+        "kaz": "One of our two favorite boba spots: next-level.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "andytown",
+      "name": "Andytown Coffee Roasters",
+      "area": "Outer Sunset",
+      "address": "3655 Lawton St, San Francisco",
+      "lat": 37.75679,
+      "lng": -122.50231,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.andytownsf.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "We used to recommend Trouble Coffee, but it's closed. This is our swap.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "ujitime",
+      "name": "Uji Time",
+      "area": "Japantown",
+      "address": "1737 Post St, San Francisco",
+      "lat": 37.78501,
+      "lng": -122.43006,
+      "recommendedFor": [
+        "coffee"
+      ],
+      "website": "https://www.ujitimedessert.com",
+      "context": "In the Japantown mall",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Get the green tea fish cone ice cream."
+      }
+    },
+    {
+      "id": "craftsman",
+      "name": "Craftsman and Wolves",
+      "area": "Mission",
+      "address": "746 Valencia St, San Francisco",
+      "lat": 37.76096,
+      "lng": -122.42182,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.craftsman-wolves.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "The most creative and delicious pastries and light brunch around.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "tartine",
+      "name": "Tartine Manufactory",
+      "area": "Mission",
+      "address": "595 Alabama St, San Francisco",
+      "lat": 37.76177,
+      "lng": -122.4118,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://tartinebakery.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Bigger and more beautiful than the original. Order to-go ahead of time, or wait in what feels like an eternal line to sit in the sun-drenched dining room.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "wisesons",
+      "name": "Wise Sons",
+      "area": "Mission",
+      "address": "3150 24th St, San Francisco",
+      "lat": 37.75255,
+      "lng": -122.41533,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.wisesonsdeli.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Some of the best bagels in the city. Add the chili-oil everything spice to your breakfast sandwich, and crispy pastrami if you eat meat."
+      }
+    },
+    {
+      "id": "outerlands",
+      "name": "Outerlands",
+      "area": "Outer Sunset",
+      "address": "4001 Judah St, San Francisco",
+      "lat": 37.76025,
+      "lng": -122.50503,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://outerlandssf.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "A very good brunch spot a few doors from Trouble. Make a morning of it.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "blackjet",
+      "name": "Black Jet Baking Co.",
+      "area": "Bernal Heights",
+      "address": "833 Cortland Ave, San Francisco",
+      "lat": 37.73909,
+      "lng": -122.41414,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.blackjetbakery.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Great baked goods to grab on a walk over Bernal Hill.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "ferry",
+      "name": "Ferry Building",
+      "area": "Embarcadero",
+      "address": "1 Ferry Building, San Francisco",
+      "lat": 37.79555,
+      "lng": -122.39347,
+      "recommendedFor": [
+        "breakfast",
+        "shopping"
+      ],
+      "website": "https://www.ferrybuildingmarketplace.com",
+      "context": "Farmers market three days a week",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Catch a Midnite Bagel if at all possible, or eat your way through the farmers market."
+      }
+    },
+    {
+      "id": "beautys",
+      "name": "Beauty's Bagel Shop",
+      "area": "Oakland · Temescal",
+      "address": "3838 Telegraph Ave, Oakland",
+      "lat": 37.82776,
+      "lng": -122.26453,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.beautysbagelshop.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "The most amazing bagel shop. I recommend adding butter-braised greens and/or a sausage patty to an egg and cheese bagel.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "thirdculture",
+      "name": "Third Culture Bakery",
+      "area": "Berkeley",
+      "address": "2701 8th St, Berkeley",
+      "lat": 37.85779,
+      "lng": -122.28637,
+      "recommendedFor": [
+        "breakfast"
+      ],
+      "website": "https://www.thirdculturebakery.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Incredible mochi donuts.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "yamo",
+      "name": "YaMo",
+      "area": "Mission",
+      "address": "3406 18th St, San Francisco",
+      "lat": 37.76192,
+      "lng": -122.4197,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "http://sfyamo.com",
+      "context": "Cash only",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Super cheap Burmese noodles."
+      }
+    },
+    {
+      "id": "papalote",
+      "name": "Papalote",
+      "area": "Mission",
+      "address": "3409 24th St, San Francisco",
+      "lat": 37.75199,
+      "lng": -122.42105,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "http://www.papalote-sf.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Incredible, life-changing salsa and great vegetarian options (see: the mole tofu burrito). Not really an OG Mission burrito, though.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "lataqueria",
+      "name": "La Taqueria",
+      "area": "Mission",
+      "address": "2889 Mission St, San Francisco",
+      "lat": 37.75089,
+      "lng": -122.41807,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://lataqueriasf.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Our pick for an OG, traditional Mission burrito. They sear the tortilla and famously skip the rice."
+      }
+    },
+    {
+      "id": "balompie",
+      "name": "Balompié Cafe",
+      "area": "Mission",
+      "address": "3349 18th St, San Francisco",
+      "lat": 37.76178,
+      "lng": -122.41797,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://www.balompie3.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "PUPUSAS!",
+        "dj": ""
+      }
+    },
+    {
+      "id": "uniteddumplings",
+      "name": "United Dumplings",
+      "area": "Bernal Heights",
+      "address": "525 Cortland Ave, San Francisco",
+      "lat": 37.73912,
+      "lng": -122.416,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://www.uniteddumplings.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Pretty great dumplings. Get takeout and watch the sunset from the top of Bernal Hill."
+      }
+    },
+    {
+      "id": "cheeseboard",
+      "name": "Cheese Board Pizza",
+      "area": "Berkeley",
+      "address": "1512 Shattuck Ave, Berkeley",
+      "lat": 37.87986,
+      "lng": -122.26947,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://cheeseboardcollective.coop",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Famous worker-owned co-op with one veggie pizza a day. Add the green sauce, stand in the line, admire the business model.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "arizmendi",
+      "name": "Arizmendi",
+      "area": "Mission",
+      "address": "1268 Valencia St, San Francisco",
+      "lat": 37.75256,
+      "lng": -122.42102,
+      "recommendedFor": [
+        "lunch",
+        "breakfast"
+      ],
+      "website": "https://www.arizmendibakery.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Worker-owned, with one daily veggie pizza. Doubles as a sweet and savory bakery.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "zante",
+      "name": "Zante Pizza & Indian Cuisine",
+      "area": "Bernal Heights",
+      "address": "3489 Mission St, San Francisco",
+      "lat": 37.74108,
+      "lng": -122.42253,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://zantespizza.com",
+      "context": "Indian pizza",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Okay, it's not that great. But it has INDIAN PIZZA, which will change your life. Worth it on a rainy day."
+      }
+    },
+    {
+      "id": "udupi",
+      "name": "Udupi Palace",
+      "area": "Mission",
+      "address": "1007 Valencia St, San Francisco",
+      "lat": 37.75668,
+      "lng": -122.42083,
+      "recommendedFor": [
+        "lunch"
+      ],
+      "website": "https://udupipalacesanfranciscoca.com",
+      "context": "Vegetarian",
+      "tags": [],
+      "notes": {
+        "kaz": "An OG veggie spot on Valencia that has stood the test of time.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "mandalay",
+      "name": "Mandalay",
+      "area": "Inner Richmond",
+      "address": "4348 California St, San Francisco",
+      "lat": 37.78522,
+      "lng": -122.46433,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.mandalaysf.com",
+      "context": "Burmese",
+      "tags": [],
+      "notes": {
+        "kaz": "Never had Burmese? SF has the best in the States. Mandalay long played second fiddle to Burma Superstar, but it's finally getting its time in the sun.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "mensho",
+      "name": "Mensho Tokyo",
+      "area": "Tenderloin",
+      "address": "672 Geary St, San Francisco",
+      "lat": 37.78685,
+      "lng": -122.4144,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "http://mensho.tokyo",
+      "context": "Ramen",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Undisputed champion. Expect a long wait in a not-so-nice part of town, but it's worth it. Veggie and vegan ramen too."
+      }
+    },
+    {
+      "id": "waraku",
+      "name": "Waraku",
+      "area": "Japantown",
+      "address": "1638 Post St, San Francisco",
+      "lat": 37.78589,
+      "lng": -122.42879,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "http://www.warakuus.com",
+      "context": "Ramen",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Incredible tsukemen and tonkotsu. After, explore the Japantown mall: the grocery store, the stationery and design store, and Uji Time."
+      }
+    },
+    {
+      "id": "ramenshop",
+      "name": "Ramen Shop",
+      "area": "Oakland · Rockridge",
+      "address": "5812 College Ave, Oakland",
+      "lat": 37.84639,
+      "lng": -122.25171,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.ramenshop.com",
+      "context": "Ramen",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "My favorite non-traditional, experimental ramen. Not for purists, but consistently amazing and always changing."
+      }
+    },
+    {
+      "id": "ramenwell",
+      "name": "Ramenwell",
+      "area": "Mission",
+      "address": "3378 18th St, San Francisco",
+      "lat": 37.76201,
+      "lng": -122.41887,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.ramenwell.com",
+      "context": "Ramen",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Better than you'd find in most cities outside Japan, without a commitment-questioning wait."
+      }
+    },
+    {
+      "id": "missionchinese",
+      "name": "Mission Chinese Food",
+      "area": "Mission",
+      "address": "2234 Mission St, San Francisco",
+      "lat": 37.76119,
+      "lng": -122.41959,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.missionchinesefood.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Innovative and interesting, not very traditional. The eggplant, mapo tofu and thrice-cooked bacon are insane."
+      }
+    },
+    {
+      "id": "terracotta",
+      "name": "Terra Cotta Warrior",
+      "area": "Sunset",
+      "address": "2555 Judah St, San Francisco",
+      "lat": 37.76103,
+      "lng": -122.48957,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://tcwus.com",
+      "context": "Xi'an Chinese",
+      "tags": [],
+      "notes": {
+        "kaz": "For authentic, delicious, much-less-expensive Chinese food, head west to the Sunset and Richmond. This is one of our favorites.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "mamahuhu",
+      "name": "Mamahuhu",
+      "area": "Inner Richmond",
+      "address": "517 Clement St, San Francisco",
+      "lat": 37.78281,
+      "lng": -122.46477,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.eatmamahuhu.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "A modern take on American Chinese food from a famed local chef.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "houseofpancakes",
+      "name": "House of Pancakes",
+      "area": "Parkside",
+      "address": "937 Taraval St, San Francisco",
+      "lat": 37.7429,
+      "lng": -122.47636,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://order.online/store/house-of-pancakes-taraval-st-at-20th-ave-865571",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Super delicious, unique, traditional Chinese savory pancakes. Make the pilgrimage. Not to be confused with IHOP."
+      }
+    },
+    {
+      "id": "chinalive",
+      "name": "China Live",
+      "area": "Chinatown",
+      "address": "644 Broadway, San Francisco",
+      "lat": 37.79779,
+      "lng": -122.40775,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.chinalivesf.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Incredible and authentic, if bougie on the surface.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "besharam",
+      "name": "Besharam",
+      "area": "Dogpatch",
+      "address": "1275 Minnesota St, San Francisco",
+      "lat": 37.75425,
+      "lng": -122.38939,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://besharamrestaurant.com",
+      "context": "Indian",
+      "tags": [],
+      "notes": {
+        "kaz": "A really interesting and creative Indian restaurant.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "rintaro",
+      "name": "Rintaro",
+      "area": "Mission",
+      "address": "82 14th St, San Francisco",
+      "lat": 37.76864,
+      "lng": -122.41493,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://izakayarintaro.com",
+      "context": "Japanese · special occasion",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "My favorite Japanese place in SF. Expensive, but worth it for a special occasion."
+      }
+    },
+    {
+      "id": "farmhouse",
+      "name": "Farmhouse Kitchen",
+      "area": "Mission",
+      "address": "710 Florida St, San Francisco",
+      "lat": 37.76016,
+      "lng": -122.41109,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://farmhousethai.com",
+      "context": "Thai",
+      "tags": [],
+      "notes": {
+        "kaz": "Pretty great Thai.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "kinkhao",
+      "name": "Kin Khao",
+      "area": "Union Square",
+      "address": "55 Cyril Magnin St, San Francisco",
+      "lat": 37.78488,
+      "lng": -122.40886,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.kinkhao.com",
+      "context": "Thai · fancy",
+      "tags": [],
+      "notes": {
+        "kaz": "Exceptional, though fancy.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "nari",
+      "name": "Nari",
+      "area": "Japantown",
+      "address": "833 Sutter St, San Francisco",
+      "lat": 37.78846,
+      "lng": -122.41417,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.narisf.com",
+      "context": "Thai · fancy",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Exceptional, though fancy."
+      }
+    },
+    {
+      "id": "sanhowon",
+      "name": "San Ho Won",
+      "area": "Mission",
+      "address": "2759 Harrison St, San Francisco",
+      "lat": 37.7533,
+      "lng": -122.41189,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.sanhowon.com",
+      "context": "Korean · special occasion",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "One of the best restaurants in the city, but definitely a bougie, special-occasion treat."
+      }
+    },
+    {
+      "id": "daeho",
+      "name": "Daeho Kalbijim",
+      "area": "Japantown",
+      "address": "1620 Post St, San Francisco",
+      "lat": 37.78579,
+      "lng": -122.42854,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.daeho-kalbijjim.com",
+      "context": "Korean",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Perhaps more authentic beef soup. You'll leave feeling disgusting and full, but it's worth it."
+      }
+    },
+    {
+      "id": "prubechu",
+      "name": "Prubechu",
+      "area": "Mission",
+      "address": "2224 Mission St, San Francisco",
+      "lat": 37.76141,
+      "lng": -122.41939,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.prubechu.com",
+      "context": "Guamanian",
+      "tags": [],
+      "notes": {
+        "kaz": "What?! Right? One of the only Guamanian restaurants outside Guam, and really good and interesting.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "graciasmadre",
+      "name": "Gracias Madre",
+      "area": "Mission",
+      "address": "2211 Mission St, San Francisco",
+      "lat": 37.76163,
+      "lng": -122.41927,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.gracias-madre.com",
+      "context": "Vegan Mexican",
+      "tags": [],
+      "notes": {
+        "kaz": "An OG vegan restaurant with a surprising amount of breadth.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "chisai",
+      "name": "Chisai Sushi Club",
+      "area": "Bernal Heights",
+      "address": "3369 Mission St, San Francisco",
+      "lat": 37.74274,
+      "lng": -122.42165,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://chisaisushiclub.com",
+      "context": "Vegetarian sushi · tasting menu",
+      "tags": [],
+      "notes": {
+        "kaz": "Absolutely incredible, tasting-menu vibes.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "shizen",
+      "name": "Shizen",
+      "area": "Mission",
+      "address": "370 14th St, San Francisco",
+      "lat": 37.76822,
+      "lng": -122.42176,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.shizensf.com",
+      "context": "Vegan sushi",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Pretty great vegan sushi, and it does takeout well."
+      }
+    },
+    {
+      "id": "cellarmaker",
+      "name": "Cellarmaker House of Pizza",
+      "area": "Bernal Heights",
+      "address": "3913 Mission St, San Francisco",
+      "lat": 37.73509,
+      "lng": -122.42484,
+      "recommendedFor": [
+        "dinner",
+        "drinks"
+      ],
+      "website": "https://www.cellarmakerbrewing.com",
+      "context": "Detroit-style pizza",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "DETROIT STYLE. We're obsessed."
+      }
+    },
+    {
+      "id": "tonys",
+      "name": "Tony's Pizza Napoletana",
+      "area": "North Beach",
+      "address": "1570 Stockton St, San Francisco",
+      "lat": 37.80016,
+      "lng": -122.40906,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://www.tonyspizzanapoletana.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "OG, award-winning survey of every kind of pizza. Plan to wait, but don't miss it if you're a true pizza fan."
+      }
+    },
+    {
+      "id": "littlestar",
+      "name": "Little Star Pizza",
+      "area": "Mission",
+      "address": "400 Valencia St, San Francisco",
+      "lat": 37.76648,
+      "lng": -122.42211,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "http://www.littlestarpizza.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Deep-dish pies with gritty cornmeal crusts.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "anchoroyster",
+      "name": "Anchor Oyster Bar",
+      "area": "Castro",
+      "address": "579 Castro St, San Francisco",
+      "lat": 37.75985,
+      "lng": -122.43497,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://anchoroysterbar.com",
+      "context": "Seafood",
+      "tags": [],
+      "notes": {
+        "kaz": "The best cioppino in San Francisco, and SF is one of the best places to get cioppino. Give this delicious seafood stew a try.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "pizzetta",
+      "name": "Pizzetta 211",
+      "area": "Outer Richmond",
+      "address": "211 23rd Ave, San Francisco",
+      "lat": 37.78374,
+      "lng": -122.48293,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": "https://pizzetta211.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Our favorite date-night pizza. Perfect after the Lands End hike.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "comal",
+      "name": "Comal",
+      "area": "Berkeley",
+      "address": "2020 Shattuck Ave, Berkeley",
+      "lat": 37.87188,
+      "lng": -122.26845,
+      "recommendedFor": [
+        "dinner",
+        "drinks"
+      ],
+      "website": "https://www.comalberkeley.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Hang out on the back patio with a cocktail.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "barebottle",
+      "name": "Barebottle Brewing",
+      "area": "Bernal Heights",
+      "address": "1525 Cortland Ave, San Francisco",
+      "lat": 37.73976,
+      "lng": -122.4093,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://www.barebottle.com",
+      "context": "Brewery",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "The best brewery in the city (we're a little biased). Food trucks most evenings, bring-your-own food otherwise, and a great open space to work or for happy hour."
+      }
+    },
+    {
+      "id": "harmonic",
+      "name": "Harmonic Brewing (Thrive City)",
+      "area": "Mission Bay",
+      "address": "7 Warriors Way, San Francisco",
+      "lat": 37.76853,
+      "lng": -122.38755,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://harmonicbrewing.com",
+      "context": "Brewery",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Great outdoor seating by the water."
+      }
+    },
+    {
+      "id": "royalcuckoo",
+      "name": "The Royal Cuckoo",
+      "area": "Mission",
+      "address": "3202 Mission St, San Francisco",
+      "lat": 37.74533,
+      "lng": -122.42014,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://theroyalcuckoo.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "A holdout from SF's old, weird hole-in-the-wall days. Church pews, a live organist, always very dark. Divey in a timeless way, not a dingy one.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "wildside",
+      "name": "Wild Side West",
+      "area": "Bernal Heights",
+      "address": "424 Cortland Ave, San Francisco",
+      "lat": 37.73907,
+      "lng": -122.41722,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://wildsidewest.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "Hands down the best and weirdest back patio in the city: picnic benches and iron furniture scattered around a woodchip-covered backyard.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "foolserrand",
+      "name": "Fool's Errand",
+      "area": "NoPa",
+      "address": "639 Divisadero St, San Francisco",
+      "lat": 37.77535,
+      "lng": -122.438,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://www.foolserrandsf.com",
+      "context": "Wine",
+      "tags": [],
+      "notes": {
+        "kaz": "Divisadero wine spot.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "birba",
+      "name": "Birba",
+      "area": "Hayes Valley",
+      "address": "458 Grove St, San Francisco",
+      "lat": 37.77778,
+      "lng": -122.42389,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "http://www.birbawine.com",
+      "context": "Wine",
+      "tags": [],
+      "notes": {
+        "kaz": "Wine with outdoor seating. Where we had our first date.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "blackcat",
+      "name": "Black Cat",
+      "area": "Tenderloin",
+      "address": "400 Eddy St, San Francisco",
+      "lat": 37.78377,
+      "lng": -122.41432,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://www.blackcatsf.com",
+      "context": "Jazz + cocktails",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Jazz with yummy cocktails."
+      }
+    },
+    {
+      "id": "interval",
+      "name": "The Interval",
+      "area": "Fort Mason",
+      "address": "2 Marina Blvd, San Francisco",
+      "lat": 37.80635,
+      "lng": -122.43215,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://theinterval.org",
+      "context": "Cocktails",
+      "tags": [],
+      "notes": {
+        "kaz": "A trippy little place honoring a clock built into a mountain. A great end to the Golden Gate walk.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "truelaurel",
+      "name": "True Laurel",
+      "area": "Mission",
+      "address": "753 Alabama St, San Francisco",
+      "lat": 37.7597,
+      "lng": -122.41157,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://truelaurelsf.com",
+      "context": "Cocktails",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "smugglers",
+      "name": "Smuggler's Cove",
+      "area": "Hayes Valley",
+      "address": "650 Gough St, San Francisco",
+      "lat": 37.77941,
+      "lng": -122.42341,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://www.smugglerscovesf.com",
+      "context": "Tiki",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "It's a pirate bar, with an encyclopedic cocktail list."
+      }
+    },
+    {
+      "id": "buenavista",
+      "name": "The Buena Vista",
+      "area": "Fisherman's Wharf",
+      "address": "2765 Hyde St, San Francisco",
+      "lat": 37.80631,
+      "lng": -122.42056,
+      "recommendedFor": [
+        "drinks"
+      ],
+      "website": "https://www.thebuenavista.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "The best tourist trap in the city. You must (MUST!) have an Irish coffee, no matter what time of day it is."
+      }
+    },
+    {
+      "id": "heath",
+      "name": "Heath Ceramics & Newsstand",
+      "area": "Mission",
+      "address": "2900 18th St, San Francisco",
+      "lat": 37.76175,
+      "lng": -122.41117,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://www.heathceramics.com",
+      "context": "Design + home",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "aggregate",
+      "name": "Aggregate Supply",
+      "area": "Mission",
+      "address": "806 Valencia St, San Francisco",
+      "lat": 37.75996,
+      "lng": -122.42148,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://www.aggregatesupplysf.com",
+      "context": "Design + home",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
+    },
+    {
+      "id": "greenapple",
+      "name": "Green Apple Books",
+      "area": "Inner Richmond",
+      "address": "506 Clement St, San Francisco",
+      "lat": 37.78299,
+      "lng": -122.46456,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://www.greenapplebooks.com",
+      "context": "Books",
+      "tags": [],
+      "notes": {
+        "kaz": "Your best bet for finding anything you're looking for, including cool, designy SF gifts. Don't miss the used warehouse next door.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "citylights",
+      "name": "City Lights",
+      "area": "North Beach",
+      "address": "261 Columbus Ave, San Francisco",
+      "lat": 37.79755,
+      "lng": -122.40633,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://citylights.com",
+      "context": "Books",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "The OG favorite of the Beats, which has turned into a really well-curated new and used shop."
+      }
+    },
+    {
+      "id": "dogeared",
+      "name": "Dog Eared Books",
+      "area": "Mission",
+      "address": "900 Valencia St, San Francisco",
+      "lat": 37.75844,
+      "lng": -122.42134,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://www.dogearedbooks.com",
+      "context": "Books",
+      "tags": [],
+      "notes": {
+        "kaz": "Small and tightly curated. Our favorite bookstore.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "temescal",
+      "name": "Temescal Alley",
+      "area": "Oakland · Temescal",
+      "address": "Temescal Alley, Oakland",
+      "lat": 37.83577,
+      "lng": -122.26263,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": null,
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "A really cute little shopping lane made out of former horse stalls.",
+        "dj": ""
+      }
+    },
+    {
+      "id": "epicurean",
+      "name": "Epicurean Trader",
+      "area": "Bernal Heights",
+      "address": "401 Cortland Ave, San Francisco",
+      "lat": 37.73905,
+      "lng": -122.41567,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://theepicureantrader.com",
+      "context": "Market",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Grab something fresh, cold and fancy to take up Bernal Hill."
+      }
+    }
+  ]
+}
