@@ -115,6 +115,7 @@
       var sel = places.find(function (x) { return x.id === selectedId; });
       if (sel && !matches(sel)) closeDetail();
     }
+    if (map) declutter();
   }
 
   // Recolor the free OpenFreeMap basemap into the Earth & Clay palette.
@@ -163,6 +164,38 @@
       btn.setAttribute('aria-label', p.name); // MapLibre replaces it with a generic "Map marker"
       btn.setAttribute('data-id', p.id);
       markers[p.id] = { marker: m, el: btn };
+    });
+  }
+
+  // Pins that land on (almost) the same spot get fanned out side by side, so every one stays visible
+  // and tappable at any zoom. Re-run whenever the zoom or the filters change.
+  var SPREAD_PX = 26, NEAR_PX = 22;
+  function declutter() {
+    var shown = places.filter(function (p) { return markers[p.id] && matches(p); });
+    var pts = shown.map(function (p) { var s = map.project([p.lng, p.lat]); return { p: p, x: s.x, y: s.y, group: -1 }; });
+    var groups = [];
+    pts.forEach(function (a, i) {
+      if (a.group >= 0) return;
+      a.group = groups.length;
+      var g = [a], stack = [a];
+      while (stack.length) {
+        var cur = stack.pop();
+        pts.forEach(function (b) {
+          if (b.group < 0 && Math.abs(b.x - cur.x) < NEAR_PX && Math.abs(b.y - cur.y) < NEAR_PX) { b.group = a.group; g.push(b); stack.push(b); }
+        });
+      }
+      groups.push(g);
+    });
+    places.forEach(function (p) { if (markers[p.id]) markers[p.id].marker.setOffset([0, 0]); });
+    groups.forEach(function (g) {
+      if (g.length < 2) return;
+      var cx = g.reduce(function (s, q) { return s + q.x; }, 0) / g.length;
+      var cy = g.reduce(function (s, q) { return s + q.y; }, 0) / g.length;
+      g.sort(function (u, v) { return u.x - v.x || u.y - v.y; });
+      g.forEach(function (q, i) {
+        var dx = (i - (g.length - 1) / 2) * SPREAD_PX;
+        markers[q.p.id].marker.setOffset([cx + dx - q.x, cy - q.y]);
+      });
     });
   }
 
@@ -273,6 +306,8 @@
       var attrib = document.querySelector('.maplibregl-ctrl-attrib');
       if (attrib) attrib.classList.remove('maplibregl-compact-show');
       addMarkers();
+      declutter();
+      map.on('zoomend', declutter);
       var hash = decodeURIComponent(location.hash.slice(1));
       if (hash) select(hash);
     });
