@@ -14,7 +14,7 @@
   };
   var PIN_PATH = 'M12 1.8C7.7 1.8 4.3 5.1 4.3 9.3c0 5.5 6.4 11.3 7 11.9a1 1 0 0 0 1.4 0c.6-.6 7-6.4 7-11.9 0-4.2-3.4-7.5-7.7-7.5z';
   var DOT_PATH = 'M12 6.6a2.7 2.7 0 1 0 0 5.4a2.7 2.7 0 1 0 0-5.4z';
-  var START = { center: [-71.104, 42.373], zoomPhone: 12.4, zoomWide: 13.2 };
+  var START = { center: [-71.104, 42.373], zoomPhone: 11.9, zoomWide: 13.2 };
 
   var els = {
     intro: document.getElementById('intro'),
@@ -237,6 +237,8 @@
 
     map.on('load', function () {
       recolor();
+      var attrib = document.querySelector('.maplibregl-ctrl-attrib');
+      if (attrib) attrib.classList.remove('maplibregl-compact-show');
       addMarkers();
       var hash = decodeURIComponent(location.hash.slice(1));
       if (hash) select(hash);
