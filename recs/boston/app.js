@@ -7,7 +7,8 @@
     lunch:     { label: 'Lunch',     color: '#8AB17D' },
     dinner:    { label: 'Dinner',    color: '#E76F51' },
     bar:       { label: 'Bar',       color: '#264653' },
-    coffee:    { label: 'Coffee',    color: '#8B5E3C' }
+    coffee:    { label: 'Coffee',    color: '#8B5E3C' },
+    icecream:  { label: 'Ice cream', color: '#E3A1B4' }
   };
   var MAP_COLORS = {
     land: '#FBF5EA', water: '#A8CBD4', park: '#CFDDB9', building: '#F1E4CF',

@@ -1,5 +1,5 @@
 {
-  "_readme": "Boston recs shown at didullman.com/recs/boston. recommendedFor: any of breakfast, brunch, lunch, dinner, bar, coffee (one color by default; list two only when we say a place is good for both). notes.kaz / notes.dj: our own notes, shown publicly. website: null hides the link. context: short line under the name.",
+  "_readme": "Boston recs shown at didullman.com/recs/boston. recommendedFor: any of breakfast, brunch, lunch, dinner, bar, coffee, icecream (one color by default; list two only when we say a place is good for both). notes.kaz / notes.dj: our own notes, shown publicly. website: null hides the link. context: short line under the name.",
   "places": [
     {
       "id": "elephantine",
@@ -279,7 +279,7 @@
       "lat": 42.36796,
       "lng": -71.09034,
       "recommendedFor": [
-        "lunch"
+        "icecream"
       ],
       "website": "https://www.thirdtimetogether.co",
       "context": null,
@@ -531,7 +531,7 @@
       "lat": 42.3832,
       "lng": -71.11985,
       "recommendedFor": [
-        "lunch"
+        "icecream"
       ],
       "website": null,
       "context": null,
