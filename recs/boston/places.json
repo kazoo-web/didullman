@@ -594,6 +594,24 @@
         "kaz": "",
         "dj": ""
       }
+    },
+    {
+      "id": "darling",
+      "name": "Darling",
+      "area": "Central Square",
+      "address": "464 Massachusetts Ave, Cambridge",
+      "lat": 42.36359,
+      "lng": -71.10136,
+      "recommendedFor": [
+        "bar"
+      ],
+      "website": "https://www.darlingcambridge.com",
+      "context": null,
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": ""
+      }
     }
   ]
 }
