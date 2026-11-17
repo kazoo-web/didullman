@@ -34,11 +34,11 @@
           "note": "Trace Bernal's western edge, find the hidden stairways, and try the slides."
         },
         {
-          "name": "Old Devil Moon",
-          "placeId": "odm",
-          "lat": 37.7411,
-          "lng": -122.42287,
-          "note": "Post-sundowner: ODM, the Royal Cuckoo or Barebottle. Pick your poison."
+          "name": "The Royal Cuckoo",
+          "placeId": "royalcuckoo",
+          "lat": 37.74533,
+          "lng": -122.42014,
+          "note": "Post-sundowner: the Royal Cuckoo or Barebottle. Pick your poison."
         }
       ]
     },

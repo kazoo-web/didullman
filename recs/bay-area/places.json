@@ -75,24 +75,6 @@
       }
     },
     {
-      "id": "stjorge",
-      "name": "Cafe St. Jorge",
-      "area": "Outer Mission",
-      "address": "3438 Mission St, San Francisco",
-      "lat": 37.74168,
-      "lng": -122.42268,
-      "recommendedFor": [
-        "coffee"
-      ],
-      "website": null,
-      "context": "Best to work from",
-      "tags": [],
-      "notes": {
-        "kaz": "",
-        "dj": "A solid place to set up and work for the day."
-      }
-    },
-    {
       "id": "fourbarrel",
       "name": "Four Barrel",
       "area": "Mission",
@@ -834,24 +816,6 @@
       }
     },
     {
-      "id": "ritu",
-      "name": "Ritu",
-      "area": "Mission",
-      "address": "3109 24th St, San Francisco",
-      "lat": 37.75227,
-      "lng": -122.41438,
-      "recommendedFor": [
-        "dinner"
-      ],
-      "website": null,
-      "context": "Indian",
-      "tags": [],
-      "notes": {
-        "kaz": "",
-        "dj": "We love it, but we've literally never not had an issue with a to-go order. Usually a crazy-long delay."
-      }
-    },
-    {
       "id": "rintaro",
       "name": "Rintaro",
       "area": "Mission",
@@ -1196,24 +1160,6 @@
       }
     },
     {
-      "id": "odm",
-      "name": "Old Devil Moon",
-      "area": "Mission",
-      "address": "3472 Mission St, San Francisco",
-      "lat": 37.7411,
-      "lng": -122.42287,
-      "recommendedFor": [
-        "drinks"
-      ],
-      "website": null,
-      "context": null,
-      "tags": [],
-      "notes": {
-        "kaz": "",
-        "dj": "Just up the street from the Royal Cuckoo if you want to make it a crawl. One of the best beer selections around, great vibe, cajun-ish snacks."
-      }
-    },
-    {
       "id": "wildside",
       "name": "Wild Side West",
       "area": "Bernal Heights",
@@ -1368,24 +1314,6 @@
         "shopping"
       ],
       "website": "https://www.heathceramics.com",
-      "context": "Design + home",
-      "tags": [],
-      "notes": {
-        "kaz": "",
-        "dj": ""
-      }
-    },
-    {
-      "id": "stuff",
-      "name": "Stuff",
-      "area": "Mission",
-      "address": "150 Valencia St, San Francisco",
-      "lat": 37.77031,
-      "lng": -122.42248,
-      "recommendedFor": [
-        "shopping"
-      ],
-      "website": null,
       "context": "Design + home",
       "tags": [],
       "notes": {
