@@ -11,7 +11,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://www.pinholecoffee.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -66,7 +66,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://www.stablecafe.com",
       "context": "Best to work from",
       "tags": [],
       "notes": {
@@ -102,7 +102,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://www.fourbarrelcoffee.com",
       "context": "Best to work from",
       "tags": [],
       "notes": {
@@ -138,7 +138,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://sextantcoffee.com",
       "context": "Best to work from",
       "tags": [],
       "notes": {
@@ -174,7 +174,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "http://www.parkcafelife.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -192,7 +192,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://flywheelcoffee.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -229,7 +229,7 @@
         "coffee",
         "breakfast"
       ],
-      "website": null,
+      "website": "https://www.themillsf.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -247,7 +247,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://www.stonemillmatcha.com",
       "context": "Matcha",
       "tags": [],
       "notes": {
@@ -276,7 +276,7 @@
     {
       "id": "blacksugar",
       "name": "Black Sugar",
-      "area": "Chinatown",
+      "area": "Union Square",
       "address": "",
       "lat": 37.78629,
       "lng": -122.41022,
@@ -319,7 +319,7 @@
       "recommendedFor": [
         "coffee"
       ],
-      "website": null,
+      "website": "https://www.ujitimedessert.com",
       "context": "In the Japantown mall",
       "tags": [],
       "notes": {
@@ -391,7 +391,7 @@
       "recommendedFor": [
         "breakfast"
       ],
-      "website": null,
+      "website": "https://outerlandssf.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -428,7 +428,7 @@
         "breakfast",
         "shopping"
       ],
-      "website": null,
+      "website": "https://www.ferrybuildingmarketplace.com",
       "context": "Farmers market three days a week",
       "tags": [],
       "notes": {
@@ -446,7 +446,7 @@
       "recommendedFor": [
         "breakfast"
       ],
-      "website": null,
+      "website": "https://www.beautysbagelshop.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -464,7 +464,7 @@
       "recommendedFor": [
         "breakfast"
       ],
-      "website": null,
+      "website": "https://www.thirdculturebakery.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -482,7 +482,7 @@
       "recommendedFor": [
         "lunch"
       ],
-      "website": null,
+      "website": "http://sfyamo.com",
       "context": "Cash only",
       "tags": [],
       "notes": {
@@ -500,7 +500,7 @@
       "recommendedFor": [
         "lunch"
       ],
-      "website": null,
+      "website": "http://www.papalote-sf.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -518,7 +518,7 @@
       "recommendedFor": [
         "lunch"
       ],
-      "website": null,
+      "website": "https://lataqueriasf.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -554,7 +554,7 @@
       "recommendedFor": [
         "lunch"
       ],
-      "website": null,
+      "website": "https://www.uniteddumplings.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -609,7 +609,7 @@
       "recommendedFor": [
         "lunch"
       ],
-      "website": null,
+      "website": "https://zantespizza.com",
       "context": "Indian pizza",
       "tags": [],
       "notes": {
@@ -627,7 +627,7 @@
       "recommendedFor": [
         "lunch"
       ],
-      "website": null,
+      "website": "https://udupipalacesanfranciscoca.com",
       "context": "Vegetarian",
       "tags": [],
       "notes": {
@@ -663,7 +663,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "http://mensho.tokyo",
       "context": "Ramen",
       "tags": [],
       "notes": {
@@ -681,7 +681,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "http://www.warakuus.com",
       "context": "Ramen",
       "tags": [],
       "notes": {
@@ -735,7 +735,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://www.ramenwell.com",
       "context": "Ramen",
       "tags": [],
       "notes": {
@@ -753,7 +753,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://www.missionchinesefood.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -789,7 +789,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://www.eatmamahuhu.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -843,7 +843,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://besharamrestaurant.com",
       "context": "Indian",
       "tags": [],
       "notes": {
@@ -879,7 +879,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://izakayarintaro.com",
       "context": "Japanese · special occasion",
       "tags": [],
       "notes": {
@@ -897,7 +897,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://farmhousethai.com",
       "context": "Thai",
       "tags": [],
       "notes": {
@@ -933,7 +933,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://www.narisf.com",
       "context": "Thai · fancy",
       "tags": [],
       "notes": {
@@ -969,7 +969,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://www.daeho-kalbijjim.com",
       "context": "Korean",
       "tags": [],
       "notes": {
@@ -1023,7 +1023,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://chisaisushiclub.com",
       "context": "Vegetarian sushi · tasting menu",
       "tags": [],
       "notes": {
@@ -1041,7 +1041,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://www.shizensf.com",
       "context": "Vegan sushi",
       "tags": [],
       "notes": {
@@ -1096,7 +1096,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "http://www.littlestarpizza.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -1114,7 +1114,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://anchoroysterbar.com",
       "context": "Seafood",
       "tags": [],
       "notes": {
@@ -1132,7 +1132,7 @@
       "recommendedFor": [
         "dinner"
       ],
-      "website": null,
+      "website": "https://pizzetta211.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -1187,7 +1187,7 @@
       "recommendedFor": [
         "drinks"
       ],
-      "website": null,
+      "website": "https://harmonicbrewing.com",
       "context": "Brewery",
       "tags": [],
       "notes": {
@@ -1205,7 +1205,7 @@
       "recommendedFor": [
         "drinks"
       ],
-      "website": null,
+      "website": "https://theroyalcuckoo.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -1241,7 +1241,7 @@
       "recommendedFor": [
         "drinks"
       ],
-      "website": null,
+      "website": "https://wildsidewest.com",
       "context": null,
       "tags": [],
       "notes": {
@@ -1259,7 +1259,7 @@
       "recommendedFor": [
         "drinks"
       ],
-      "website": null,
+      "website": "https://www.foolserrandsf.com",
       "context": "Wine",
       "tags": [],
       "notes": {
@@ -1277,7 +1277,7 @@
       "recommendedFor": [
         "drinks"
       ],
-      "website": null,
+      "website": "http://www.birbawine.com",
       "context": "Wine",
       "tags": [],
       "notes": {
@@ -1295,7 +1295,7 @@
       "recommendedFor": [
         "drinks"
       ],
-      "website": null,
+      "website": "https://www.blackcatsf.com",
       "context": "Jazz + cocktails",
       "tags": [],
       "notes": {
@@ -1331,7 +1331,7 @@
       "recommendedFor": [
         "drinks"
       ],
-      "website": null,
+      "website": "https://truelaurelsf.com",
       "context": "Cocktails",
       "tags": [],
       "notes": {
@@ -1475,7 +1475,7 @@
       "recommendedFor": [
         "shopping"
       ],
-      "website": null,
+      "website": "https://www.dogearedbooks.com",
       "context": "Books",
       "tags": [],
       "notes": {
@@ -1517,6 +1517,24 @@
       "notes": {
         "kaz": "",
         "dj": "Grab something fresh, cold and fancy to take up Bernal Hill."
+      }
+    },
+    {
+      "id": "hodala",
+      "name": "HoDaLa",
+      "area": "Outer Richmond",
+      "address": "5801 Geary Blvd, San Francisco",
+      "lat": 37.7804,
+      "lng": -122.48085,
+      "recommendedFor": [
+        "dinner"
+      ],
+      "website": null,
+      "context": "Taiwanese",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Authentic, delicious and a lot less expensive than downtown. One of our favorites out west."
       }
     }
   ]
