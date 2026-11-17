@@ -1500,6 +1500,24 @@
         "kaz": "A really cute little shopping lane made out of former horse stalls.",
         "dj": ""
       }
+    },
+    {
+      "id": "epicurean",
+      "name": "Epicurean Trader",
+      "area": "Bernal Heights",
+      "address": "401 Cortland Ave, San Francisco",
+      "lat": 37.73905,
+      "lng": -122.41567,
+      "recommendedFor": [
+        "shopping"
+      ],
+      "website": "https://theepicureantrader.com",
+      "context": "Market",
+      "tags": [],
+      "notes": {
+        "kaz": "",
+        "dj": "Grab something fresh, cold and fancy to take up Bernal Hill."
+      }
     }
   ]
 }
