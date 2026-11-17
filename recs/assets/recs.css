@@ -142,3 +142,41 @@ button:focus-visible, a:focus-visible, .pin:focus-visible { outline: 3px solid #
 
 /* Map attribution sits just under the header, never under the card */
 .maplibregl-ctrl-top-left { top: calc(var(--header-h) + env(safe-area-inset-top) + 8px); }
+
+/* Walks & more */
+.filter-walks { background: #FFF6E8; }
+.filter-walks svg { color: #E76F51; }
+.walk .detail-scroll { gap: 12px; }
+.walk-back { align-self: flex-start; background: none; border: 0; padding: 4px 0; font: 800 13px var(--font); color: var(--ink); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.walk-list { display: flex; flex-direction: column; gap: 10px; }
+.walk-card { text-align: left; display: flex; flex-direction: column; gap: 4px; width: 100%; padding: 12px 14px; background: #fff; border: 2.5px solid var(--ink); border-radius: 16px; box-shadow: 3px 3px 0 var(--ink); cursor: pointer; font-family: var(--font); color: var(--ink); }
+.walk-card:hover { background: #FFF6E8; }
+.walk-card-read { background: var(--accent); }
+.walk-card-read:hover { background: #F0D186; }
+.walk-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.walk-card-title { font-size: 17px; font-weight: 800; }
+.walk-meta { font-size: 12px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.walk-card-summary { font-size: 14px; line-height: 1.4; color: var(--muted); }
+.walk-meta-line { margin: 0; font-size: 13px; font-weight: 700; color: var(--muted); }
+.walk-summary { margin: 0; font-size: 15px; line-height: 1.45; }
+.walk-stops { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.walk-stops li { display: flex; gap: 10px; align-items: flex-start; }
+.stop-num, .stop-marker {
+  width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: var(--accent); border: 2.5px solid var(--ink);
+  display: flex; align-items: center; justify-content: center; font: 800 13px var(--font); color: var(--ink);
+}
+.stop-marker { box-shadow: 2px 2px 0 var(--ink); pointer-events: none; }
+.stop-name { font-size: 15px; font-weight: 800; }
+.stop-link { background: none; border: 0; padding: 0; font: 800 15px var(--font); color: var(--ink); text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: var(--link); text-underline-offset: 4px; cursor: pointer; text-align: left; }
+.stop-note { margin: 2px 0 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.walk-fineprint { margin: 0; font-size: 12px; color: var(--muted); }
+.walk-ext { font-weight: 800; color: var(--ink); text-decoration-color: var(--link); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.walk-nav { display: flex; justify-content: space-between; gap: 8px; border-top: 2px solid var(--ink); padding-top: 10px; }
+.walk-nav button { background: none; border: 0; padding: 6px 0; font: 800 13px var(--font); color: var(--ink); cursor: pointer; text-align: left; }
+.walk-nav button:last-child { text-align: right; }
+.read-list { display: flex; flex-direction: column; }
+.read-row { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 2px dashed #D9C7A8; }
+.read-row:first-child { border-top: 0; }
+.read-kind { flex-shrink: 0; font-size: 12px; font-weight: 700; background: var(--accent); border: 2px solid var(--ink); border-radius: 999px; padding: 3px 9px; }
+/* While a walk is drawn, the place pins step back */
+.walk-on-map .pin:not(.is-selected) svg { opacity: 0.35; }

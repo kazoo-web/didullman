@@ -31,6 +31,11 @@
       <div id="filters" class="filters" role="group" aria-label="Show places recommended for"></div>
     </section>
 
+    <section id="walk" class="detail walk" hidden>
+      <div class="handle" aria-hidden="true"></div>
+      <div id="walk-body" class="detail-scroll"></div>
+    </section>
+
     <section id="detail" class="detail" hidden>
       <div class="handle" aria-hidden="true"></div>
       <div class="detail-scroll">
@@ -59,6 +64,7 @@
 <script>
 window.RECS_CONFIG = {
   data: 'places.json',
+  walks: 'walks.json',
   start: { center: [-122.43, 37.765], zoomPhone: 11.4, zoomWide: 12.4 },
   minZoom: 9,
   maxBounds: [[-122.75, 37.55], [-122.05, 38.0]],

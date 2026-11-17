@@ -26,13 +26,19 @@
     notesList: document.getElementById('d-notes-list'),
     close: document.getElementById('d-close'),
     header: document.querySelector('.header'),
-    panel: document.getElementById('panel')
+    panel: document.getElementById('panel'),
+    walk: document.getElementById('walk'),
+    walkBody: document.getElementById('walk-body')
   };
 
   var places = [];
   var markers = {};
   var selectedId = null;
   var activeFilters = [];
+  var walksData = null;      // { walks: [], readWatch: [] } when the city has walks
+  var walkMode = null;       // null | 'list' | 'walk' | 'read'
+  var currentWalk = null;
+  var stopMarkers = [];
   var map;
 
   function isWide() { return window.matchMedia('(min-width: 900px)').matches; }
@@ -88,6 +94,17 @@
       b.addEventListener('click', function () { toggleFilter(k, b); });
       els.filters.appendChild(b);
     });
+    if (walksData) {
+      var w = el('button', { type: 'button', class: 'filter filter-walks', 'aria-pressed': 'false' });
+      var icon = svgEl('svg', { width: '18', height: '18', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2.2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true' });
+      icon.appendChild(svgEl('circle', { cx: '6', cy: '19', r: '2' }));
+      icon.appendChild(svgEl('circle', { cx: '18', cy: '5', r: '2' }));
+      icon.appendChild(svgEl('path', { d: 'M8 19h7a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h7' }));
+      w.appendChild(icon);
+      w.appendChild(document.createTextNode('Walks & more'));
+      w.addEventListener('click', function () { openWalkList(); });
+      els.filters.appendChild(w);
+    }
   }
 
   function toggleFilter(k, b) {
@@ -273,8 +290,7 @@
     selectedId = id;
     setPinState(id, true);
     renderDetail(p);
-    els.intro.hidden = true;
-    els.detail.hidden = false;
+    showPanel('detail');
     if (history.replaceState) history.replaceState(null, '', '#' + id);
     requestAnimationFrame(function () {
       map.easeTo({ center: [p.lng, p.lat], zoom: Math.max(map.getZoom(), 13.5), padding: viewPadding(), duration: 500 });
@@ -285,9 +301,174 @@
     if (!selectedId) return;
     setPinState(selectedId, false);
     selectedId = null;
-    els.detail.hidden = true;
-    els.intro.hidden = false;
+    showPanel(walkMode ? 'walk' : 'intro');
     if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+  }
+
+
+  // ---------- Walks + read & watch ----------
+  var ROUTE_COLOR = '#E76F51';
+
+  function ensureRouteLayer() {
+    if (map.getSource('walk')) return;
+    map.addSource('walk', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    map.addLayer({ id: 'walk-casing', type: 'line', source: 'walk', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#141414', 'line-width': 7 } });
+    map.addLayer({ id: 'walk-line', type: 'line', source: 'walk', layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': ROUTE_COLOR, 'line-width': 4, 'line-dasharray': [1.6, 1.2] } });
+  }
+
+  function clearRoute() {
+    if (map && map.getSource('walk')) map.getSource('walk').setData({ type: 'FeatureCollection', features: [] });
+    stopMarkers.forEach(function (m) { m.remove(); });
+    stopMarkers = [];
+    document.body.classList.remove('walk-on-map');
+  }
+
+  function showPanel(which) {
+    els.intro.hidden = which !== 'intro';
+    els.detail.hidden = which !== 'detail';
+    els.walk.hidden = which !== 'walk';
+  }
+
+  function walkHeader(title, onBack, backLabel) {
+    var head = el('div', { class: 'detail-head' });
+    var left = el('div', { class: 'detail-title' });
+    if (onBack) {
+      var back = el('button', { type: 'button', class: 'walk-back' }, '‹ ' + backLabel);
+      back.addEventListener('click', onBack);
+      left.appendChild(back);
+    }
+    left.appendChild(el('h2', null, title));
+    head.appendChild(left);
+    var close = el('button', { type: 'button', class: 'close', 'aria-label': 'Close walks' });
+    close.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    close.addEventListener('click', exitWalks);
+    head.appendChild(close);
+    return head;
+  }
+
+  function openWalkList() {
+    if (selectedId) { setPinState(selectedId, false); selectedId = null; }
+    clearRoute();
+    walkMode = 'list'; currentWalk = null;
+    var b = els.walkBody; b.textContent = '';
+    b.appendChild(walkHeader('Walks & day trips'));
+    var list = el('div', { class: 'walk-list' });
+    walksData.walks.forEach(function (w) {
+      var card = el('button', { type: 'button', class: 'walk-card' });
+      var top = el('div', { class: 'walk-card-top' });
+      top.appendChild(el('span', { class: 'walk-card-title' }, w.title));
+      top.appendChild(el('span', { class: 'walk-meta' }, w.meta));
+      card.appendChild(top);
+      card.appendChild(el('span', { class: 'walk-card-summary' }, w.summary));
+      card.addEventListener('click', function () { openWalk(w.id); });
+      list.appendChild(card);
+    });
+    b.appendChild(list);
+    if (walksData.readWatch && walksData.readWatch.length) {
+      var rw = el('button', { type: 'button', class: 'walk-card walk-card-read' });
+      var top2 = el('div', { class: 'walk-card-top' });
+      top2.appendChild(el('span', { class: 'walk-card-title' }, 'Read & watch'));
+      top2.appendChild(el('span', { class: 'walk-meta' }, walksData.readWatch.length + ' picks'));
+      rw.appendChild(top2);
+      rw.appendChild(el('span', { class: 'walk-card-summary' }, 'Books, films and shows for getting to know the city.'));
+      rw.addEventListener('click', openReadWatch);
+      b.appendChild(rw);
+    }
+    showPanel('walk');
+    b.scrollTop = 0;
+  }
+
+  function openWalk(id) {
+    var idx = walksData.walks.findIndex(function (w) { return w.id === id; });
+    var w = walksData.walks[idx];
+    if (!w) return;
+    if (selectedId) { setPinState(selectedId, false); selectedId = null; }
+    walkMode = 'walk'; currentWalk = w;
+    if (history.replaceState) history.replaceState(null, '', '#walk-' + w.id);
+    var b = els.walkBody; b.textContent = '';
+    b.appendChild(walkHeader(w.title, openWalkList, 'All walks'));
+    b.appendChild(el('p', { class: 'walk-meta-line' }, w.meta));
+    b.appendChild(el('p', { class: 'walk-summary' }, w.summary));
+    if (w.stops.length) {
+      var ol = el('ol', { class: 'walk-stops' });
+      w.stops.forEach(function (s, i) {
+        var li = el('li');
+        var num = el('span', { class: 'stop-num', 'aria-hidden': 'true' }, String(i + 1));
+        li.appendChild(num);
+        var body = el('div');
+        if (s.placeId && places.some(function (p) { return p.id === s.placeId; })) {
+          var link = el('button', { type: 'button', class: 'stop-name stop-link' }, s.name);
+          link.addEventListener('click', function () { select(s.placeId); });
+          body.appendChild(link);
+        } else {
+          body.appendChild(el('div', { class: 'stop-name' }, s.name));
+        }
+        if (s.note) body.appendChild(el('p', { class: 'stop-note' }, s.note));
+        li.appendChild(body);
+        ol.appendChild(li);
+      });
+      b.appendChild(ol);
+      b.appendChild(el('p', { class: 'walk-fineprint' }, 'The dashed line connects the stops; it isn’t a turn-by-turn route.'));
+    }
+    if (w.link) {
+      var a = el('a', { href: w.link, target: '_blank', rel: 'noopener', class: 'walk-ext' }, 'Trail map and guide ↗');
+      b.appendChild(a);
+    }
+    var nav = el('div', { class: 'walk-nav' });
+    var prev = walksData.walks[(idx - 1 + walksData.walks.length) % walksData.walks.length];
+    var next = walksData.walks[(idx + 1) % walksData.walks.length];
+    var pb = el('button', { type: 'button' }, '‹ ' + prev.title); pb.addEventListener('click', function () { openWalk(prev.id); });
+    var nb = el('button', { type: 'button' }, next.title + ' ›'); nb.addEventListener('click', function () { openWalk(next.id); });
+    nav.appendChild(pb); nav.appendChild(nb);
+    b.appendChild(nav);
+    showPanel('walk');
+    b.scrollTop = 0;
+    drawWalk(w);
+  }
+
+  function drawWalk(w) {
+    clearRoute();
+    if (!w.stops.length) return;
+    ensureRouteLayer();
+    var coords = w.stops.map(function (s) { return [s.lng, s.lat]; });
+    map.getSource('walk').setData({ type: 'Feature', geometry: { type: 'LineString', coordinates: coords }, properties: {} });
+    document.body.classList.add('walk-on-map');
+    w.stops.forEach(function (s, i) {
+      var dot = el('div', { class: 'stop-marker', 'aria-hidden': 'true' }, String(i + 1));
+      stopMarkers.push(new maplibregl.Marker({ element: dot }).setLngLat([s.lng, s.lat]).addTo(map));
+    });
+    requestAnimationFrame(function () {
+      var bounds = coords.reduce(function (bb, c) { return bb.extend(c); }, new maplibregl.LngLatBounds(coords[0], coords[0]));
+      map.fitBounds(bounds, { padding: viewPadding(), maxZoom: 15, duration: 600 });
+    });
+  }
+
+  function openReadWatch() {
+    clearRoute();
+    walkMode = 'read';
+    var b = els.walkBody; b.textContent = '';
+    b.appendChild(walkHeader('Read & watch', openWalkList, 'All walks'));
+    var list = el('div', { class: 'read-list' });
+    walksData.readWatch.forEach(function (r) {
+      var row = el('div', { class: 'read-row' });
+      row.appendChild(el('span', { class: 'read-kind' }, r.kind));
+      var body = el('div');
+      body.appendChild(el('div', { class: 'stop-name' }, r.title));
+      if (r.note) body.appendChild(el('p', { class: 'stop-note' }, r.note));
+      row.appendChild(body);
+      list.appendChild(row);
+    });
+    b.appendChild(list);
+    showPanel('walk');
+    b.scrollTop = 0;
+  }
+
+  function exitWalks() {
+    clearRoute();
+    walkMode = null; currentWalk = null;
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+    if (selectedId) { setPinState(selectedId, false); selectedId = null; }
+    showPanel('intro');
   }
 
   function init(data) {
@@ -315,17 +496,21 @@
       addMarkers();
       declutter();
       map.on('zoomend', declutter);
+      if (walksData) ensureRouteLayer();
       var hash = decodeURIComponent(location.hash.slice(1));
-      if (hash) select(hash);
+      if (hash.indexOf('walk-') === 0 && walksData) openWalk(hash.slice(5));
+      else if (hash) select(hash);
     });
     map.on('click', closeDetail);
   }
 
   els.close.addEventListener('click', closeDetail);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDetail(); });
+  document.addEventListener('keydown', function (e) { if (e.key !== 'Escape') return; if (selectedId) closeDetail(); else if (walkMode) exitWalks(); });
 
-  fetch(CFG.data || 'places.json', { cache: 'no-cache' })
-    .then(function (r) { return r.json(); })
-    .then(init)
+  var walksReq = CFG.walks
+    ? fetch(CFG.walks, { cache: 'no-cache' }).then(function (r) { return r.json(); }).catch(function () { return null; })
+    : Promise.resolve(null);
+  Promise.all([fetch(CFG.data || 'places.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }), walksReq])
+    .then(function (res) { walksData = res[1]; init(res[0]); })
     .catch(function () { els.filters.textContent = 'Could not load the places. Try refreshing.'; });
 })();
