@@ -160,6 +160,8 @@
       btn.addEventListener('mouseenter', function () { if (selectedId !== p.id) btn.style.zIndex = '4'; });
       btn.addEventListener('mouseleave', function () { if (selectedId !== p.id) btn.style.zIndex = ''; });
       var m = new maplibregl.Marker({ element: btn, anchor: 'bottom' }).setLngLat([p.lng, p.lat]).addTo(map);
+      btn.setAttribute('aria-label', p.name); // MapLibre replaces it with a generic "Map marker"
+      btn.setAttribute('data-id', p.id);
       markers[p.id] = { marker: m, el: btn };
     });
   }
