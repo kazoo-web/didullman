@@ -202,11 +202,11 @@
     },
     {
       "id": "reveille",
-      "name": "Reveille Coffee",
-      "area": "Castro",
-      "address": "4076 18th St, San Francisco",
-      "lat": 37.7611,
-      "lng": -122.43443,
+      "name": "Café Réveille",
+      "area": "Lower Haight",
+      "address": null,
+      "lat": 37.77107,
+      "lng": -122.4321,
       "recommendedFor": [
         "coffee"
       ],
