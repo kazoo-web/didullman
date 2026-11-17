@@ -1,22 +1,17 @@
 (function () {
   'use strict';
 
-  var MEALS = {
-    breakfast: { label: 'Breakfast', color: '#E9C46A' },
-    brunch:    { label: 'Brunch',    color: '#F4A261' },
-    lunch:     { label: 'Lunch',     color: '#8AB17D' },
-    dinner:    { label: 'Dinner',    color: '#E76F51' },
-    bar:       { label: 'Bar',       color: '#264653' },
-    coffee:    { label: 'Coffee',    color: '#8B5E3C' },
-    icecream:  { label: 'Ice cream', color: '#E3A1B4' }
-  };
+  // Each city page sets window.RECS_CONFIG before loading this file.
+  var CFG = window.RECS_CONFIG || {};
+  var MEALS = {};
+  (CFG.categories || []).forEach(function (c) { MEALS[c.key] = { label: c.label, color: c.color, dark: !!c.dark }; });
   var MAP_COLORS = {
     land: '#FBF5EA', water: '#A8CBD4', park: '#CFDDB9', building: '#F1E4CF',
     roadMajor: '#EED9BC', road: '#FFFFFF', label: '#4A4037', boundary: '#C9B79C'
   };
   var PIN_PATH = 'M12 1.8C7.7 1.8 4.3 5.1 4.3 9.3c0 5.5 6.4 11.3 7 11.9a1 1 0 0 0 1.4 0c.6-.6 7-6.4 7-11.9 0-4.2-3.4-7.5-7.7-7.5z';
   var DOT_PATH = 'M12 6.6a2.7 2.7 0 1 0 0 5.4a2.7 2.7 0 1 0 0-5.4z';
-  var START = { center: [-71.104, 42.373], zoomPhone: 11.9, zoomWide: 13.2 };
+  var START = CFG.start;
 
   var els = {
     intro: document.getElementById('intro'),
@@ -44,7 +39,7 @@
 
   function mealKeys(p) {
     var k = (p.recommendedFor || []).filter(function (m) { return MEALS[m]; });
-    return k.length ? k : ['lunch'];
+    return k.length ? k : [Object.keys(MEALS)[0]];
   }
 
   function el(tag, attrs, text) {
@@ -84,7 +79,7 @@
   // Meal buttons double as the legend and a filter. None pressed = show everything.
   function buildFilters() {
     Object.keys(MEALS).forEach(function (k) {
-      var b = el('button', { type: 'button', class: 'filter', 'aria-pressed': 'false', 'data-meal': k });
+      var b = el('button', { type: 'button', class: 'filter' + (MEALS[k].dark ? ' is-dark' : ''), 'aria-pressed': 'false', 'data-meal': k });
       var s = pinSvg([MEALS[k].color], 'lg-' + k);
       s.setAttribute('width', '18'); s.setAttribute('height', '18');
       b.appendChild(s);
@@ -307,8 +302,8 @@
       attributionControl: false,
       dragRotate: false,
       pitchWithRotate: false,
-      minZoom: 10,
-      maxBounds: [[-71.45, 42.18], [-70.85, 42.55]]
+      minZoom: CFG.minZoom || 10,
+      maxBounds: CFG.maxBounds
     });
     map.touchZoomRotate.disableRotation();
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-left');
@@ -329,7 +324,7 @@
   els.close.addEventListener('click', closeDetail);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDetail(); });
 
-  fetch('places.json', { cache: 'no-cache' })
+  fetch(CFG.data || 'places.json', { cache: 'no-cache' })
     .then(function (r) { return r.json(); })
     .then(init)
     .catch(function () { els.filters.textContent = 'Could not load the places. Try refreshing.'; });

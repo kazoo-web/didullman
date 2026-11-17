@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../assets/recs.css">
 </head>
 <body>
 <div class="app">
@@ -56,6 +56,23 @@
 </div>
 <noscript><p class="noscript">This map needs JavaScript turned on.</p></noscript>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script src="app.js"></script>
+<script>
+window.RECS_CONFIG = {
+  data: 'places.json',
+  start: { center: [-71.104, 42.373], zoomPhone: 11.9, zoomWide: 13.2 },
+  minZoom: 10,
+  maxBounds: [[-71.45, 42.18], [-70.85, 42.55]],
+  categories: [
+    { key: 'breakfast', label: 'Breakfast', color: '#E9C46A' },
+    { key: 'brunch',    label: 'Brunch',    color: '#F4A261' },
+    { key: 'lunch',     label: 'Lunch',     color: '#8AB17D' },
+    { key: 'dinner',    label: 'Dinner',    color: '#E76F51' },
+    { key: 'bar',       label: 'Bar',       color: '#264653', dark: true },
+    { key: 'coffee',    label: 'Coffee',    color: '#8B5E3C', dark: true },
+    { key: 'icecream',  label: 'Ice cream', color: '#E3A1B4' }
+  ]
+};
+</script>
+<script src="../assets/recs.js"></script>
 </body>
 </html>

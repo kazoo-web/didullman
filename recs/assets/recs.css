@@ -55,7 +55,7 @@ body { font-family: var(--font); color: var(--ink); background: var(--land); -we
 .filter svg { display: block; }
 .filter:hover { background: #FFF6E8; }
 .filter[aria-pressed="true"] { background: var(--meal); box-shadow: 2px 2px 0 var(--ink); }
-.filter[data-meal="bar"][aria-pressed="true"], .filter[data-meal="coffee"][aria-pressed="true"] { color: #fff; }
+.filter.is-dark[aria-pressed="true"] { color: #fff; }
 .pin[hidden] { display: none; }
 
 .detail { display: flex; flex-direction: column; overflow: hidden; }
